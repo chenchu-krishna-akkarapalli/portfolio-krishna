@@ -1,0 +1,54 @@
+{
+  "title": "Projects",
+  "description": "Here are a few projects that showcase my work and creativity. While there are many more, I’ve curated a selection to keep this portfolio concise and focused.",
+  "items": [
+    {
+      "slug": "ocr-handwritten-text-extraction",
+      "title": "HW-OCR Deposit Form",
+      "description": "Designed and implemented a high-accuracy handwritten OCR system for bank deposit forms by integrating computer vision, object detection, and transformer-based OCR models.",
+      "meta": "NMIT - Solutions / Nov - 2025",
+      "imageSrc": "/assets/project-content-assets/OCR-laptop.svg",
+      "href": "/projects/ocr-handwritten-text-extraction"
+    },
+    {
+      "slug": "multi-tenant-hr-product",
+      "title": "Multi-Tenant HR Product",
+      "description": "Designed and built a scalable HRMS with dynamic URN-based routing and UUID-driven data isolation, supporting secure multi-tenant workflows and high-performance operations.",
+      "meta": "NMIT - Solutions / Nov - 2025",
+      "imageSrc": "/assets/project-content-assets/Hr-Managment-1.svg",
+      "href": "/projects/multi-tenant-hr-product"
+    },
+    {
+      "slug": "civil-dept-product-cad",
+      "title": "Civil Dept Product - CAD",
+      "description": "Designed and contributed to a CAD-centric civil engineering product focused on digital construction workflows, drawing management, and project collaboration—conceptually aligned with tools like industry-standard CAD and BIM platforms.",
+      "meta": "NMIT - Solutions / Jul - 2025",
+      "imageSrc": "/assets/project-content-assets/CAD-Autodesk-1.svg",
+      "href": "/projects/civil-dept-product-cad"
+    },
+    {
+      "slug": "blog-publishing-platform",
+      "title": "Blog Publishing Platform",
+      "description": "Created a full-featured content platform with authentication, rich text editing, nested comments, moderation tools, and scalable deployment on AWS.",
+      "meta": "NMIT - Solutions / May - 2025",
+      "imageSrc": "/assets/project-content-assets/blog-laptop.svg",
+      "href": "/projects/blog-publishing-platform"
+    },
+    {
+      "slug": "insurance-product",
+      "title": "Insurance Product",
+      "description": "Built a secure insurance platform featuring policy management, claims processing, role-based access, chatbot assistance, and online payments with real-time transaction tracking.",
+      "meta": "NMIT - Solutions / Dec - 2024",
+      "imageSrc": "/assets/project-content-assets/Insuranc-larg.svg",
+      "href": "/projects/insurance-product"
+    },
+    {
+      "slug": "cma-firm-website-strategy-led-ui",
+      "title": "CMA Firm Website",
+      "description": "Designed and developed a modern, strategy-driven corporate website for a CMA firm, translating complex financial services into a clear, trust-focused digital experience using Figma, MCP servers, and Next.js.",
+      "meta": "Independent Project / Jan - 2026",
+      "imageSrc": "/assets/project-content-assets/CMA-Website-Hero.png",
+      "href": "/projects/cma-firm-website-strategy-led-ui"
+    }
+  ]
+}

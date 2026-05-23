@@ -1,0 +1,109 @@
+
+
+I am a skilled full-stack developer with hands-on experience in React.js, Next.js, and microservices architecture. At NMIT Solutions, I
+have  worked  on  diverse  applications,  including  an  Insurance  Management  System,  an  Audit  Tracking  Platform,  a  Medium-like
+blogging app, and a Civil Project Management tool.I specialize in designing scalable database architectures using UUIDs, enabling
+secure, unique identification and robust multi-tenant systems. I have integrated microservices using Docker for containerization,
+orchestrating distributed services with RabbitMQ for message queuing, Redis for caching, and Node-RED for workflow automation,
+ensuring  high  availability  and  seamless  inter-service  communication.  Recently,  I  contributed  to  building  a  Multi-tenant  HR
+Management Application with isolated, dynamic URN-based routing to ensure data isolation, scalability, and high performance. My
+expertise extends to deploying containerized applications using Docker, implementing CI/CD pipelines, and managing microservices
+infrastructure for optimal system reliability..
+Chenchukrishna Akkarapalli
+Bangalore, Karnataka, India | +917397482029 | akkarapallichenchukrishna@gmail.com
+Full Stack Developer
+summary
+March 2024 - Sep 2025NMIT Solutions, Banglore ( Sr. Developer )
+Led development efforts for web applications across diverse domains, including insurance,
+auditing, blogging, and civil project management.
+Designed and implemented user flows, interactive components, and dynamic interfaces
+using JavaScript, TypeScript, and modern frameworks.
+Collaborated closely with designers, backend developers, and stakeholders to ensure
+smooth integration and a consistent user experience.
+Conducted usability testing and optimized performance through iterative improvements
+based on user feedback and analytics.
+Professional experience
+skills
+Javascript
+typescript
+Next js
+React Js
+GitHub - Actions
+GitLab - CI/CD
+GitHub - Copilot
+AWS
+Node.js
+SQL
+Django
+Python
+Dockers
+Redis
+LLM/AI
+Figma
+UI wireframe
+UX Research
+Bachelor of Engineering (B.E.) – Computer Science and Engineering
+(2017 - 2021)
+Education
+NMIT Solutions, Banglore ( Sr. Developer  )
+Projects 
+ June 2025 - Sept 2025
+Multi-tenant HR Management Application
+Designed and developed a scalable HRMS with isolated, dynamic URN-based routing
+ensuring tenant-level data isolation and high performance.
+Built with React, Redux, Tailwind CSS (frontend) and Node.js, Prisma, Redis, SQL
+(phpMyAdmin), Docker (backend).
+Implemented UUID-based database architecture for secure and unique record identification
+across tenants.
+Collaborated using Figma for UI/UX design and GitHub for version control.
+Node-Red
+rabbitMQ 
+
+ Oct 2024 - Dec 2024
+Insurance Web Application
+Built a full-featured insurance platform using Next.js, NextAuth, TypeScript, SQLite3, and
+Prisma ORM.
+Implemented core features such as policy management, claims processing, user role-based
+access, and an intuitive dashboard for agents and customers.
+Integrated a multi-functional chatbot assistant to assist users with policy queries, claim
+initiation, document guidance, and FAQs via a conversational interface.
+Added secure online payment functionality for premium payments and policy renewals using
+payment gateways  with real-time status tracking and transaction history.
+Ensured strong authentication and data protection protocols tailored to insurance industry
+standards.
+Deployed the application on AWS EC2, and established CI/CD pipelines using GitHub Actions
+for continuous delivery.
+Feb 2024  – Sept 2024
+Internship – NMIT Solutions
+Supported design and development tasks during the early stages of web application
+projects.
+Gained hands-on experience with end-to-end workflows, bridging JavaScript and
+TypeScript development with full-stack implementation.
+ Dec 2024 -  Feb 2025
+Audit Web Application  (CRM-Focused)
+Developed modules for managing audit schedules, reports, and compliance tracking. 
+Utilized SQL ,Node.js and React.js to create a dynamic interface and efficient backend
+workflows. 
+Integrated real-time notifications and document uploads. Implemented logging and
+performance monitoring using AWS CloudWatch.
+ Dec 2024 - May 2025
+Blog Web Application 
+A content publishing platform enabling users to write, edit, and share articles. 
+Built using Next.js, TypeScript , SQL3 and Prisma ORM. 
+Real-time comment functionality powered by API routes and Prisma relations, supporting
+nested replies and moderation. 
+Includes user authentication, rich text editor, comment system, and article tagging. 
+Deployed using AWS S3 for static hosting and EC2 for backend services
+ Jan 2025 - June 2025
+Civil Construction Project Management Application 
+Designed for construction teams to plan, manage, and collaborate on projects. 
+Core features include project timelines , drawing uploads, team chat, and progress tracking.
+ Developed with React.js, SQL and Three.js ; focused on scalability and modular design.
+Enabled multi-user collaboration with role-based access control with Django Backend. 
+AWS Lambda used for background tasks (e.g., scheduled reports), and S3 for drawing
+storage. 
+Three.js pipeline:
+CAD → PDF conversion (Lambda) 
+WebGL optimization (LOD controls) 
+Annotation storage in S3 metadata 
+Automated redline markups using Fabric.js 

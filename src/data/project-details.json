@@ -1,0 +1,353 @@
+{
+  "projects": [
+    {
+      "slug": "ocr-handwritten-text-extraction",
+      "headerLabel": "Writings",
+      "meta": [
+        "HR - OCR",
+        "Python",
+        "Dec - 2025"
+      ],
+      "title": "OCR Handwritten Text Extraction — Bank Deposit Forms",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/OCR-laptop.svg",
+        "alt": "Laptop mockup"
+      },
+      "overview": {
+        "paragraph": "Designed and implemented a high-accuracy handwritten OCR system for bank deposit forms by integrating computer vision, object detection, and transformer-based OCR models.",
+        "bullets": [
+          "Built an end-to-end OCR pipeline using YOLOv8, OpenCV, Roboflow, and Hugging Face models to extract handwritten and printed fields from structured bank deposit forms.",
+          "Used YOLOv8 for precise field-level detection (account number, amount, date, depositor name, PAN, etc.), ensuring region-specific OCR instead of full-image extraction.",
+          "Prepared and managed annotated datasets using Roboflow, enabling efficient labeling, augmentation, and version control for OCR training.",
+          "Applied OpenCV preprocessing techniques (grayscale conversion, noise removal, thresholding, perspective correction) to improve handwriting clarity and OCR confidence.",
+          "Integrated Hugging Face Transformer-based OCR models (handwritten text recognition) to extract text with high accuracy and consistency.",
+          "Implemented confidence filtering and validation logic to reject low-confidence predictions and improve overall reliability.",
+          "Structured extracted data into JSON / database-ready formats for downstream processing and validation.",
+          "Optimized the pipeline for real-world banking scenarios, handling variations in handwriting styles, lighting conditions, and form alignment."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/ocr-result.png",
+        "alt": "iPad mockup"
+      },
+      "flow": {
+        "steps": [
+          "Image Input → Bank deposit form scan/photo",
+          "Preprocessing → OpenCV (denoise, threshold, alignment)",
+          "Field Detection → YOLOv8 (trained via Roboflow annotations)",
+          "Text Recognition → Hugging Face handwritten OCR model",
+          "Post-processing → Confidence scoring, validation, formatting",
+          "Output → Structured digital data for banking workflows"
+        ]
+      },
+      "largeVideo": {
+        "type": "mp4",
+        "src": "/assets/project-content-assets/OCR-pipline.mp4",
+        "title": "OCR Pipeline"
+      },
+      "largeImage": {
+        "src": "/assets/figma/25b9699b3e4fffaf79796fc88a6f0657dd43534d.png",
+        "alt": "OCR processing example"
+      },
+      "tools": [
+        "Languages: Python",
+        "Object Detection: YOLOv8",
+        "OCR Models: Hugging Face (Handwritten OCR)",
+        "Dataset Management: Roboflow",
+        "Image Processing: OpenCV",
+        "Output Formats: JSON, CSV, Database-ready schemas"
+      ],
+      "impact": [
+        "Achieved high-confidence handwritten text extraction suitable for financial documents.",
+        "Reduced manual data entry and verification effort.",
+        "Built a scalable OCR framework adaptable to other structured forms."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "multi-tenant-hr-product",
+      "headerLabel": "Projects",
+      "meta": [
+        "HRMS",
+        "React + Node.js",
+        "Jun - Sep 2025"
+      ],
+      "title": "Multi-tenant HR Management Application",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/HRMS-laptop.svg",
+        "alt": "Laptop mockup"
+      },
+      "overview": {
+        "paragraph": "Designed and developed a scalable HRMS with isolated, dynamic URN-based routing to ensure tenant-level data isolation and high performance.",
+        "bullets": [
+          "Built a multi-tenant architecture with tenant isolation and dynamic URN-based routing.",
+          "Implemented UUID-based database architecture for secure and unique record identification across tenants.",
+          "Developed the frontend with React, Redux, and Tailwind CSS.",
+          "Built the backend using Node.js with Prisma ORM, Redis, SQL (phpMyAdmin), and Docker.",
+          "Collaborated with Figma for UI/UX and GitHub for version control."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/hrms-dept.png",
+        "alt": "iPad mockup"
+      },
+      "flow": {
+        "steps": [
+          "Tenant Routing → URN-based tenant resolution",
+          "Data Layer → UUID-based schema with tenant isolation",
+          "API + ORM → Node.js + Prisma",
+          "Performance → Redis caching",
+          "Deployment → Dockerized services"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/hrms-project-2.png",
+        "alt": "Project preview"
+      },
+      "tools": [
+        "Frontend: React, Redux, Tailwind CSS",
+        "Backend: Node.js, Prisma",
+        "Database: SQL (phpMyAdmin)",
+        "Caching: Redis",
+        "Containerization: Docker",
+        "Collaboration: Figma, GitHub"
+      ],
+      "impact": [
+        "Enabled tenant-level data isolation with scalable routing.",
+        "Improved security and uniqueness using UUID-based records.",
+        "Optimized performance with Redis and containerized deployment."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "insurance-product",
+      "headerLabel": "Projects",
+      "meta": [
+        "Insurance",
+        "Next.js + NextAuth",
+        "Oct - Dec 2024"
+      ],
+      "title": "Insurance Web Application",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/insurance.svg",
+        "alt": "Laptop mockup"
+      },
+      "overview": {
+        "paragraph": "Built a full-featured insurance platform with strong authentication, policy and claims workflows, and a conversational assistant for users.",
+        "bullets": [
+          "Built the platform using Next.js, NextAuth, TypeScript, SQLite3, and Prisma ORM.",
+          "Implemented policy management, claims processing, role-based access, and dashboards for agents and customers.",
+          "Integrated a multi-functional chatbot assistant for policy queries, claim initiation, document guidance, and FAQs.",
+          "Added secure online payment functionality for premium payments and renewals with real-time status tracking and transaction history.",
+          "Deployed on AWS EC2 and established CI/CD using GitHub Actions."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/insurance-Ui-templet.svg",
+        "alt": "iPad mockup"
+      },
+      "flow": {
+        "steps": [
+          "Authentication → NextAuth role-based access",
+          "Policy Management → Create/renew/manage policies",
+          "Claims → Submit and track claim workflows",
+          "Assistant → Chatbot for guidance and FAQs",
+          "Payments → Premium/renewal checkout with tracking",
+          "Delivery → AWS EC2 + GitHub Actions CI/CD"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/Insuranc-larg.svg",
+        "alt": "Project preview"
+      },
+      "tools": [
+        "Framework: Next.js",
+        "Auth: NextAuth",
+        "Language: TypeScript",
+        "Database: SQLite3",
+        "ORM: Prisma",
+        "Deployment: AWS EC2",
+        "CI/CD: GitHub Actions"
+      ],
+      "impact": [
+        "Enabled end-to-end policy and claims workflows for users and agents.",
+        "Improved user support via a conversational assistant.",
+        "Streamlined releases with CI/CD on AWS."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "blog-publishing-platform",
+      "headerLabel": "Projects",
+      "meta": [
+        "Blog",
+        "Next.js + Prisma",
+        "Dec 2024 - May 2025"
+      ],
+      "title": "Blog Web Application",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/blog-laptop.svg",
+        "alt": "Laptop mockup"
+      },
+      "overview": {
+        "paragraph": "Built a content publishing platform that enables users to write, edit, and share articles with authentication, tagging, and real-time nested comments.",
+        "bullets": [
+          "Built with Next.js, TypeScript, SQLite3, and Prisma ORM.",
+          "Implemented user authentication, rich text editor, article tagging, and moderation workflows.",
+          "Built real-time comment functionality using API routes and Prisma relations, supporting nested replies.",
+          "Deployed using AWS S3 for static hosting and EC2 for backend services."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/blog-LandingPage.svg",
+        "alt": "Blog landing page"
+      },
+      "flow": {
+        "steps": [
+          "Auth → User sign-in",
+          "Create → Write/edit articles with rich text",
+          "Publish → Share articles with tags",
+          "Engage → Nested comments and moderation",
+          "Deploy → AWS S3 + EC2"
+        ]
+      },
+      "largeVideo": {
+        "type": "mp4",
+        "src": "/assets/project-content-assets/Blog-Ai_hero_bg.mp4",
+        "title": "Blog AI hero background"
+      },
+      "largeImage": {
+        "src": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+        "alt": "Project preview"
+      },
+      "tools": [
+        "Framework: Next.js",
+        "Language: TypeScript",
+        "Database: SQLite3",
+        "ORM: Prisma",
+        "API: Next.js API routes",
+        "Hosting: AWS S3, AWS EC2"
+      ],
+      "impact": [
+        "Delivered an end-to-end publishing workflow (write → publish → engage).",
+        "Supported community interaction via nested comments and moderation.",
+        "Deployed with a split static + backend hosting model on AWS."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "civil-dept-product-cad",
+      "headerLabel": "Projects",
+      "meta": [
+        "Civil + CAD",
+        "React + Three.js",
+        "Jan - Jun 2025"
+      ],
+      "title": "Civil Construction Project Management Application",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/CAD-App-laptop.svg",
+        "alt": "Laptop mockup"
+      },
+      "overview": {
+        "paragraph": "Designed a construction project management tool for teams to plan, manage, and collaborate on projects with drawing workflows and a Three.js pipeline.",
+        "bullets": [
+          "Core features include project timelines, drawing uploads, team chat, and progress tracking.",
+          "Developed with React.js, SQL, and Three.js with a focus on scalability and modular design.",
+          "Enabled multi-user collaboration with role-based access control using a Django backend.",
+          "Used AWS Lambda for background tasks (scheduled reports) and S3 for drawing storage.",
+          "Implemented a Three.js pipeline including CAD → PDF conversion (Lambda), WebGL optimization (LOD controls), annotation storage in S3 metadata, and automated redline markups using Fabric.js."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/CAD-iPad Pro (landscape).svg",
+        "alt": "iPad mockup"
+      },
+      "flow": {
+        "steps": [
+          "Upload → Store drawings in S3",
+          "Convert → CAD → PDF via AWS Lambda",
+          "Visualize → Three.js viewer + WebGL optimizations (LOD)",
+          "Annotate → Redlines with Fabric.js",
+          "Persist → Annotation metadata stored in S3",
+          "Collaborate → Role-based access with Django backend"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/CAD-comparison-slider-2.png",
+        "alt": "Project preview"
+      },
+      "tools": [
+        "Frontend: React.js",
+        "3D: Three.js, WebGL (LOD controls)",
+        "Backend: Django",
+        "Database: SQL",
+        "Storage: AWS S3",
+        "Compute: AWS Lambda",
+        "Markup: Fabric.js"
+      ],
+      "impact": [
+        "Enabled collaborative construction planning and drawing workflows.",
+        "Automated CAD → PDF conversion and optimized 3D rendering performance.",
+        "Improved drawing review via persistent annotations and automated redlines."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "cma-firm-website-strategy-led-ui",
+      "headerLabel": "Projects",
+      "meta": [
+        "Corporate Website",
+        "Next.js + Figma",
+        "Jan - 2026"
+      ],
+      "title": "CMA Firm Website — Strategy-Led UI & Conversion Design",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/CMA-Website-Hero.png",
+        "alt": "CMA website hero preview"
+      },
+      "overview": {
+        "paragraph": "Designed and developed a modern corporate website for a CMA and accounting firm, translating complex financial services into a clear, trust-driven digital experience.",
+        "bullets": [
+          "Designed the complete UI/UX in Figma with a focus on clarity, credibility, and professional tone.",
+          "Translated financial and compliance-heavy services into user-friendly content architecture.",
+          "Implemented the frontend using Next.js with component-driven, scalable layouts.",
+          "Used MCP servers to accurately translate Figma designs into production-ready UI.",
+          "Structured sections around strategic positioning, services, trust indicators, and conversion-focused CTAs.",
+          "Built responsive layouts ensuring consistency across desktop and mobile.",
+          "Focused on trust-building UX patterns for professional services (clean typography, spacing, visual hierarchy)."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/CA-Firm-Templet.png",
+        "alt": "CMA website layout preview"
+      },
+      "flow": {
+        "steps": [
+          "Discovery → Goals, audience, positioning",
+          "Design → Figma UI/UX and content structure",
+          "Build → Next.js component-driven implementation",
+          "Polish → Responsive layouts + accessibility checks",
+          "Conversion → Trust signals + CTA placement",
+          "Release → QA and deploy"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/CA-larg.png",
+        "alt": "CMA website full preview"
+      },
+      "tools": [
+        "Framework: Next.js",
+        "Design: Figma",
+        "Styling: Tailwind CSS",
+        "Design-to-code: MCP (Figma)",
+        "Focus: Conversion-oriented IA + trust UX"
+      ],
+      "impact": [
+        "Improved clarity and accessibility of complex accounting services.",
+        "Strengthened brand credibility through structured, professional UI.",
+        "Delivered a conversion-oriented website aligned with real-world business goals."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    }
+  ]
+}

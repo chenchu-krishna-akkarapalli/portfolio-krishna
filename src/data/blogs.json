@@ -1,0 +1,48 @@
+{
+  "title": "Project Notes",
+  "description": "Short write-ups mapped to projects in this portfolio.\nClick a card to open the related project page.",
+  "posts": [
+    {
+      "projectSlug": "ocr-handwritten-text-extraction",
+      "category": "HR - OCR",
+      "title": "OCR Handwritten Text Extraction — Bank Deposit Forms",
+      "date": "Dec 2025",
+      "excerpt": "Built an end-to-end OCR pipeline combining YOLOv8 field detection, OpenCV preprocessing, and transformer-based handwritten OCR to extract structured data from bank deposit forms."
+    },
+    {
+      "projectSlug": "multi-tenant-hr-product",
+      "category": "HRMS",
+      "title": "Multi-tenant HR Management Application",
+      "date": "Jun - Sep 2025",
+      "excerpt": "Designed a scalable tenant-isolated HRMS with dynamic URN-based routing, UUID-based data modeling, Redis caching, and Dockerized deployment workflows."
+    },
+    {
+      "projectSlug": "insurance-product",
+      "category": "Insurance",
+      "title": "Insurance Web Application",
+      "date": "Oct - Dec 2024",
+      "excerpt": "Built a full-featured insurance platform with NextAuth authentication, policy and claims workflows, role-based dashboards, premium payments, and CI/CD deployment on AWS."
+    },
+    {
+      "projectSlug": "blog-publishing-platform",
+      "category": "Blog",
+      "title": "Blog Web Application",
+      "date": "Dec 2024 - May 2025",
+      "excerpt": "Created a publishing platform with authentication, rich authoring, tagging, and real-time nested comments backed by Prisma—deployed with a split static + backend hosting setup on AWS."
+    },
+    {
+      "projectSlug": "civil-dept-product-cad",
+      "category": "Civil + CAD",
+      "title": "Civil Construction Project Management Application",
+      "date": "Jan - Jun 2025",
+      "excerpt": "Developed a construction collaboration tool with drawing workflows and a Three.js viewing pipeline, including CAD→PDF conversion, WebGL optimizations, annotations, and redline markups."
+    },
+    {
+      "projectSlug": "cma-firm-website-strategy-led-ui",
+      "category": "Corporate Website",
+      "title": "CMA Firm Website — Strategy-Led UI & Conversion Design",
+      "date": "Jan 2026",
+      "excerpt": "Designed and developed a modern corporate website for a CMA and accounting firm, translating complex services into a clear, trust-driven experience with conversion-focused layout and CTAs."
+    }
+  ]
+}

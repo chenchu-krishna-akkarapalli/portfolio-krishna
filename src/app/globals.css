@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  /* Core System Colors */
+  --background: #000000;
+  --foreground: #ffffff;
+
+  /* Custom Portfolio Background System */
+  --bg-primary: #000000;
+  --bg-secondary: #0f0f0f;
+  --bg-card: #030303;
+  --bg-nav-active: rgba(240, 240, 240, 0.12);
+  --bg-nav-hover: rgba(240, 240, 240, 0.06);
+  --bg-interactive: rgba(240, 240, 240, 0.1);
+
+  /* Typography / Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(240, 240, 240, 0.6);
+  --text-tertiary: rgba(240, 240, 240, 0.45);
+  --text-quaternary: rgba(240, 240, 240, 0.3);
+  --text-placeholder: rgba(255, 255, 255, 0.3);
+
+  /* Border Colors */
+  --border-card: rgba(255, 255, 255, 0.18);
+  --border-card-hover: rgba(255, 255, 255, 0.4);
+  --border-light: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-interactive: rgba(240, 240, 240, 0.4);
+  --border-frame: rgba(225, 225, 225, 0.5);
+  --border-screen: rgba(255, 255, 255, 0.52);
+  --border-item: rgba(240, 240, 240, 0.25);
+  --border-item-hover: rgba(240, 240, 240, 1);
+  --border-social: rgba(255, 255, 255, 0.5);
+  --border-social-hover: rgba(255, 255, 255, 1);
+
+  /* Spacing & Radii System */
+  --radius-huge: 30px;
+  --radius-large: 36px;
+  --radius-medium: 16px;
+  --radius-small: 14px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Portfolio Custom Color Extensions */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
+  --color-bg-nav-active: var(--bg-nav-active);
+  --color-bg-nav-hover: var(--bg-nav-hover);
+  --color-bg-interactive: var(--bg-interactive);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-quaternary: var(--text-quaternary);
+  --color-text-placeholder: var(--text-placeholder);
+
+  --color-border-card: var(--border-card);
+  --color-border-card-hover: var(--border-card-hover);
+  --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
+  --color-border-interactive: var(--border-interactive);
+  --color-border-frame: var(--border-frame);
+  --color-border-screen: var(--border-screen);
+  --color-border-item: var(--border-item);
+  --color-border-item-hover: var(--border-item-hover);
+  --color-border-social: var(--border-social);
+  --color-border-social-hover: var(--border-social-hover);
+
+  /* Portfolio Custom Radii Extensions */
+  --radius-huge: var(--radius-huge);
+  --radius-large: var(--radius-large);
+  --radius-medium: var(--radius-medium);
+  --radius-small: var(--radius-small);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+

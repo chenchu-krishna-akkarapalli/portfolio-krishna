@@ -1,0 +1,24 @@
+{
+  "title": "Toolstack",
+  "description": "This is my go-to toolkit; a collection of the tools I rely on to bring my ideas to life. From\ndesign to development, these are the resources that help me get the job done.",
+  "toolStackTitle": "Tool Stack",
+  "toolStack": [
+    { "label": "Figma", "iconFiles": ["figma.svg"], "href": "https://www.figma.com/" },
+    { "label": "Canva", "iconFiles": ["canva.svg"], "href": "https://www.canva.com/" },
+    { "label": "Next Js", "iconFiles": ["nextjs.svg"], "href": "https://nextjs.org/" },
+    { "label": "React Js", "iconFiles": ["react.svg"], "href": "https://react.dev/" },
+    { "label": "Autodesk", "iconFiles": ["autodesk.svg"], "href": "https://www.autodesk.com/" },
+
+    { "label": "Git-Copilot", "iconFiles": ["git-copilot.svg"], "href": "https://github.com/features/copilot" },
+    { "label": "Taland", "iconFiles": ["talend.svg"], "href": "https://www.talend.com/" },
+    { "label": "Docker", "iconFiles": ["dockers.svg"], "href": "https://www.docker.com/" }
+  ],
+  "otherToolsTitle": "Other Tools I use",
+  "otherTools": {
+    "rows": 5,
+    "cols": 7,
+    "items": [
+      { "label": "MySQL", "file": "mysql-plain-wordmark.svg" }
+    ]
+  }
+}

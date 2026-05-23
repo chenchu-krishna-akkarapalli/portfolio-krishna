@@ -1,0 +1,47 @@
+{
+  "title": "Work",
+  "items": [
+    {
+      "companyName": "NMIT-Solutions",
+      "period": "(2025 - Present)",
+      "logoSrc": "/assets/figma/4d419601e257ad71bbc7b5046792bd097833ca7b.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/1.svg"
+    },
+    {
+      "companyName": "Viswasai Junior College",
+      "period": "2015 - 2017",
+      "logoSrc": "/assets/figma/31500214005926e31edb90d1d48d13c2a5800c66.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/4.png"
+    },
+    {
+      "companyName": "Saveetha School of Engineering",
+      "period": "2017 - 2021",
+      "logoSrc": "/assets/figma/e6ee9ef64cbffd5a1e68b76b2dbd724a7a4a1cdd.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/2.svg"
+    },
+    {
+      "companyName": "Swarajya Waves - Freelance",
+      "period": "2022 – 2024",
+      "logoSrc": "/assets/figma/1eae8c92a1b21fb8398e278e5477366381faa299.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/3.svg"
+    },
+    {
+      "companyName": "UI/UX Intern",
+      "period": "Feb 2024 – Sep 2024, NMIT-Solutions",
+      "logoSrc": "/assets/figma/4d419601e257ad71bbc7b5046792bd097833ca7b.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/4.png"
+    },
+    {
+      "companyName": "Transition to Professional Full-Stack Development",
+      "period": "2024 - Present, NMIT-Solutions",
+      "logoSrc": "/assets/figma/4d419601e257ad71bbc7b5046792bd097833ca7b.png",
+      "frameImageSrc": "/assets/figma/fc3056be2c0f666ee70b784317b725f1beeb53ec.png",
+      "screenImageSrc": "/assets/work-edu/3.svg"
+    }
+  ]
+}

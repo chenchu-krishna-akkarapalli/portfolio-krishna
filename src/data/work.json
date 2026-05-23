@@ -1,0 +1,108 @@
+{
+  "title": "Work",
+  "description": "Selected work videos and visuals.",
+  "videosTitle": "Work Videos",
+  "videos": [
+    {
+      "src": "/gallery/VID_20260103_224527_822.mp4",
+      "title": "Gallery Video"
+    },
+    {
+      "src": "/gallery/VID_20260103_224539_110.mp4",
+      "title": "Gallery Video"
+    }
+  ],
+  "galleryTitle": "Gallery",
+  "bento": [
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230402_080150.jpg",
+      "badgeText": "Haridwar, Uttarakhand, India",
+      "layout": "hero"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/aaf65e88-acfb-49f9-b3e2-7c76fa0e9999.jpg",
+      "badgeText": "Gallery",
+      "layout": "tall"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/d39fa2b0-039d-4b06-b720-532d49dea9ed.jpg",
+      "badgeText": "Gallery",
+      "layout": "square"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20221229_065143.jpg",
+      "badgeText": "Gallery",
+      "layout": "square"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20221229_065432%20(1).jpg",
+      "badgeText": "Gallery",
+      "layout": "wide"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20221229_065432.jpg",
+      "badgeText": "Gallery",
+      "layout": "small"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20221231_212517.jpg",
+      "badgeText": "Gallery",
+      "layout": "small"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230401_123423.jpg",
+      "badgeText": "Prototype",
+      "layout": "small"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230407_095950.jpg",
+      "badgeText": "Gallery",
+      "layout": "wide"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230407_100024.jpg",
+      "badgeText": "Gallery",
+      "layout": "square"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230407_100257.jpg",
+      "badgeText": "Gallery",
+      "layout": "square"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/IMG_20230407_101330.jpg",
+      "badgeText": "Gallery",
+      "layout": "tall"
+    },
+    {
+      "type": "image",
+      "src": "/gallery/RESTORED_20220204_101940%20(1).jpg",
+      "badgeText": "Gallery",
+      "layout": "small"
+    },
+    {
+      "type": "video",
+      "src": "/gallery/VID_20260103_224527_822.mp4",
+      "badgeText": "Gallery Video",
+      "layout": "wide"
+    },
+    {
+      "type": "video",
+      "src": "/gallery/VID_20260103_224539_110.mp4",
+      "badgeText": "Gallery Video",
+      "layout": "wide"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "title": "BE — Computer Science & Engineering",
+      "description": "Built a strong foundation in software engineering, problem-solving, and system design. Developed an early interest in full-stack development through academic projects and self-driven learning. This phase shaped my approach to writing clean, scalable, and maintainable code.",
+      "footerLeft": "SIMATS",
+      "footerRight": "Aug/2017 – Dec/2021",
+      "logoFile": "e6ee9ef64cbffd5a1e68b76b2dbd724a7a4a1cdd.png",
+      "href": "https://www.saveetha.com/"
+    },
+    {
+      "title": "Higher Secondary Education — MPC",
+      "description": "Completed intermediate education with a strong focus on mathematics and analytical subjects. Built disciplined study habits and logical thinking skills essential for engineering.This period laid the academic groundwork for pursuing computer science.",
+      "footerLeft": "Viswasai Junior College",
+      "footerRight": "Aug/2015 – Dec/2017",
+      "logoFile": "31500214005926e31edb90d1d48d13c2a5800c66.png",
+      "href": "https://viswasai.com/"
+    },
+    {
+      "title": "Freelance Web Developer",
+      "description": "Worked as an independent web developer delivering custom websites and applications for personal clients. Collaborated with clients from Hyderabad and Bangalore, translating business requirements into functional web solutions. Handled end-to-end development including UI, backend integration, deployment, and maintenance.",
+      "footerLeft": "FREELANCER",
+      "footerRight": "Feb/2022 – Jan/2024",
+      "logoFile": "1eae8c92a1b21fb8398e278e5477366381faa299.png",
+      "href": "https://swarajyaweaves.com/"
+    },
+    {
+      "title": "Transition to Professional Full-Stack Development",
+      "description": "Moved from internship-level contributions to owning production-ready features. Applied hands-on learning to scalable systems and real client requirements. Began working closely with designers, backend teams, and stakeholders.",
+      "footerLeft": "NMIT - SOLUTIONS",
+      "footerRight": "Mar/2024 – present",
+      "logoFile": "4d419601e257ad71bbc7b5046792bd097833ca7b.png",
+      "href": "https://nmit-solutions.com/"
+    }
+  ]
+}
