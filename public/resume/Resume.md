@@ -175,7 +175,6 @@ Former Freelance UI/UX Designer (2022–2024) skilled in Figma-based design syst
 # Freelance UI/UX Projects
 
 - Goyaz Jewellery
-- Swarajya Weaves E-commerce
 - Tarun CMA
 - Mallikarjuna CMA
 - Show Off Cosmetic

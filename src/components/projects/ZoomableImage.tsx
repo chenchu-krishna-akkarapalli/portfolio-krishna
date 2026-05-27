@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useId, useState } from "react";
+import { CloseButton } from "@/components/NavigationButtons";
 
 type ZoomableImageProps = {
   src: string;
@@ -84,6 +85,13 @@ export function ZoomableImage({
               aria-modal="true"
               role="dialog"
             >
+              <CloseButton
+                className="fixed top-[20px] right-[20px] z-[60]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
+                }}
+              />
               <motion.div
                 className="fixed inset-0 bg-[rgba(0,0,0,0.55)] backdrop-blur-lg"
                 aria-hidden="true"
@@ -142,6 +150,13 @@ export function ZoomableImage({
               aria-modal="true"
               role="dialog"
             >
+              <CloseButton
+                className="fixed top-[20px] right-[20px] z-[60]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsOpen(false);
+                }}
+              />
               <motion.div
                 className="absolute inset-0 bg-[rgba(0,0,0,0.55)] backdrop-blur-lg"
                 aria-hidden="true"

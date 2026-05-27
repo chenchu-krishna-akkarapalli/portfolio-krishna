@@ -130,7 +130,7 @@ function JourneyBlock({
         <div className="relative aspect-[283/196] flex-1 overflow-hidden rounded-[18px] sm:rounded-huge">
           <Image
             alt=""
-            src={`/assets/figma/${leftImageFile}`}
+            src={leftImageFile.startsWith("/") ? leftImageFile : `/assets/figma/${leftImageFile}`}
             width={283}
             height={196}
             className="h-full w-full object-cover"
@@ -139,7 +139,7 @@ function JourneyBlock({
         <div className="relative aspect-[283/196] flex-1 overflow-hidden rounded-[18px] sm:rounded-huge">
           <Image
             alt=""
-            src={`/assets/figma/${rightImageFile}`}
+            src={rightImageFile.startsWith("/") ? rightImageFile : `/assets/figma/${rightImageFile}`}
             width={283}
             height={196}
             className="h-full w-full object-cover"

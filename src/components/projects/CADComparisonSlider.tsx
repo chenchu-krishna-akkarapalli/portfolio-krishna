@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
+import { CloseButton } from "@/components/NavigationButtons";
 
 type CADComparisonSliderProps = {
   beforeSrc: string;
@@ -208,6 +209,13 @@ export function CADComparisonSlider({
             aria-modal="true"
             role="dialog"
           >
+            <CloseButton
+              className="fixed top-[20px] right-[20px] z-[60]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsOpen(false);
+              }}
+            />
             <motion.div
               className="absolute inset-0 bg-black/55 backdrop-blur-lg"
               aria-hidden="true"

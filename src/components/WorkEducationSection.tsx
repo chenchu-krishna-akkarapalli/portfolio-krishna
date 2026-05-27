@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { PrevButton, NextButton } from "@/components/NavigationButtons";
 
 export type WorkEducationItem = {
   companyName: string;
@@ -105,38 +106,8 @@ export default function WorkEducationSection({ items }: WorkEducationSectionProp
         </div>
 
         <div className="flex items-center gap-[7px]">
-          <button
-            type="button"
-            aria-label="Previous"
-            onClick={handlePrev}
-            className="flex size-[32px] items-center justify-center rounded-[32px] border border-border-interactive bg-bg-interactive cursor-pointer"
-          >
-            <Image
-              alt=""
-              aria-hidden="true"
-              src="/assets/figma/cefc0d5c2688499044589a9e2f084f3a84a06235.svg"
-              width={16}
-              height={16}
-              unoptimized
-              className="size-[16px]"
-            />
-          </button>
-          <button
-            type="button"
-            aria-label="Next"
-            onClick={handleNext}
-            className="flex size-[32px] items-center justify-center rounded-[32px] border border-border-interactive bg-bg-interactive cursor-pointer"
-          >
-            <Image
-              alt=""
-              aria-hidden="true"
-              src="/assets/figma/fe7ccdd71f1c78f173f57f60945af20127f6d5ed.svg"
-              width={16}
-              height={16}
-              unoptimized
-              className="size-[16px]"
-            />
-          </button>
+          <PrevButton onClick={handlePrev} />
+          <NextButton onClick={handleNext} />
         </div>
       </div>
     </div>

@@ -43,9 +43,13 @@ export default function ToolstackContent() {
         <div className="mx-auto w-full max-w-full px-[19px]">
           <p className="text-[16px] font-bold leading-[normal] text-white">{data.otherToolsTitle}</p>
 
-          <div className="mt-[16px] grid grid-cols-4 sm:grid-cols-7 gap-[12px] sm:gap-x-[20px] sm:gap-y-[11px] justify-items-center">
+          <div className="mt-[16px] grid grid-cols-6 sm:grid-cols-7 gap-[8px] sm:gap-x-[20px] sm:gap-y-[11px] justify-items-center">
             {otherToolsGridItems.map((item, idx) => (
-              <OtherToolIcon key={`${item.label}-${idx}`} item={item} />
+              <OtherToolIcon
+                key={`${item.label}-${idx}`}
+                item={item}
+                className={idx >= 36 ? "hidden sm:block" : ""}
+              />
             ))}
           </div>
         </div>
@@ -107,9 +111,9 @@ function ToolStackTile({ item }: { item: ToolStackItem }) {
   );
 }
 
-function OtherToolIcon({ item }: { item: OtherToolItem }) {
+function OtherToolIcon({ item, className = "" }: { item: OtherToolItem; className?: string }) {
   return (
-    <div className="relative size-[56px] sm:size-[64px] overflow-hidden rounded-[64px] bg-transparent">
+    <div className={`relative size-[40px] sm:size-[64px] overflow-hidden rounded-[64px] bg-transparent ${className}`}>
       <Image
         alt=""
         aria-hidden

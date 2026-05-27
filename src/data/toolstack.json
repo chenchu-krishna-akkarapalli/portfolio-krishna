@@ -15,7 +15,7 @@
   ],
   "otherToolsTitle": "Other Tools I use",
   "otherTools": {
-    "rows": 5,
+    "rows": 6,
     "cols": 7,
     "items": [
       { "label": "MySQL", "file": "mysql-plain-wordmark.svg" }

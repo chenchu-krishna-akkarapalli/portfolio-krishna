@@ -26,7 +26,7 @@ export default function HeroSection() {
       <div className="relative size-[80px] sm:size-[96px] overflow-hidden rounded-full border border-border-strong bg-white shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
         <Image
           alt="Krishna Avatar"
-          src="/assets/profile/iam3.png"
+          src="/assets/profile/iam3.svg"
           width={96}
           height={96}
           className="size-full object-cover animate-hand-micro"

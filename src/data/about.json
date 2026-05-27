@@ -9,24 +9,24 @@
   },
   "collage": {
     "heroImage": {
-      "src": "/assets/figma/192ba5fc6781d0532149425853196aef7e43f4d9.png",
+      "src": "/assets/about/Costal-banglore 1.svg",
       "width": 577,
       "height": 306,
       "badgeText": "Haridwar, Uttarakhand, India"
     },
     "thumbnails": [
       {
-        "src": "/assets/figma/ee474aa040c13ed6ce105102cea85b3f517c9914.png",
+        "src": "/assets/about/about-sqr-1.svg",
         "width": 182,
         "height": 187
       },
       {
-        "src": "/assets/figma/a48182dcb6d795cec817e0112b9c235dd910fb24.png",
+        "src": "/assets/about/about-sqr-4.svg",
         "width": 182,
         "height": 187
       },
       {
-        "src": "/assets/figma/528e21d72386d0c8e6fbc86eab1323a172927a79.png",
+        "src": "/assets/about/about-sqr-2.svg",
         "width": 182,
         "height": 187
       }
@@ -40,8 +40,8 @@
     {
       "title": "Engineering Foundations",
       "subtitle": "2017 - 2021",
-      "leftImageFile": "56e2ff74100ee4ea7fe29afe075bba9bf065565d.png",
-      "rightImageFile": "17de775133bc215f2d7efedc847ba09551a7a89d.png",
+      "leftImageFile": "/assets/saveetha/saveetha-university.webp",
+      "rightImageFile": "/assets/saveetha/saveetha-2.webp",
       "body": [
         {
           "type": "p",
@@ -72,31 +72,7 @@
         }
       ]
     },
-    {
-      "title": "Swarajya Waves – E-Commerce Shopping Platform",
-      "subtitle": "Feb 2022 – Jan 2024",
-      "leftImageFile": "56e2ff74100ee4ea7fe29afe075bba9bf065565d.png",
-      "rightImageFile": "17de775133bc215f2d7efedc847ba09551a7a89d.png",
-      "body": [
-        {
-          "type": "p",
-          "text": "Worked as a freelance data processing engineer for Swarajya Waves, an e-commerce platform, focusing on building and maintaining reliable ETL pipelines using Talend to support business operations, analytics, and inventory workflows."
-        },
-        {
-          "type": "list",
-          "title": "# Responsibilities & Methodologies",
-          "items": [
-            "Designed and implemented end-to-end ETL workflows using Talend, following structured Extract → Transform → Load methodology.",
-            "Extracted data from multiple sources including e-commerce databases, order systems, inventory sheets, and vendor feeds.",
-            "Applied data transformation rules such as cleansing, normalization, validation, deduplication, and schema mapping.",
-            "Loaded processed data into SQL-based data stores to support reporting, dashboards, and operational decisions.",
-            "Followed batch processing and scheduled job execution for daily and weekly data updates.",
-            "Implemented error handling, logging, and data quality checks to ensure pipeline reliability.",
-            "Collaborated with business stakeholders to translate business requirements into technical data flows."
-          ]
-        }
-      ]
-    },
+
     {
       "title": "UI/UX & Frontend Developer Intern",
       "subtitle": "Feb 2024 – Sep 2024, NMIT-Sloutions",
@@ -149,31 +125,6 @@
             "Adopted production methodologies like modular architecture, reusable components, clean data modeling, and secure role-based access control.",
             "Gained hands-on exposure to cloud deployment, CI/CD pipelines, and containerized workflows, aligning development with industry standards.",
             "Transitioned mindset from learning-based execution to delivery-focused engineering, emphasizing reliability, maintainability, and user impact."
-          ]
-        }
-      ]
-    },
-    {
-      "title": "OCR Handwritten Text Extraction — Bank Deposit Forms",
-      "subtitle": "High-Confidence OCR Pipeline | Python | May 2024, NMIT-Sloutions",
-      "leftImageFile": "56e2ff74100ee4ea7fe29afe075bba9bf065565d.png",
-      "rightImageFile": "17de775133bc215f2d7efedc847ba09551a7a89d.png",
-      "body": [
-        {
-          "type": "p",
-          "text": "Designed and implemented a high-accuracy handwritten OCR system for bank deposit forms by integrating computer vision, object detection, and transformer-based OCR models."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Built an end-to-end OCR pipeline using YOLOv8, OpenCV, Roboflow, and Hugging Face models to extract handwritten and printed fields from structured bank deposit forms.",
-            "Used YOLOv8 for precise field-level detection (account number, amount, date, depositor name, PAN, etc.), ensuring region-specific OCR instead of full-image extraction.",
-            "Prepared and managed annotated datasets using Roboflow, enabling efficient labeling, augmentation, and version control for OCR training.",
-            "Applied OpenCV preprocessing techniques (grayscale conversion, noise removal, thresholding, perspective correction) to improve handwriting clarity and OCR confidence.",
-            "Integrated Hugging Face Transformer-based OCR models (handwritten text recognition) to extract text with high accuracy and consistency.",
-            "Implemented confidence filtering and validation logic to reject low-confidence predictions and improve overall reliability.",
-            "Structured extracted data into JSON / database-ready formats for downstream processing and validation.",
-            "Optimized the pipeline for real-world banking scenarios, handling variations in handwriting styles, lighting conditions, and form alignment."
           ]
         }
       ]

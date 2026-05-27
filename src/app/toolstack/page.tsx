@@ -78,9 +78,13 @@ export default function ToolstackPage() {
         <div className="w-full px-[19px] sm:px-0">
           <p className="text-[16px] font-bold leading-[normal] text-white">{toolstackData.otherToolsTitle}</p>
 
-          <div className="mt-[16px] grid grid-cols-4 sm:grid-cols-7 gap-[12px] sm:gap-x-[20px] sm:gap-y-[11px] justify-items-center">
+          <div className="mt-[16px] grid grid-cols-6 sm:grid-cols-7 gap-[8px] sm:gap-x-[20px] sm:gap-y-[11px] justify-items-center">
             {otherToolsGridItems.map((item, idx) => (
-              <OtherToolIcon key={`${item.file}-${idx}`} item={item} />
+              <OtherToolIcon
+                key={`${item.file}-${idx}`}
+                item={item}
+                className={idx >= 36 ? "hidden sm:block" : ""}
+              />
             ))}
           </div>
         </div>
@@ -89,10 +93,10 @@ export default function ToolstackPage() {
   );
 }
 
-function OtherToolIcon({ item }: { item: OtherToolItem }) {
+function OtherToolIcon({ item, className = "" }: { item: OtherToolItem; className?: string }) {
   return (
-    <div className="group relative size-[56px] sm:size-[64px]">
-      <div className="relative size-[56px] sm:size-[64px] overflow-hidden rounded-[64px] bg-transparent">
+    <div className={`group relative size-[40px] sm:size-[64px] ${className}`}>
+      <div className="relative size-[40px] sm:size-[64px] overflow-hidden rounded-[64px] bg-transparent">
         <Image
           alt={item.label}
           src={`/assets/tools-stack/secondary/${item.file}`}

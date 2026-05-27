@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { PrevButton } from "@/components/NavigationButtons";
 import type { ReactNode } from "react";
 import { ZoomableImage } from "@/components/projects/ZoomableImage";
 import { ProjectLargeVideo } from "@/components/projects/ProjectLargeVideo";
@@ -120,21 +120,7 @@ export function ProjectDetailContent({
     <div className="mx-auto flex w-full max-w-145 flex-col gap-10 pb-55 pt-8.75">
       {/* Top header */}
       <div className="flex items-center gap-10">
-        <Link
-          href="/projects"
-          aria-label="Back to projects"
-          className="relative size-8 overflow-hidden rounded-4xl border border-border-interactive bg-bg-interactive"
-        >
-          <Image
-            alt=""
-            aria-hidden
-            src="/assets/figma/cefc0d5c2688499044589a9e2f084f3a84a06235.svg"
-            width={16}
-            height={16}
-            unoptimized
-            className="absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2"
-          />
-        </Link>
+        <PrevButton href="/projects" ariaLabel="Back to projects" />
 
         <p className="w-127 text-[16px] font-bold leading-[normal] text-text-secondary">
           {project.headerLabel}

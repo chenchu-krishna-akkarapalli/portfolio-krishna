@@ -11,6 +11,7 @@ import SpotlightCards from "@/components/SpotlightCards";
 import Social from "@/components/Social";
 import Newsletter from "@/components/Newsletter";
 import HeroSection from "@/components/HeroSection";
+import SkillDashboardPreview from "@/components/skillmeter";
 
 import aboutData from "@/data/about.json";
 import workEducationData from "@/data/work-education.json";
@@ -125,6 +126,14 @@ export default function Home() {
         <section className="flex w-full flex-col gap-[18px]">
           <SectionTitle>My Toolstack</SectionTitle>
           <ToolStackCards rows={toolStackRows} iconBasePath="/assets/tools-stack" />
+        </section>
+      </ScrollReveal>
+
+      {/* Skillmeter Section */}
+      <ScrollReveal>
+        <section className="flex w-full flex-col gap-[18px]">
+          <SectionTitle>Skills</SectionTitle>
+          <SkillDashboardPreview />
         </section>
       </ScrollReveal>
 
