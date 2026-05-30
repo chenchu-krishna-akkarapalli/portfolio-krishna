@@ -2,51 +2,10 @@
 
 import React from "react";
 import Image from "next/image";
-import { PrevButton } from "@/components/NavigationButtons";
+import Link from "next/link";
 import { motion, useScroll } from "framer-motion";
-import type { ReactNode } from "react";
-import { ZoomableImage } from "@/components/projects/ZoomableImage";
-import { ProjectLargeVideo } from "@/components/projects/ProjectLargeVideo";
-
-export type ProjectDetail = {
-  slug: string;
-  headerLabel: string;
-  meta: string[];
-  title: string;
-  laptop: {
-    svgSrc: string;
-    alt: string;
-  };
-  overview: {
-    bullets: string[];
-    paragraph: string;
-  };
-  ipad: {
-    svgSrc: string;
-    alt: string;
-  };
-  flow: {
-    steps: string[];
-  };
-  largeVideo?:
-    | {
-        type: "vimeo";
-        vimeoId: number;
-        title: string;
-      }
-    | {
-        type: "mp4";
-        src: string;
-        title: string;
-      };
-  largeImage: {
-    src: string;
-    alt: string;
-  };
-  tools: string[];
-  impact: string[];
-  authorName: string;
-};
+import { PrevButton } from "@/components/NavigationButtons";
+import { type ProjectDetail } from "@/components/projects/ProjectDetailContent";
 
 // Static brand-colors map matching slug
 const SLUG_PALETTES: Record<string, { primary: string; glow: string; text: string; bg: string }> = {
@@ -58,65 +17,7 @@ const SLUG_PALETTES: Record<string, { primary: string; glow: string; text: strin
   "cma-firm-website-strategy-led-ui": { primary: "#ec4899", glow: "rgba(236,72,153,0.15)", text: "text-[#ec4899]", bg: "bg-[#ec4899]/10" }
 };
 
-function Laptop({ svgSrc, alt }: ProjectDetail["laptop"]) {
-  return (
-    <ZoomableImage
-      src={svgSrc}
-      alt={alt}
-      width={497}
-      height={273}
-      unoptimized
-      priority
-      className="block h-auto w-full"
-      zoomContainerClassName="w-full cursor-zoom-in"
-    />
-  );
-}
-
-function Ipad({ svgSrc, alt }: ProjectDetail["ipad"]) {
-  const isLongBlogLanding = svgSrc.endsWith("/blog-LandingPage.svg");
-  const isInsuranceUiTemplate = svgSrc.endsWith("/insurance-Ui-templet.svg");
-  const isCaFirmTemplate = svgSrc.endsWith("/CA-Firm-Templet.png");
-
-  if (isLongBlogLanding || isInsuranceUiTemplate || isCaFirmTemplate) {
-    return (
-      <ZoomableImage
-        src={svgSrc}
-        alt={alt}
-        width={isLongBlogLanding ? 1440 : 1345}
-        height={
-          isLongBlogLanding ? 12095 : isCaFirmTemplate ? 5931 : 2497
-        }
-        unoptimized
-        className="block h-auto w-full"
-        zoomContainerClassName="w-full cursor-zoom-in overflow-hidden rounded-huge"
-        modalVariant="fullWidthScroll"
-      />
-    );
-  }
-
-  return (
-    <div className="relative h-76.25 w-full overflow-hidden rounded-medium sm:rounded-huge border border-white/5 bg-black">
-      <ZoomableImage
-        src={svgSrc}
-        alt={alt}
-        fill
-        unoptimized
-        className="cursor-zoom-in"
-        style={{ objectFit: "cover", objectPosition: "50% 50%" }}
-        zoomContainerClassName="absolute inset-0 size-full w-full h-full"
-      />
-    </div>
-  );
-}
-
-export function ProjectDetailContent({
-  project,
-  largeImageSlot,
-}: {
-  project: ProjectDetail;
-  largeImageSlot?: ReactNode;
-}) {
+export default function BlogDetailContent({ project }: { project: ProjectDetail }) {
   const { scrollYProgress } = useScroll();
   const theme = SLUG_PALETTES[project.slug] || { primary: "#ffffff", glow: "rgba(255,255,255,0.1)", text: "text-white", bg: "bg-white/10" };
 
@@ -132,9 +33,9 @@ export function ProjectDetailContent({
       {/* Futuristic back prompt navigation and telemetry label */}
       <div className="relative flex items-center justify-between w-full border-b border-white/5 pb-3 mb-6 z-10">
         <div className="flex items-center gap-3">
-          <PrevButton href="/projects" ariaLabel="Back to projects" />
+          <PrevButton href="/blog" ariaLabel="Back to writings" />
           <span className="text-[10px] tracking-[0.25em] text-gray-500 font-mono font-semibold uppercase">
-            {project.headerLabel || "Projects"} / REPORT_DOC
+            {project.headerLabel || "Writings"} / REPORT_DOC
           </span>
         </div>
         <span className="text-[9px] font-mono text-gray-400 bg-white/5 px-2 py-0.5 rounded-sm border border-white/5 uppercase">
@@ -142,10 +43,10 @@ export function ProjectDetailContent({
         </span>
       </div>
 
-      {/* Main glass-panel project details container */}
+      {/* Main glass-panel article view container */}
       <div className="relative flex flex-col w-full bg-[#030508] border border-white/5 rounded-[16px] overflow-hidden p-4 sm:p-6 shadow-2xl z-10">
         
-        {/* Core telemetry details summary sidebar card */}
+        {/* Core telemetry details sidebar */}
         <div className="relative flex flex-col gap-3.5 bg-[#07090e] border border-white/5 rounded-xl p-4 mb-6 text-xs font-mono">
           <div className="flex justify-between items-center border-b border-white/5 pb-2 text-[10px] text-gray-500 uppercase font-bold">
             <span>Diagnostic Summary</span>
@@ -166,13 +67,13 @@ export function ProjectDetailContent({
               <span className="text-white mt-0.5" style={{ color: theme.primary }}>{project.meta[0]}</span>
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-gray-500">STACK_BASE</span>
-              <span className="text-white mt-0.5 truncate">{project.meta[1] || "Full Stack"}</span>
+              <span className="text-gray-500">READ_TIME</span>
+              <span className="text-white mt-0.5">~ 5 MIN READ</span>
             </div>
           </div>
         </div>
 
-        {/* Dynamic rich project details content */}
+        {/* Dynamic rich article content */}
         <div className="flex flex-col gap-6 w-full">
           
           {/* Post Title */}
@@ -180,9 +81,17 @@ export function ProjectDetailContent({
             {project.title}
           </h2>
 
-          {/* MOCKUP SLOT 1: LAPTOP SCREEN MOCK */}
-          <div className="relative w-full rounded-xl overflow-hidden border border-white/5 bg-[#030508]">
-            <Laptop {...project.laptop} />
+          {/* Large mock screen frame image preview */}
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/5 bg-black">
+            <Image
+              alt={project.largeImage.alt}
+              src={project.largeImage.src}
+              fill
+              className="object-cover opacity-80"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#030508] via-transparent to-transparent opacity-85" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_100%)]" />
           </div>
 
           {/* Section 1: The Executive Overview */}
@@ -195,7 +104,7 @@ export function ProjectDetailContent({
             </p>
           </div>
 
-          {/* Section 2: Checklist of Core Architecture Accomplishments */}
+          {/* Section 2: Checklist of Core Accomplishments */}
           <div className="flex flex-col gap-3 border-t border-white/5 pt-5">
             <h3 className="text-xs uppercase font-mono font-bold tracking-[0.2em] text-gray-500">
               02 // Core Architecture
@@ -211,11 +120,6 @@ export function ProjectDetailContent({
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* MOCKUP SLOT 2: IPAD MOCK */}
-          <div className="relative w-full rounded-xl overflow-hidden border border-white/5 bg-[#030508]">
-            <Ipad {...project.ipad} />
           </div>
 
           {/* Section 3: Methodology Sequence Flow */}
@@ -236,26 +140,6 @@ export function ProjectDetailContent({
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* MOCKUP SLOT 3: COMPARISON SLIDER OR LARGE IMAGE/VIDEO VIEW */}
-          <div className="relative w-full rounded-xl overflow-hidden border border-white/5 bg-[#030508]">
-            {largeImageSlot ? (
-              largeImageSlot
-            ) : project.largeVideo ? (
-              <ProjectLargeVideo video={project.largeVideo} />
-            ) : (
-              <div className="relative aspect-[496/313] w-full overflow-hidden">
-                <ZoomableImage
-                  src={project.largeImage.src}
-                  alt={project.largeImage.alt}
-                  fill
-                  className="pointer-events-none select-none cursor-zoom-in"
-                  style={{ objectFit: "cover", objectPosition: "50% 50%" }}
-                  zoomContainerClassName="absolute inset-0 size-full w-full h-full"
-                />
-              </div>
-            )}
           </div>
 
           {/* Section 4: Tools & Code block Console Terminal */}
@@ -299,21 +183,9 @@ export function ProjectDetailContent({
           </div>
 
           {/* Signatures */}
-          <div className="flex items-center justify-between border-t border-white/5 pt-5 text-[11px] font-mono text-gray-500">
-            <div className="flex flex-col gap-1">
-              <span>REPORT GENERATED BY</span>
-              <span className="text-white text-xs font-semibold">{project.authorName}</span>
-            </div>
-            
-            <div className="relative h-6 w-20">
-              <Image
-                src="/assets/figma/81d96eeaf889c9ccb936670c52e31282548ab24c.svg"
-                alt="Signature"
-                fill
-                className="pointer-events-none select-none invert opacity-60 hover:opacity-100 transition-opacity duration-300"
-                style={{ objectFit: "contain" }}
-              />
-            </div>
+          <div className="flex flex-col gap-1 border-t border-white/5 pt-5 text-[11px] font-mono text-gray-500">
+            <span>REPORT GENERATED BY</span>
+            <span className="text-white text-xs font-semibold">{project.authorName}</span>
           </div>
 
         </div>

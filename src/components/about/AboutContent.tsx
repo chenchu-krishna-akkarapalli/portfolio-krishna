@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import aboutData from "@/data/about.json";
 import Image from "next/image";
@@ -13,92 +16,130 @@ export default function AboutContent() {
   const data: AboutData = aboutData;
 
   return (
-    <div className="mx-auto flex w-full max-w-[586px] flex-col gap-[40px] sm:gap-[100px] pb-[40px] sm:pb-[100px] pt-[10px]">
-      <section className="flex w-full flex-col gap-[24px]">
-        <h1 className="text-[26px] sm:text-[40px] font-bold leading-[1.2] sm:leading-[normal] tracking-[0.5px] sm:tracking-[1.2px] text-white">
-          {data.hero.heading}
-        </h1>
+    <div className="mx-auto flex w-full max-w-[580px] flex-col gap-[36px] sm:gap-[64px] pb-[80px] pt-4 select-none">
+      
+      {/* Header section with telemetry detail layout */}
+      <motion.section 
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="flex w-full flex-col gap-[14px] border-b border-white/5 pb-6"
+      >
+        <div className="flex flex-col gap-1">
+          <span className="text-[10px] font-mono tracking-[0.25em] text-gray-500 uppercase font-semibold">
+            Identity & Logs
+          </span>
+          <h1 className="text-[26px] sm:text-[36px] font-bold leading-normal text-white">
+            {data.hero.heading}
+          </h1>
+        </div>
 
-        <div className="flex items-center gap-[6px] sm:gap-[8px]">
-          <p className="text-[14px] sm:text-[20px] font-bold leading-[normal] tracking-[0.5px] sm:tracking-[0.8px] text-text-secondary">
-            {data.hero.currentAt.label}
-          </p>
-
+        {/* Current Org Telemetry Badge */}
+        <div className="flex items-center gap-[8px] bg-white/5 border border-white/5 rounded-lg px-3 py-1.5 w-fit font-mono text-xs text-gray-300">
+          <span>{data.hero.currentAt.label}:</span>
           <Image
             alt=""
             aria-hidden
             src={data.hero.currentAt.logoSrc}
-            width={20}
-            height={20}
-            className="size-[16px] sm:size-[20px] rounded-[4px] sm:rounded-[6px] border border-border-strong object-cover"
+            width={16}
+            height={16}
+            className="size-[14px] rounded-[3px] border border-white/10 object-cover bg-white"
           />
-
-          <p className="text-[14px] sm:text-[20px] font-bold leading-[normal] tracking-[0.5px] sm:tracking-[0.8px] text-text-secondary">
-            {data.hero.currentAt.org}
-          </p>
+          <span className="font-semibold text-white">{data.hero.currentAt.org}</span>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="flex w-full flex-col gap-[15px]">
-        <div className="relative aspect-[577/306] w-full overflow-hidden rounded-[18px] sm:rounded-huge">
+      {/* Glassmorphic Collage Bento Grid */}
+      <section className="flex w-full flex-col gap-[12px] sm:gap-[15px]">
+        {/* Main large collage card */}
+        <div className="group relative aspect-[577/306] w-full overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
           <Image
             alt=""
             src={data.collage.heroImage.src}
             width={data.collage.heroImage.width}
             height={data.collage.heroImage.height}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-103 transition-all duration-700 ease-out"
             priority
           />
+          
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-[18px] right-[24px]">
-            <div className="backdrop-blur-[4px] bg-bg-nav-hover border border-border-light rounded-medium px-[18px] py-[12px]">
-              <p className="text-[18px] font-semibold leading-[normal] text-white">
+          {/* Glassmorphic HUD telemetry badge */}
+          <div className="absolute bottom-[14px] right-[14px] sm:bottom-[18px] sm:right-[18px] z-10 transition-all duration-300 group-hover:scale-103">
+            <div className="backdrop-blur-md bg-black/60 border border-white/5 group-hover:border-white/15 rounded-medium px-4 py-2 sm:px-4.5 sm:py-2.5 shadow-[0_4px_16px_rgba(0,0,0,0.6)] flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <p className="text-[12px] sm:text-[13px] font-mono tracking-wider font-semibold text-gray-200 group-hover:text-white uppercase transition-colors duration-300">
                 {data.collage.heroImage.badgeText}
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex w-full items-center gap-[15px]">
+        {/* Small thumbnail cards row */}
+        <div className="flex w-full items-center gap-[12px] sm:gap-[15px]">
           {data.collage.thumbnails.map((thumb) => (
             <div
               key={thumb.src}
-              className="relative aspect-[182/187] flex-1 overflow-hidden rounded-[18px] sm:rounded-huge"
+              className="group relative aspect-[182/187] flex-1 overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer"
+              style={{ borderColor: "rgba(255,255,255,0.04)" }}
             >
               <Image
                 alt=""
                 src={thumb.src}
                 width={thumb.width}
                 height={thumb.height}
-                className="absolute inset-0 h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
               />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
             </div>
           ))}
         </div>
       </section>
 
+      {/* Historical Timeline Guideline Intro Section */}
       <ScrollReveal>
-        <section className="flex w-full flex-col gap-[14px]">
-          <h2 className="text-[24px] font-bold leading-[normal] text-white">
-            {data.journeyIntro.title}
-          </h2>
-          <p className="text-[14px] font-medium leading-[normal] text-text-secondary">
+        <section className="flex w-full flex-col gap-[12px]">
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] font-mono tracking-[0.2em] text-gray-500 uppercase">
+              Introduction
+            </span>
+            <h2 className="text-[20px] sm:text-[22px] font-bold leading-[normal] text-white">
+              {data.journeyIntro.title}
+            </h2>
+          </div>
+          <p className="text-[13px] sm:text-[14px] font-medium leading-[1.6] text-text-secondary">
             {data.journeyIntro.description}
           </p>
         </section>
       </ScrollReveal>
 
-      {data.journeyBlocks.map((block) => (
-        <ScrollReveal key={`${block.title}:${block.subtitle}`}>
-          <JourneyBlock
-            title={block.title}
-            subtitle={block.subtitle}
-            leftImageFile={block.leftImageFile}
-            rightImageFile={block.rightImageFile}
-            body={block.body as BodyNode[]}
-          />
-        </ScrollReveal>
-      ))}
+      {/* The Unified Historical Journey Timeline Blocks */}
+      <div className="relative flex flex-col gap-10">
+        
+        {/* The Neon Vertical Timeline Guideline */}
+        <div className="absolute left-[11px] sm:left-[15px] top-6 bottom-6 w-px bg-white/10 pointer-events-none z-0" />
+
+        {data.journeyBlocks.map((block) => (
+          <ScrollReveal key={`${block.title}:${block.subtitle}`}>
+            <div className="pl-[32px] sm:pl-[44px] relative z-10">
+              
+              {/* Pulsing visual milestone node dot */}
+              <div className="absolute left-[8px] sm:left-[12px] top-[6px] flex h-[7px] w-[7px] items-center justify-center z-20 select-none">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500 border border-black/80"></span>
+              </div>
+
+              <JourneyBlock
+                title={block.title}
+                subtitle={block.subtitle}
+                leftImageFile={block.leftImageFile}
+                rightImageFile={block.rightImageFile}
+                body={block.body as BodyNode[]}
+              />
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
 
     </div>
   );
@@ -118,36 +159,36 @@ function JourneyBlock({
   body: BodyNode[];
 }) {
   return (
-    <section className="flex w-full flex-col gap-[16px]">
-      <div className="flex w-full flex-col">
-        <h3 className="text-[15px] sm:text-[16px] font-bold leading-[normal] text-white">{title}</h3>
-        <p className="text-[13px] sm:text-[14px] font-medium leading-[normal] text-text-secondary">
+    <section className="flex w-full flex-col gap-[14px] select-none">
+      <div className="flex w-full flex-col gap-0.5">
+        <h3 className="text-[14.5px] sm:text-[15.5px] font-bold leading-normal text-white">{title}</h3>
+        <p className="text-[11.5px] sm:text-[12.5px] font-mono leading-normal text-text-secondary">
           {subtitle}
         </p>
       </div>
 
+      {/* Visual images carousel bento block */}
       <div className="flex w-full items-center gap-[10px]">
-        <div className="relative aspect-[283/196] flex-1 overflow-hidden rounded-[18px] sm:rounded-huge">
-          <Image
-            alt=""
-            src={leftImageFile.startsWith("/") ? leftImageFile : `/assets/figma/${leftImageFile}`}
-            width={283}
-            height={196}
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="relative aspect-[283/196] flex-1 overflow-hidden rounded-[18px] sm:rounded-huge">
-          <Image
-            alt=""
-            src={rightImageFile.startsWith("/") ? rightImageFile : `/assets/figma/${rightImageFile}`}
-            width={283}
-            height={196}
-            className="h-full w-full object-cover"
-          />
-        </div>
+        {[leftImageFile, rightImageFile].map((file, index) => (
+          <div 
+            key={index} 
+            className="group relative aspect-[283/196] flex-1 overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer"
+            style={{ borderColor: "rgba(255,255,255,0.04)" }}
+          >
+            <Image
+              alt=""
+              src={file.startsWith("/") ? file : `/assets/figma/${file}`}
+              width={283}
+              height={196}
+              className="h-full w-full object-cover grayscale opacity-85 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-103 transition-all duration-700 ease-out"
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
+          </div>
+        ))}
       </div>
 
-      <div className="flex w-full flex-col gap-[10px] text-[13px] sm:text-[14px] font-medium leading-relaxed text-text-secondary">
+      {/* Document blockquote details */}
+      <div className="flex w-full flex-col gap-[10px] text-[13px] sm:text-[13.5px] font-medium leading-[1.65] text-text-secondary mt-1">
         {body.map((node, idx) => (
           <BodyNodeView key={idx} node={node} />
         ))}
@@ -163,7 +204,7 @@ function BodyNodeView({ node }: { node: BodyNode }) {
         <p>
           {node.segments.map((seg, idx) =>
             seg.bold ? (
-              <strong key={idx} className="font-bold">
+              <strong key={idx} className="font-bold text-white">
                 {seg.text}
               </strong>
             ) : (
@@ -178,11 +219,11 @@ function BodyNodeView({ node }: { node: BodyNode }) {
   }
 
   return (
-    <div>
+    <div className="relative border-l border-white/5 pl-4 py-1.5 flex flex-col gap-2 mt-2 bg-white/[0.01] rounded-r-lg">
       {node.title ? (
-        <p className="font-bold text-text-secondary">{node.title}</p>
+        <p className="font-bold text-white uppercase tracking-wider text-[10px] font-mono select-none">{node.title.replace("# ", "")}</p>
       ) : null}
-      <ul className="list-disc pl-[21px]">
+      <ul className="list-disc pl-[16px] text-text-secondary flex flex-col gap-1.5">
         {node.items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -190,5 +231,3 @@ function BodyNodeView({ node }: { node: BodyNode }) {
     </div>
   );
 }
-
-

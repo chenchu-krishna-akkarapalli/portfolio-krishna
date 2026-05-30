@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import workData from "@/data/work.json";
 import VimeoPlayerCard from "@/components/work/VimeoPlayerCard";
@@ -10,20 +13,41 @@ export default function WorkContent() {
   const data: WorkData = workData;
 
   return (
-    <div className="mx-auto flex w-full max-w-[580px] flex-col gap-[40px] pb-[80px] pt-[10px]">
-      <section className="flex w-full flex-col gap-[16px]">
-        <h1 className="text-[26px] sm:text-[40px] font-bold leading-[1.2] sm:leading-[normal] tracking-[0.5px] sm:tracking-[1.2px] text-white">
-          {data.title}
-        </h1>
-        <p className="w-full max-w-[576px] whitespace-pre-line text-[14px] font-medium leading-[normal] text-text-secondary">
+    <div className="mx-auto flex w-full max-w-[580px] flex-col gap-[36px] sm:gap-[48px] pb-[80px] pt-4 select-none">
+      
+      {/* Header section with telemetry detail layout */}
+      <motion.section 
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="flex w-full flex-col gap-[14px] border-b border-white/5 pb-6"
+      >
+        <div className="flex flex-col gap-1">
+          <span className="text-[10px] font-mono tracking-[0.25em] text-gray-500 uppercase font-semibold">
+            Operational Feed
+          </span>
+          <h1 className="text-[26px] sm:text-[36px] font-bold leading-normal text-white">
+            {data.title}
+          </h1>
+        </div>
+        <p className="w-full text-[13px] sm:text-[14px] font-medium leading-[1.6] text-text-secondary whitespace-pre-line">
           {data.description}
         </p>
-      </section>
+      </motion.section>
 
+      {/* Video Showcase Section */}
       <ScrollReveal>
         <section className="flex w-full flex-col gap-[18px]" aria-label={data.videosTitle}>
-          <p className="text-[24px] font-bold leading-[normal] text-white">{data.videosTitle}</p>
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] font-mono tracking-[0.2em] text-gray-500 uppercase">
+              Demonstrations
+            </span>
+            <p className="text-[20px] sm:text-[22px] font-bold leading-[normal] text-white">
+              {data.videosTitle}
+            </p>
+          </div>
+          
+          <div className="flex flex-col gap-[20px] mt-1">
             {data.videos.map((video: any) => {
               if ("vimeoId" in video) {
                 return (
@@ -47,10 +71,21 @@ export default function WorkContent() {
         </section>
       </ScrollReveal>
 
+      {/* Bento Image Gallery Section */}
       <ScrollReveal>
         <section className="flex w-full flex-col gap-[18px]" aria-label={data.galleryTitle}>
-          <p className="text-[24px] font-bold leading-[normal] text-white">{data.galleryTitle}</p>
-          <WorkBentoGrid items={data.bento as BentoItem[]} />
+          <div className="flex flex-col gap-1">
+            <span className="text-[9px] font-mono tracking-[0.2em] text-gray-500 uppercase">
+              Render catalog
+            </span>
+            <p className="text-[20px] sm:text-[22px] font-bold leading-[normal] text-white">
+              {data.galleryTitle}
+            </p>
+          </div>
+
+          <div className="mt-1">
+            <WorkBentoGrid items={data.bento as BentoItem[]} />
+          </div>
         </section>
       </ScrollReveal>
     </div>

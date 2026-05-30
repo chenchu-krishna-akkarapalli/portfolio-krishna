@@ -12,7 +12,7 @@ type CADComparisonSliderProps = {
   afterAlt: string;
 };
 
-const HANDLE_SIZE_PX = 28;
+const HANDLE_SIZE_PX = 32;
 
 type CADComparisonSliderBaseProps = CADComparisonSliderProps & {
   layoutId: string;
@@ -83,7 +83,7 @@ function CADComparisonSliderBase({
       layoutId={layoutId}
       ref={containerRef}
       className={
-        "relative aspect-488/268 w-full overflow-hidden rounded-huge" +
+        "relative aspect-488/268 w-full overflow-hidden rounded-medium sm:rounded-huge border border-white/5 shadow-2xl bg-[#030508]" +
         (className ? ` ${className}` : "")
       }
       aria-label="CAD comparison slider"
@@ -95,11 +95,21 @@ function CADComparisonSliderBase({
         if (e.key === "Enter" || e.key === " ") onRequestOpen();
       }}
     >
+      
+      {/* Visual Corner Calibration Marks */}
+      <div className="absolute top-3 left-3 z-10 font-mono text-[9px] text-white/50 bg-black/60 backdrop-blur-xs border border-white/5 px-2 py-0.5 rounded-sm select-none uppercase tracking-wider">
+        [ Before // Original ]
+      </div>
+      <div className="absolute top-3 right-3 z-10 font-mono text-[9px] text-cyan-400 bg-black/60 backdrop-blur-xs border border-cyan-500/10 px-2 py-0.5 rounded-sm select-none uppercase tracking-wider">
+        [ After // Render ]
+      </div>
+
       <Image
         src={beforeSrc}
         alt={beforeAlt}
         fill
-        className="pointer-events-none select-none"
+        sizes="(max-width: 640px) 100vw, 580px"
+        className="pointer-events-none select-none grayscale opacity-80"
         style={{ objectFit: "cover", objectPosition: "50% 50%" }}
         priority
       />
@@ -113,14 +123,16 @@ function CADComparisonSliderBase({
           src={afterSrc}
           alt={afterAlt}
           fill
+          sizes="(max-width: 640px) 100vw, 580px"
           className="pointer-events-none select-none"
           style={{ objectFit: "cover", objectPosition: "50% 50%" }}
           priority
         />
       </motion.div>
 
+      {/* Neon Cyan laser glowing divider line */}
       <motion.div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-px bg-linear-to-b from-[rgba(255,255,255,0.75)] via-[rgba(0,0,0,0.35)] to-[rgba(255,255,255,0.75)] transform-gpu"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-0.5 bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)] transform-gpu"
         style={{ x: dividerX }}
         aria-hidden="true"
       />
@@ -131,7 +143,10 @@ function CADComparisonSliderBase({
           dragConstraints={dragBoundsRef}
           dragElastic={0}
           dragMomentum={false}
-          className="absolute left-0 top-1/2 z-20 flex size-7 -translate-y-1/2 items-center justify-center rounded-4xl border border-border-frame bg-linear-to-b from-[rgba(255,255,255,0.25)] via-[rgba(0,0,0,0.28)] to-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-[inset_0px_0px_0px_1px_rgba(0,0,0,0.25)] cursor-grab active:cursor-grabbing"
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 400, damping: 18 }}
+          className="absolute left-0 top-1/2 z-20 flex size-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/80 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.15)] cursor-grab active:cursor-grabbing hover:border-cyan-400/40 transition-all duration-300"
           style={{ x: handleX }}
           aria-label="Drag to compare"
           role="slider"
@@ -155,8 +170,19 @@ function CADComparisonSliderBase({
             e.stopPropagation();
           }}
         >
-          <div className="h-3 w-px bg-linear-to-b from-[rgba(255,255,255,0.85)] via-[rgba(0,0,0,0.35)] to-[rgba(255,255,255,0.85)]" />
-          <div className="mx-0.75 h-3 w-px bg-linear-to-b from-[rgba(255,255,255,0.85)] via-[rgba(0,0,0,0.35)] to-[rgba(255,255,255,0.85)]" />
+          {/* Double chevrons icons pointing left/right */}
+          <svg 
+            className="w-4 h-4 text-gray-400 group-hover:text-cyan-400 transition-colors duration-300 select-none pointer-events-none" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="3" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <polyline points="8 17 3 12 8 7" />
+            <polyline points="16 17 21 12 16 7" />
+          </svg>
         </motion.div>
       </div>
     </motion.div>
@@ -217,7 +243,7 @@ export function CADComparisonSlider({
               }}
             />
             <motion.div
-              className="absolute inset-0 bg-black/55 backdrop-blur-lg"
+              className="absolute inset-0 bg-black/60 backdrop-blur-lg"
               aria-hidden="true"
             />
 
