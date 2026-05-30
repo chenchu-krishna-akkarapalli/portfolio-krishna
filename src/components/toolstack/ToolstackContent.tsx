@@ -1,5 +1,6 @@
 import toolstackData from "@/data/toolstack.json";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 type ToolstackData = typeof toolstackData;
 
@@ -97,14 +98,9 @@ function ToolStackTile({ item }: { item: ToolStackItem }) {
         aria-hidden
         className="absolute right-[16px] top-[16px] hidden sm:flex size-[24px] items-center justify-center overflow-hidden rounded-[32px] border border-[rgba(240,240,240,0.4)] bg-[rgba(240,240,240,0.1)] opacity-0 translate-x-[-14px] transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:translate-x-0"
       >
-        <Image
-          alt=""
-          aria-hidden
-          src="/assets/figma/0e4f8b666592bdac4c1370729cc9515d040ce092.svg"
-          width={12}
-          height={12}
-          unoptimized
-          className="size-[12px]"
+        <ArrowUpRight
+          size={12}
+          className="size-[12px] text-white transition-colors duration-300"
         />
       </span>
     </div>

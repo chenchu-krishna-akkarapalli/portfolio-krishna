@@ -4,6 +4,7 @@ import projectsData from "@/data/projects.json";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 type ProjectsData = typeof projectsData;
 type ProjectItem = ProjectsData["items"][number];
@@ -160,14 +161,9 @@ function ProjectCard({ item }: { item: ProjectItem }) {
                   transition={{ type: "spring", stiffness: 300, damping: 22, mass: 0.7 }}
                   className="flex size-6 items-center justify-center overflow-hidden rounded-full border"
                 >
-                  <Image
-                    alt=""
-                    aria-hidden
-                    src="/assets/figma/0e4f8b666592bdac4c1370729cc9515d040ce092.svg"
-                    width={10}
-                    height={10}
-                    unoptimized
-                    className="size-2.5 invert opacity-80"
+                  <ArrowUpRight
+                    size={10}
+                    className="size-2.5 text-white/80 group-hover:text-white transition-colors duration-300"
                   />
                 </motion.span>
               </Link>

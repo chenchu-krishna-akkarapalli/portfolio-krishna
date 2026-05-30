@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 export type SpotlightCardItem = {
   title: string;
@@ -95,14 +96,9 @@ export default function SpotlightCards({ items }: SpotlightCardsProps) {
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : undefined)}
             >
-              <Image
-                alt=""
-                aria-hidden="true"
-                src="/assets/figma/0e4f8b666592bdac4c1370729cc9515d040ce092.svg"
-                width={10}
-                height={10}
-                unoptimized
-                className="size-[10px] invert opacity-80"
+              <ArrowUpRight
+                size={12}
+                className="size-[12px] text-white/80 group-hover:text-white transition-colors duration-300"
               />
             </motion.a>
           </div>

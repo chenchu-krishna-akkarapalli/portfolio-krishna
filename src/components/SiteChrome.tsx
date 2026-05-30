@@ -10,7 +10,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
   const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "#";
 
   return (
-    <div className="min-h-screen w-screen overflow-x-hidden bg-black">
+    <div className="min-h-screen w-full overflow-x-hidden bg-black">
       {/* Mobile Top Navbar */}
       <header className="fixed top-[16px] left-[16px] right-[16px] z-50 flex h-[56px] w-[calc(100%-32px)] items-center justify-between rounded-full border border-border-light bg-bg-secondary/70 backdrop-blur-md px-[16px] shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:hidden">
         {/* Left side Logo */}
