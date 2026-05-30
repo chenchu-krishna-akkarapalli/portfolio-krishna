@@ -1,35 +1,46 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Home, 
+  User, 
+  Notebook, 
+  Layers, 
+  BookOpen, 
+  Briefcase, 
+  Music, 
+  Gamepad2, 
+  Mail,
+  LucideIcon
+} from "lucide-react";
 
 type SidebarNavItem = {
   label: string;
   href: string;
-  iconFile: string;
+  Icon: LucideIcon;
 };
 
 const navItems: SidebarNavItem[] = [
-  { label: "Home", href: "/#home", iconFile: "eb3a8c5cae712595ee160daa86c7c2d47fefabc8.svg" },
-  { label: "About", href: "/about", iconFile: "7ac09c0bcf3893e8292b4dbd5348d100ba2f62c2.svg" },
-  { label: "Projects", href: "/projects", iconFile: "3e4583eb7ac4989186f567270a75bd97da1340c0.svg" },
-  { label: "Toolstack", href: "/toolstack", iconFile: "5ee299997f404a40451a685be45861b507cda3e2.svg" },
-  { label: "Blogs", href: "/blog", iconFile: "05deb563f01b2097235274500cd846ebc8b38a79.svg" },
-  { label: "Work", href: "/work", iconFile: "74b4aec9453e795a62eae92dfac909899d1eece2.svg" },
-  { label: "Songs", href: "/songs", iconFile: "0427cf770907e2c3e49bc9fdda1195511d722884.svg" },
-  { label: "Playground", href: "/playground", iconFile: "ccef4dcad82e2727c92f8f3ab5288cf6eb03c9eb.svg" },
-  { label: "Contact", href: "/contact", iconFile: "e288944b3c289d9d6bdf876829b563c617ec4bd1.svg" },
+  { label: "Home", href: "/#home", Icon: Home },
+  { label: "About", href: "/about", Icon: User },
+  { label: "Projects", href: "/projects", Icon: Notebook },
+  { label: "Toolstack", href: "/toolstack", Icon: Layers },
+  { label: "Blogs", href: "/blog", Icon: BookOpen },
+  { label: "Work", href: "/work", Icon: Briefcase },
+  { label: "Songs", href: "/songs", Icon: Music },
+  { label: "Playground", href: "/playground", Icon: Gamepad2 },
+  { label: "Contact", href: "/contact", Icon: Mail },
 ];
 
 const mobileNavItems = [
-  { label: "Home", href: "/#home", iconFile: "eb3a8c5cae712595ee160daa86c7c2d47fefabc8.svg" },
-  { label: "About", href: "/about", iconFile: "7ac09c0bcf3893e8292b4dbd5348d100ba2f62c2.svg" },
-  { label: "Projects", href: "/projects", iconFile: "3e4583eb7ac4989186f567270a75bd97da1340c0.svg" },
-  { label: "Toolstack", href: "/toolstack", iconFile: "5ee299997f404a40451a685be45861b507cda3e2.svg" },
-  { label: "Contact", href: "/contact", iconFile: "e288944b3c289d9d6bdf876829b563c617ec4bd1.svg" },
+  { label: "Home", href: "/#home", Icon: Home },
+  { label: "About", href: "/about", Icon: User },
+  { label: "Projects", href: "/projects", Icon: Notebook },
+  { label: "Toolstack", href: "/toolstack", Icon: Layers },
+  { label: "Contact", href: "/contact", Icon: Mail },
 ];
 
 // Interactive Corner Confinement Brackets
@@ -337,7 +348,7 @@ export function SidebarNav() {
                   onMouseLeave={() => setHoveredIndex(null)}
                   className={`
                     relative flex h-[38px] items-center rounded-medium text-[13px] font-mono font-semibold tracking-wide transition-all duration-300 select-none outline-none group/link overflow-visible
-                    ${isActive ? "text-white" : "text-text-tertiary hover:text-white"}
+                    ${isActive ? "text-cyan-400" : "text-text-tertiary hover:text-white"}
                   `}
                 >
                   {/* Sliding capsule background indicator */}
@@ -352,18 +363,15 @@ export function SidebarNav() {
                   {/* Corner confinement brackets around link */}
                   <CornerBrackets isActive={isActive} isHovered={isHovered} />
 
-                  {/* Icon container with pulsing neon LED */}
+                  {/* Icon container with dynamic Lucide components explicitly setting color & stroke-current */}
                   <div className="relative z-10 flex size-[38px] shrink-0 items-center justify-center">
-                    <Image
-                      alt=""
-                      aria-hidden
-                      src={`/assets/figma/${item.iconFile}`}
-                      width={18}
-                      height={18}
-                      className={`shrink-0 transition-all duration-300 ${
+                    <item.Icon
+                      size={18}
+                      strokeWidth={isActive ? 2.5 : 2}
+                      className={`shrink-0 transition-all duration-300 stroke-current ${
                         isActive 
-                          ? "opacity-100 scale-110 filter drop-shadow-[0_0_5px_rgba(0,240,255,0.7)]" 
-                          : "opacity-60 group-hover/link:opacity-100 group-hover/link:scale-105 group-hover/link:filter group-hover/link:drop-shadow-[0_0_3px_rgba(255,255,255,0.4)]"
+                          ? "text-cyan-400 opacity-100 scale-110 filter drop-shadow-[0_0_5px_rgba(0,240,255,0.85)]" 
+                          : "text-text-tertiary opacity-60 group-hover/link:text-white group-hover/link:opacity-100 group-hover/link:scale-105 group-hover/link:filter group-hover/link:drop-shadow-[0_0_3px_rgba(255,255,255,0.4)]"
                       }`}
                     />
                     {/* Glowing active indicator light */}
@@ -375,8 +383,8 @@ export function SidebarNav() {
                     )}
                   </div>
 
-                  {/* Text label with fluid slide-out width expanding transition */}
-                  <span className={`relative z-10 whitespace-nowrap overflow-hidden transition-all duration-300 ease-[0.16,1,0.3,1] w-0 opacity-0 group-hover:w-[150px] group-hover:opacity-100 group-hover:ml-2 text-[12.5px] uppercase tracking-wider ${isActive ? "text-cyan-400 font-bold tracking-widest" : "text-text-tertiary group-hover/link:text-white"}`}>
+                  {/* Text label with fluid slide-out width expanding transition inheriting active parent color */}
+                  <span className={`relative z-10 whitespace-nowrap overflow-hidden transition-all duration-300 ease-[0.16,1,0.3,1] w-0 opacity-0 group-hover:w-[150px] group-hover:opacity-100 group-hover:ml-2 text-[12.5px] uppercase tracking-wider ${isActive ? "font-bold tracking-widest" : ""}`}>
                     {item.label}
                   </span>
                 </Link>
@@ -410,8 +418,8 @@ export function SidebarNav() {
                 href={item.href}
                 onClick={() => handleLinkClick(item.href, idx)}
                 className={`
-                  relative flex h-[38px] w-[46px] items-center justify-center rounded-full transition-colors duration-200 focus:outline-none overflow-visible
-                  ${isActive ? "text-white" : "text-text-tertiary hover:text-white"}
+                  relative flex h-[38px] w-[46px] items-center justify-center rounded-full transition-all duration-200 focus:outline-none overflow-visible
+                  ${isActive ? "text-cyan-400" : "text-text-tertiary hover:text-white"}
                 `}
                 aria-label={item.label}
               >
@@ -427,16 +435,13 @@ export function SidebarNav() {
                 {/* Corner brackets on mobile item */}
                 <CornerBrackets isActive={isActive} isHovered={false} />
 
-                <Image
-                  alt=""
-                  aria-hidden
-                  src={`/assets/figma/${item.iconFile}`}
-                  width={18}
-                  height={18}
-                  className={`relative z-10 shrink-0 transition-all duration-200 ${
+                <item.Icon
+                  size={18}
+                  strokeWidth={isActive ? 2.5 : 2}
+                  className={`relative z-10 shrink-0 transition-all duration-200 stroke-current ${
                     isActive 
-                      ? "opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
-                      : "opacity-60"
+                      ? "text-cyan-400 opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
+                      : "text-text-tertiary opacity-60"
                   }`}
                 />
               </Link>
