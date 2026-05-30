@@ -14,6 +14,8 @@ import {
   Music, 
   Gamepad2, 
   Mail,
+  Menu,
+  X,
   LucideIcon
 } from "lucide-react";
 
@@ -35,11 +37,21 @@ const navItems: SidebarNavItem[] = [
   { label: "Contact", href: "/contact", Icon: Mail },
 ];
 
-const mobileNavItems = [
-  { label: "Home", href: "/#home", Icon: Home },
-  { label: "About", href: "/about", Icon: User },
-  { label: "Projects", href: "/projects", Icon: Notebook },
-  { label: "Toolstack", href: "/toolstack", Icon: Layers },
+// Mobile Bottombar Primary Items (5 items max)
+const mobileBottomBarItems = [
+  { label: "Home", href: "/#home", Icon: Home, type: "link" as const },
+  { label: "About", href: "/about", Icon: User, type: "link" as const },
+  { label: "Projects", href: "/projects", Icon: Notebook, type: "link" as const },
+  { label: "Toolstack", href: "/toolstack", Icon: Layers, type: "link" as const },
+  { label: "Menu", href: "#menu", Icon: Menu, type: "toggle" as const },
+];
+
+// Mobile Drawer Pop-up Secondary Items
+const mobileDrawerItems = [
+  { label: "Blogs", href: "/blog", Icon: BookOpen },
+  { label: "Work", href: "/work", Icon: Briefcase },
+  { label: "Songs", href: "/songs", Icon: Music },
+  { label: "Playground", href: "/playground", Icon: Gamepad2 },
   { label: "Contact", href: "/contact", Icon: Mail },
 ];
 
@@ -214,6 +226,9 @@ export function SidebarNav() {
   const [pulseTrigger, setPulseTrigger] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Mobile menu bottom-dock drawer state
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     const updateFromLocation = () => {
       const path = window.location.pathname;
@@ -363,7 +378,7 @@ export function SidebarNav() {
                   {/* Corner confinement brackets around link */}
                   <CornerBrackets isActive={isActive} isHovered={isHovered} />
 
-                  {/* Icon container with dynamic Lucide components explicitly setting color & stroke-current */}
+                  {/* Icon container explicitly setting color & stroke-current */}
                   <div className="relative z-10 flex size-[38px] shrink-0 items-center justify-center">
                     <item.Icon
                       size={18}
@@ -383,7 +398,7 @@ export function SidebarNav() {
                     )}
                   </div>
 
-                  {/* Text label with fluid slide-out width expanding transition inheriting active parent color */}
+                  {/* Text label inheriting active parent color */}
                   <span className={`relative z-10 whitespace-nowrap overflow-hidden transition-all duration-300 ease-[0.16,1,0.3,1] w-0 opacity-0 group-hover:w-[150px] group-hover:opacity-100 group-hover:ml-2 text-[12.5px] uppercase tracking-wider ${isActive ? "font-bold tracking-widest" : ""}`}>
                     {item.label}
                   </span>
@@ -395,11 +410,78 @@ export function SidebarNav() {
       </aside>
 
       {/* Mobile Floating Bottom Navigation */}
-      <nav aria-label="Mobile Primary" className="block lg:hidden shrink-0">
-        <div className="relative flex flex-row items-center justify-center rounded-full border border-cyan-500/15 bg-[#05070a]/80 backdrop-blur-md px-3 py-2 gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.65),0_0_15px_rgba(0,240,255,0.05)] overflow-hidden">
+      <nav aria-label="Mobile Primary" className="block lg:hidden shrink-0 relative">
+        {/* Floating pop-up sheet containing missing items */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <>
+              {/* Screen backdrop layer to enable clicking outside */}
+              <div 
+                className="absolute -bottom-[20px] -left-[100vw] w-[200vw] h-[200vh] z-40 bg-black/10 backdrop-blur-[1px]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              
+              {/* POP-UP TACTICAL DRAWER PANEL */}
+              <motion.div
+                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                transition={{ type: "spring", damping: 25, stiffness: 350 }}
+                className="absolute bottom-[68px] left-1/2 -translate-x-1/2 z-50 w-[240px] rounded-huge border border-cyan-500/15 bg-[#05070a]/95 backdrop-blur-lg p-3.5 shadow-[0_8px_32px_rgba(0,0,0,0.8),0_0_20px_rgba(0,240,255,0.06)]"
+              >
+                {/* Header diagnostic */}
+                <div className="flex justify-between items-center text-[9px] text-gray-500 font-mono border-b border-white/5 pb-2 mb-2 font-bold select-none">
+                  <span>WARP_DRAWER // SYNCHED</span>
+                  <button 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    <X size={12} className="stroke-current" />
+                  </button>
+                </div>
+
+                <div className="flex flex-col gap-1.5 w-full">
+                  {mobileDrawerItems.map((item, idx) => {
+                    const isActive = activeHref === item.href;
+                    return (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => {
+                          handleLinkClick(item.href, idx + 4);
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className={`relative flex h-[38px] items-center rounded-medium px-3 text-[12px] font-mono font-semibold tracking-wide transition-all duration-300 select-none outline-none group/link overflow-visible ${
+                          isActive 
+                            ? "text-cyan-400 bg-white/5 border border-white/5" 
+                            : "text-text-tertiary hover:text-white"
+                        }`}
+                      >
+                        <CornerBrackets isActive={isActive} isHovered={false} />
+                        
+                        <item.Icon
+                          size={16}
+                          strokeWidth={isActive ? 2.5 : 2}
+                          className={`mr-2.5 shrink-0 transition-all duration-200 stroke-current ${
+                            isActive 
+                              ? "opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
+                              : "opacity-60"
+                          }`}
+                        />
+                        <span className="uppercase tracking-wider">{item.label}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+
+        <div className="relative z-40 flex flex-row items-center justify-center rounded-full border border-cyan-500/15 bg-[#05070a]/80 backdrop-blur-md px-3 py-2 gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.65),0_0_15px_rgba(0,240,255,0.05)] overflow-visible">
           {/* Mobile electromagnetic background grid */}
           <div 
-            className="absolute inset-0 pointer-events-none opacity-[0.04] z-0"
+            className="absolute inset-0 pointer-events-none opacity-[0.04] z-0 rounded-full"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(0,240,255,0.4) 1px, transparent 1px),
@@ -409,8 +491,46 @@ export function SidebarNav() {
             }}
           />
 
-          {mobileNavItems.map((item, idx) => {
-            const isActive = activeHref === item.href;
+          {mobileBottomBarItems.map((item, idx) => {
+            const isMenuToggle = item.type === "toggle";
+            const isActive = isMenuToggle ? isMobileMenuOpen : activeHref === item.href;
+
+            if (isMenuToggle) {
+              const ToggleIcon = isMobileMenuOpen ? X : item.Icon;
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className={`
+                    relative flex h-[38px] w-[46px] items-center justify-center rounded-full transition-all duration-200 focus:outline-none overflow-visible cursor-pointer
+                    ${isActive ? "text-cyan-400" : "text-text-tertiary hover:text-white"}
+                  `}
+                  aria-label="Toggle Navigation Menu"
+                >
+                  {/* Active sliding backdrop capsule */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="mobileActiveBackground"
+                      className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-cyan-500/5 border border-cyan-400/30 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.15)] z-0"
+                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                    />
+                  )}
+
+                  {/* Corner brackets */}
+                  <CornerBrackets isActive={isActive} isHovered={false} />
+
+                  <ToggleIcon
+                    size={18}
+                    strokeWidth={isActive ? 2.5 : 2}
+                    className={`relative z-10 shrink-0 transition-all duration-200 stroke-current ${
+                      isActive 
+                        ? "opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
+                        : "opacity-60"
+                    }`}
+                  />
+                </button>
+              );
+            }
 
             return (
               <Link
@@ -440,8 +560,8 @@ export function SidebarNav() {
                   strokeWidth={isActive ? 2.5 : 2}
                   className={`relative z-10 shrink-0 transition-all duration-200 stroke-current ${
                     isActive 
-                      ? "text-cyan-400 opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
-                      : "text-text-tertiary opacity-60"
+                      ? "opacity-100 scale-105 filter drop-shadow-[0_0_4px_rgba(0,240,255,0.6)]" 
+                      : "opacity-60"
                   }`}
                 />
               </Link>

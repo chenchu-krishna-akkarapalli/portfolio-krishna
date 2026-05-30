@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import Image from "next/image";
+import { ScanText, Compass, Users, BookOpen, ArrowUpRight, LucideIcon } from "lucide-react";
 
 export type ProjectListItem = {
   title: string;
@@ -37,19 +37,39 @@ const viewButtonVariants: Variants = {
   hover: { opacity: 1, x: 0, scale: 1 },
 };
 
-function getProjectIcon(iconType: ProjectListItem["iconType"]) {
-  if (!iconType) return null;
+type ProjectIconConfig = {
+  Icon: LucideIcon;
+  brandColor: string;
+  activeColor: string;
+};
 
+function getProjectIcon(iconType: ProjectListItem["iconType"]): ProjectIconConfig {
   switch (iconType) {
     case "ocr":
-      return { src: "/assets/figma/ef50a75a8e2351d36d74c76eef3b23518726e565.svg", unoptimized: true, brandColor: "group-hover:bg-[#ffcc00]/10 border-white/5 group-hover:border-[#ffcc00]/20" };
+      return {
+        Icon: ScanText,
+        brandColor: "group-hover:bg-[#ffcc00]/10 border-white/5 group-hover:border-[#ffcc00]/20",
+        activeColor: "text-gray-400 group-hover:text-[#ffcc00] group-hover:filter group-hover:drop-shadow-[0_0_6px_rgba(255,204,0,0.5)]"
+      };
     case "cad":
-      return { src: "/assets/figma/e647a11b5ab79caceed8311d7b88a4cc3ff9ff87.png", unoptimized: false, brandColor: "group-hover:bg-[#ff3838]/10 border-white/5 group-hover:border-[#ff3838]/20" };
+      return {
+        Icon: Compass,
+        brandColor: "group-hover:bg-[#ff3838]/10 border-white/5 group-hover:border-[#ff3838]/20",
+        activeColor: "text-gray-400 group-hover:text-[#ff3838] group-hover:filter group-hover:drop-shadow-[0_0_6px_rgba(255,56,56,0.5)]"
+      };
     case "hr":
-      return { src: "/assets/figma/0e6e073a2aaa83228f3d95d22d0409e97a0d6c11.png", unoptimized: false, brandColor: "group-hover:bg-[#00f0ff]/10 border-white/5 group-hover:border-[#00f0ff]/20" };
+      return {
+        Icon: Users,
+        brandColor: "group-hover:bg-[#00f0ff]/10 border-white/5 group-hover:border-[#00f0ff]/20",
+        activeColor: "text-gray-400 group-hover:text-[#00f0ff] group-hover:filter group-hover:drop-shadow-[0_0_6px_rgba(0,240,255,0.5)]"
+      };
     case "blog":
     default:
-      return { src: "/assets/figma/fa31985a49294e7b673be5246eee89a1fc086d90.png", unoptimized: false, brandColor: "group-hover:bg-[#8b5cf6]/10 border-white/5 group-hover:border-[#8b5cf6]/20" };
+      return {
+        Icon: BookOpen,
+        brandColor: "group-hover:bg-[#8b5cf6]/10 border-white/5 group-hover:border-[#8b5cf6]/20",
+        activeColor: "text-gray-400 group-hover:text-[#8b5cf6] group-hover:filter group-hover:drop-shadow-[0_0_6px_rgba(139,92,246,0.5)]"
+      };
   }
 }
 
@@ -57,19 +77,7 @@ export default function ProjectList({ items }: ProjectListProps) {
   return (
     <div className="flex w-full flex-col gap-[12px] select-none">
       {items.map((project) => {
-        const icon = project.iconSrc
-          ? {
-              src: project.iconSrc,
-              unoptimized: project.iconSrc.toLowerCase().endsWith(".svg"),
-              mode: "image" as const,
-              brandColor: "border-white/5 group-hover:border-white/20"
-            }
-          : (() => {
-              const fallback = getProjectIcon(project.iconType);
-              return fallback
-                ? { ...fallback, mode: "type" as const }
-                : { src: "/assets/figma/fa31985a49294e7b673be5246eee89a1fc086d90.png", unoptimized: false, mode: "type" as const, brandColor: "border-white/5" };
-            })();
+        const iconConfig = getProjectIcon(project.iconType);
 
         return (
           <motion.div
@@ -96,20 +104,12 @@ export default function ProjectList({ items }: ProjectListProps) {
               {/* Dynamic brand-highlight active ring icon container */}
               <span
                 aria-hidden="true"
-                className={`relative size-[34px] shrink-0 overflow-hidden rounded-full border bg-white/5 flex items-center justify-center transition-all duration-300 ${icon.brandColor}`}
+                className={`relative size-[34px] shrink-0 overflow-hidden rounded-full border bg-white/5 flex items-center justify-center transition-all duration-300 ${iconConfig.brandColor}`}
               >
-                <Image
-                  alt=""
-                  aria-hidden="true"
-                  src={icon.src}
-                  width={24}
-                  height={24}
-                  unoptimized={icon.unoptimized}
-                  className={
-                    icon.mode === "type" && icon.unoptimized
-                      ? "size-[18px] grayscale group-hover:grayscale-0 transition duration-300 ease-out group-hover:scale-105"
-                      : "size-full object-cover grayscale group-hover:grayscale-0 transition duration-300 ease-out group-hover:scale-105"
-                  }
+                <iconConfig.Icon
+                  size={16}
+                  strokeWidth={2}
+                  className={`size-[16px] transition-all duration-300 stroke-current ${iconConfig.activeColor}`}
                 />
               </span>
 
@@ -131,14 +131,9 @@ export default function ProjectList({ items }: ProjectListProps) {
               transition={{ duration: 0.6, delay: 0.02, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 flex size-[24px] shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-300"
             >
-              <Image
-                alt=""
-                aria-hidden="true"
-                src="/assets/figma/0e4f8b666592bdac4c1370729cc9515d040ce092.svg"
-                width={10}
-                height={10}
-                unoptimized
-                className="size-[10px] invert opacity-80"
+              <ArrowUpRight
+                size={12}
+                className="size-[12px] text-white/80 group-hover:text-white transition-colors duration-300"
               />
             </motion.a>
           </motion.div>
