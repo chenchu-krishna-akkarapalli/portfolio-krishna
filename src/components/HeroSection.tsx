@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 // Day-specific styling configurations
 const DAY_THEMES: Record<string, { label: string; text: string; glow: string }> = {
@@ -19,6 +21,7 @@ const DAY_THEMES: Record<string, { label: string; text: string; glow: string }> 
 export default function HeroSection() {
   const [day, setDay] = useState("day");
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -28,7 +31,7 @@ export default function HeroSection() {
   const activeTheme = DAY_THEMES[day] || { label: "day", text: "text-text-secondary", glow: "shadow-black" };
 
   return (
-    <section className="flex w-full flex-col gap-[20px] relative select-none">
+    <section id="home" className="flex w-full flex-col gap-[20px] relative select-none">
       
       {/* High-fidelity profile avatar block with double rotating CAD dials */}
       <div 
@@ -64,9 +67,9 @@ export default function HeroSection() {
         <div className="relative size-[80px] sm:size-[96px] overflow-hidden rounded-full border border-white/10 bg-black/60 shadow-[0_4px_24px_rgba(0,0,0,0.4)] z-10 transition-all duration-300 group-hover:border-white/20">
           <motion.div
             initial={{ filter: "grayscale(100%)" }}
-            whileInView={{ filter: "grayscale(0%)" }}
-            whileHover={{ filter: "grayscale(0%)" }}
-            viewport={{ once: false, margin: "-10% 0px" }}
+            whileInView={isMobile ? { filter: "grayscale(0%)" } : undefined}
+            whileHover={!isMobile ? { filter: "grayscale(0%)" } : undefined}
+            viewport={isMobile ? { once: false, margin: "-10% 0px" } : undefined}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="size-full"
           >

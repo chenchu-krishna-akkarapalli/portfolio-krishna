@@ -9,12 +9,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef } from "react";
 import { FileDown, Terminal, Cpu, HardDrive, ArrowUpRight } from "lucide-react";
 import { playDownloadSound } from "@/utils/sounds";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "#";
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
+    <SmoothScroll>
+      <div className="min-h-screen w-full overflow-x-hidden bg-black text-white">
       {/* Futuristic Telemetry Navigation Header (Mobile View Only) */}
       <header className="fixed top-[16px] left-[16px] right-[16px] z-50 flex h-[56px] w-[calc(100%-32px)] items-center justify-between rounded-full border border-cyan-500/10 bg-bg-secondary/40 backdrop-blur-lg px-[16px] shadow-[0_12px_40px_rgba(0,0,0,0.65),0_0_20px_rgba(6,182,212,0.04)] select-none overflow-hidden transition-all duration-300 lg:hidden">
         
@@ -56,7 +58,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         </a>
       </header>
 
-      <main className="relative w-full max-w-full px-[20px] pt-[88px] pb-[100px] lg:pl-[130px] lg:pr-[204px] lg:pb-[64px] lg:pt-[100px]">
+      <main className="relative w-full max-w-full px-[20px] pt-[152px] pb-[100px] lg:pl-[130px] lg:pr-[204px] lg:pb-[64px] lg:pt-[100px]">
         <WavingHandLink href={LINKEDIN_URL} ariaLabel="Open LinkedIn profile" className="hidden lg:flex" />
         <BottomFadeBlurOverlay />
 
@@ -74,6 +76,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
         <Footer />
       </main>
     </div>
+    </SmoothScroll>
   );
 }
 

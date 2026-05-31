@@ -3,6 +3,8 @@
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 export type SpotlightCardItem = {
   title: string;
@@ -46,6 +48,8 @@ const viewButtonVariants: Variants = {
 };
 
 export default function SpotlightCards({ items }: SpotlightCardsProps) {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex flex-col gap-[16px] select-none w-full">
       {items.map((item) => (
@@ -73,9 +77,9 @@ export default function SpotlightCards({ items }: SpotlightCardsProps) {
               <div className="relative size-[32px] shrink-0 overflow-hidden rounded-full border border-white/5 bg-white/5 group-hover:border-white/10 group-hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
                 <motion.div
                   initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-                  whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-                  whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-                  viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                  whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                  whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                  viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                   transition={{ duration: 0.45, ease: "easeOut" }}
                   className="relative flex items-center justify-center size-full"
                 >

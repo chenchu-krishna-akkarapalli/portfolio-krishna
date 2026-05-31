@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 type BentoBaseItem = {
   badgeText: string;
@@ -50,6 +52,8 @@ const itemVariants = {
 };
 
 export default function WorkBentoGrid({ items }: WorkBentoGridProps) {
+  const isMobile = useIsMobile();
+
   return (
     <motion.div 
       variants={gridContainerVariants}
@@ -71,9 +75,9 @@ export default function WorkBentoGrid({ items }: WorkBentoGridProps) {
             {item.type === "image" ? (
               <motion.div
                 initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-                whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-                whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-                viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="absolute inset-0 h-full w-full"
               >

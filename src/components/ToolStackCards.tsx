@@ -4,6 +4,8 @@ import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 export type ToolStackCardItem = {
   label: string;
@@ -57,6 +59,7 @@ export default function ToolStackCards({
   forceMonochromeIcons = false,
 }: ToolStackCardsProps) {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <div className="flex flex-col gap-[11px] select-none w-full">
@@ -106,9 +109,9 @@ export default function ToolStackCards({
                   <motion.span
                     aria-hidden="true"
                     initial={{ filter: initialFilter, opacity: 0.8 }}
-                    whileInView={{ filter: activeFilter, opacity: 1 }}
-                    whileHover={{ filter: activeFilter, opacity: 1 }}
-                    viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                    whileInView={isMobile ? { filter: activeFilter, opacity: 1 } : undefined}
+                    whileHover={!isMobile ? { filter: activeFilter, opacity: 1 } : undefined}
+                    viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                     transition={{ duration: 0.45, ease: "easeOut" }}
                     className="relative block size-[20px] sm:size-[24px]"
                   >

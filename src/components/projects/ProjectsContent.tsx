@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight, Cpu, Compass, Layout, ExternalLink } from "lucide-react";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 type ProjectsData = typeof projectsData;
 type ProjectItem = ProjectsData["items"][number] & { category?: string; liveUrl?: string };
@@ -114,6 +116,8 @@ const buttonVariants: Variants = {
 export default function ProjectsContent() {
   const data: ProjectsData = projectsData;
   const [activeTab, setActiveTab] = useState<"all" | "uiux" | "saas">("all");
+  const isMobile = useIsMobile();
+
 
   const filteredItems = (data.items as ProjectItem[]).filter((item) => {
     if (activeTab === "all") return true;
@@ -194,6 +198,8 @@ function ProjectCard({ item }: { item: ProjectItem }) {
   const [isIframeLoading, setIsIframeLoading] = useState(true);
   const [isInteracting, setIsInteracting] = useState(false);
   const isEmbeddable = item.liveUrl && !["tarun-cma", "sturdy-studio", "showoff-salon"].includes(item.slug);
+  const isMobile = useIsMobile();
+
 
   return (
     <motion.div
@@ -293,9 +299,9 @@ function ProjectCard({ item }: { item: ProjectItem }) {
                 >
                   <motion.div
                     initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-                    whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-                    whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-                    viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                    whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                    whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                    viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                     transition={{ duration: 0.45, ease: "easeOut" }}
                     className="h-full w-full relative"
                   >
@@ -313,9 +319,9 @@ function ProjectCard({ item }: { item: ProjectItem }) {
               <div className="h-full w-full relative">
                 <motion.div
                   initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-                  whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-                  whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-                  viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                  whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                  whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                  viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                   transition={{ duration: 0.45, ease: "easeOut" }}
                   className="h-full w-full relative"
                 >

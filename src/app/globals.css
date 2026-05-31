@@ -85,3 +85,26 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+/* --- Lenis Smooth Scrolling Global Overrides --- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* De-activate frame cursor hover tracking during scrolling inertia sweeps to prevent scroll traps */
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+

@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 import aboutData from "@/data/about.json";
 import Image from "next/image";
+import { useIsMobile } from "@/utils/useIsMobile";
+
 
 type AboutData = typeof aboutData;
 
@@ -14,6 +16,8 @@ type BodyNode =
 
 export default function AboutContent() {
   const data: AboutData = aboutData;
+  const isMobile = useIsMobile();
+
 
   return (
     <div className="mx-auto flex w-full max-w-[580px] flex-col gap-[36px] sm:gap-[64px] pb-[80px] pt-4 select-none">
@@ -55,9 +59,9 @@ export default function AboutContent() {
         <div className="group relative aspect-[577/306] w-full overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
           <motion.div
             initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-            whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-            whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-            viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+            whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+            whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+            viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="size-full"
           >
@@ -94,9 +98,9 @@ export default function AboutContent() {
             >
               <motion.div
                 initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
-                whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-                whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-                viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+                viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="absolute inset-0 size-full"
               >
@@ -176,6 +180,8 @@ function JourneyBlock({
   rightImageFile: string;
   body: BodyNode[];
 }) {
+  const isMobile = useIsMobile();
+
   return (
     <section className="flex w-full flex-col gap-[14px] select-none">
       <div className="flex w-full flex-col gap-0.5">
@@ -195,9 +201,9 @@ function JourneyBlock({
           >
             <motion.div
               initial={{ filter: "grayscale(100%)", opacity: 0.85 }}
-              whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
-              whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
-              viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+              whileInView={isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+              whileHover={!isMobile ? { filter: "grayscale(0%)", opacity: 1 } : undefined}
+              viewport={isMobile ? { once: false, margin: "-15% 0px -15% 0px" } : undefined}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="size-full"
             >

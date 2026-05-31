@@ -27,7 +27,7 @@ type SidebarNavItem = {
 };
 
 const navItems: SidebarNavItem[] = [
-  { label: "Home", href: "/#home", Icon: Home },
+  { label: "Home", href: "/", Icon: Home },
   { label: "About", href: "/about", Icon: User },
   { label: "Projects", href: "/projects", Icon: Notebook },
   { label: "Toolstack", href: "/toolstack", Icon: Layers },
@@ -40,7 +40,7 @@ const navItems: SidebarNavItem[] = [
 
 // Mobile Bottombar Primary Items (5 items max)
 const mobileBottomBarItems = [
-  { label: "Home", href: "/#home", Icon: Home, type: "link" as const },
+  { label: "Home", href: "/", Icon: Home, type: "link" as const },
   { label: "About", href: "/about", Icon: User, type: "link" as const },
   { label: "Projects", href: "/projects", Icon: Notebook, type: "link" as const },
   { label: "Toolstack", href: "/toolstack", Icon: Layers, type: "link" as const },
@@ -220,7 +220,7 @@ function MiniAlcubierreCore({ isExpanded, trigger }: { isExpanded: boolean; trig
 
 export function SidebarNav() {
   const pathname = usePathname();
-  const [activeHref, setActiveHref] = useState("/#home");
+  const [activeHref, setActiveHref] = useState("/");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   
   // Anti-gravity Core transition and Particle Stream trigger states
@@ -235,7 +235,7 @@ export function SidebarNav() {
   useEffect(() => {
     const updateFromLocation = () => {
       const path = window.location.pathname;
-      let detectedHref = "/#home";
+      let detectedHref = "/";
       
       if (path === "/about") {
         detectedHref = "/about";
@@ -254,8 +254,8 @@ export function SidebarNav() {
       } else if (path === "/work") {
         detectedHref = "/work";
       } else {
-        const hash = window.location.hash || "#home";
-        detectedHref = `/${hash}`;
+        const hash = window.location.hash || "";
+        detectedHref = hash ? `/${hash}` : "/";
       }
       
       setActiveHref(detectedHref);
@@ -283,6 +283,10 @@ export function SidebarNav() {
   const handleLinkClick = (href: string, index: number) => {
     // Play synthesis glass click sound
     playClickSound();
+
+    if (href === "/#home" || href === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     setActiveHref(href);
     setPulseStartIdx(index);
