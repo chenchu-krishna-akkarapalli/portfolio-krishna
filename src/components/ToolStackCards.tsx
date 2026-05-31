@@ -67,6 +67,13 @@ export default function ToolStackCards({
             const brand = TOOL_BRAND_COLORS[normalized] || { color: "rgba(255,255,255,0.12)", glow: "rgba(255,255,255,0.02)" };
             const isHovered = hoveredCard === label;
 
+            const initialFilter = forceMonochromeIcons
+              ? "invert(100%) grayscale(100%) contrast(125%)"
+              : "grayscale(100%)";
+            const activeFilter = forceMonochromeIcons
+              ? "invert(0%) grayscale(0%) contrast(100%)"
+              : "grayscale(0%)";
+
             return (
               <motion.div
                 key={label}
@@ -96,7 +103,15 @@ export default function ToolStackCards({
 
                 {/* Brand icon frame slot with dynamic glow background */}
                 <div className="absolute left-[10px] sm:left-[16px] top-[10px] sm:top-[15px] z-10 flex size-[32px] sm:size-[39px] items-center justify-center rounded-full bg-white/5 border border-white/5 group-hover:border-white/10 transition-all duration-300">
-                  <span aria-hidden="true" className="relative block size-[20px] sm:size-[24px]">
+                  <motion.span
+                    aria-hidden="true"
+                    initial={{ filter: initialFilter, opacity: 0.8 }}
+                    whileInView={{ filter: activeFilter, opacity: 1 }}
+                    whileHover={{ filter: activeFilter, opacity: 1 }}
+                    viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    className="relative block size-[20px] sm:size-[24px]"
+                  >
                     {icon.map((file) => (
                       <Image
                         key={file}
@@ -106,14 +121,10 @@ export default function ToolStackCards({
                         width={40}
                         height={40}
                         unoptimized={file.endsWith(".svg")}
-                        className={
-                          forceMonochromeIcons
-                            ? "absolute inset-0 block h-full w-full object-contain filter invert grayscale contrast-125 transition duration-300 ease-out group-hover:invert-0 group-hover:grayscale-0 group-hover:contrast-100"
-                            : "absolute inset-0 block h-full w-full object-contain grayscale transition duration-300 ease-out group-hover:grayscale-0 group-hover:scale-105"
-                        }
+                        className="absolute inset-0 block h-full w-full object-contain group-hover:scale-105 transition-transform duration-300 ease-out"
                       />
                     ))}
-                  </span>
+                  </motion.span>
                 </div>
 
                 <p className="absolute left-[50px] sm:left-[64px] top-[19px] sm:top-[25px] z-10 text-[13px] sm:text-[15px] font-bold leading-normal text-gray-300 group-hover:text-white transition-colors duration-300 truncate max-w-[calc(100%-54px)] sm:max-w-[calc(100%-100px)]">

@@ -46,30 +46,38 @@ export default function BlogContent() {
         </p>
       </motion.section>
 
-      {/* Dynamic horizontal scrollable category tabs switcher */}
-      <div className="relative flex w-full overflow-x-auto scrollbar-none gap-1 border-b border-white/5 pb-3.5 mt-6 z-10">
-        {uniqueCategories.map((cat) => {
-          const isActive = cat === activeCategory;
-          return (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`relative px-3 py-1.5 text-xs font-mono tracking-wide rounded-md border shrink-0 transition-all duration-300 ${
-                isActive 
-                  ? "bg-white/5 border-white/10 text-white font-medium shadow-md" 
-                  : "border-transparent text-gray-500 hover:text-gray-300"
-              }`}
-            >
-              {isActive && (
-                <motion.div
-                  layoutId="blogCategoryGlow"
-                  className="absolute inset-x-0 bottom-0 h-[2px] bg-white"
-                />
-              )}
-              {cat}
-            </button>
-          );
-        })}
+      {/* Redesigned 2-row left-aligned category selector */}
+      <div className="relative flex w-full flex-col gap-2 border-b border-white/5 pb-5 mt-6 z-10 select-none">
+        {[
+          uniqueCategories.slice(0, 4), // Row 1: All, HR - OCR, HRMS, Insurance
+          uniqueCategories.slice(4)     // Row 2: Blog, Civil + CAD, Corporate Website
+        ].map((rowItems, rowIdx) => (
+          <div key={rowIdx} className="flex flex-wrap gap-2 justify-start items-center">
+            {rowItems.map((cat) => {
+              const isActive = cat === activeCategory;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`relative px-3 py-1.5 text-[11px] font-mono tracking-wide rounded-md border shrink-0 transition-all duration-300 flex items-center justify-center ${
+                    isActive 
+                      ? "border-cyan-500/25 text-cyan-400 font-semibold shadow-[0_0_15px_rgba(6,182,212,0.03)]" 
+                      : "border-white/5 text-gray-500 hover:text-gray-300 hover:border-white/10"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="blogCategoryGlow"
+                      className="absolute inset-0 bg-cyan-500/5 rounded-md z-0"
+                      transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                    />
+                  )}
+                  <span className="relative z-10">{cat}</span>
+                </button>
+              );
+            })}
+          </div>
+        ))}
       </div>
 
       {/* Interactive Blog Cards List with transition animations */}

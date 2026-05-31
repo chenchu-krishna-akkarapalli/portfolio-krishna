@@ -69,15 +69,24 @@ export default function WorkBentoGrid({ items }: WorkBentoGridProps) {
             style={{ borderColor: "rgba(255,255,255,0.04)" }}
           >
             {item.type === "image" ? (
-              <Image
-                alt=""
-                aria-hidden
-                src={item.src}
-                fill
-                sizes={layout.sizes}
-                unoptimized={item.src.endsWith(".svg")}
-                className="object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
+              <motion.div
+                initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
+                whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
+                whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
+                viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="absolute inset-0 h-full w-full"
+              >
+                <Image
+                  alt=""
+                  aria-hidden
+                  src={item.src}
+                  fill
+                  sizes={layout.sizes}
+                  unoptimized={item.src.endsWith(".svg")}
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              </motion.div>
             ) : (
               <video
                 className="absolute inset-0 h-full w-full object-cover filter brightness-[0.8] saturate-[0.9] group-hover:brightness-[0.95] group-hover:saturate-[1.05] transition-all duration-500"

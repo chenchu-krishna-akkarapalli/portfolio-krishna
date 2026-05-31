@@ -53,14 +53,23 @@ export default function AboutContent() {
       <section className="flex w-full flex-col gap-[12px] sm:gap-[15px]">
         {/* Main large collage card */}
         <div className="group relative aspect-[577/306] w-full overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
-          <Image
-            alt=""
-            src={data.collage.heroImage.src}
-            width={data.collage.heroImage.width}
-            height={data.collage.heroImage.height}
-            className="h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-103 transition-all duration-700 ease-out"
-            priority
-          />
+          <motion.div
+            initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
+            whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
+            whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
+            viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="size-full"
+          >
+            <Image
+              alt=""
+              src={data.collage.heroImage.src}
+              width={data.collage.heroImage.width}
+              height={data.collage.heroImage.height}
+              className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+              priority
+            />
+          </motion.div>
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
@@ -83,13 +92,22 @@ export default function AboutContent() {
               className="group relative aspect-[182/187] flex-1 overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer"
               style={{ borderColor: "rgba(255,255,255,0.04)" }}
             >
-              <Image
-                alt=""
-                src={thumb.src}
-                width={thumb.width}
-                height={thumb.height}
-                className="absolute inset-0 h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-              />
+              <motion.div
+                initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
+                whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
+                whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
+                viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="absolute inset-0 size-full"
+              >
+                <Image
+                  alt=""
+                  src={thumb.src}
+                  width={thumb.width}
+                  height={thumb.height}
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
             </div>
           ))}
@@ -175,13 +193,22 @@ function JourneyBlock({
             className="group relative aspect-[283/196] flex-1 overflow-hidden rounded-[16px] sm:rounded-medium border bg-[#05070a]/40 transform-gpu will-change-transform cursor-pointer"
             style={{ borderColor: "rgba(255,255,255,0.04)" }}
           >
-            <Image
-              alt=""
-              src={file.startsWith("/") ? file : `/assets/figma/${file}`}
-              width={283}
-              height={196}
-              className="h-full w-full object-cover grayscale opacity-85 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-103 transition-all duration-700 ease-out"
-            />
+            <motion.div
+              initial={{ filter: "grayscale(100%)", opacity: 0.85 }}
+              whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
+              whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
+              viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="size-full"
+            >
+              <Image
+                alt=""
+                src={file.startsWith("/") ? file : `/assets/figma/${file}`}
+                width={283}
+                height={196}
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-103"
+              />
+            </motion.div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_0%,transparent_100%)] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500" />
           </div>
         ))}

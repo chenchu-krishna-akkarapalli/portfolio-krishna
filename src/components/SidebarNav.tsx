@@ -18,6 +18,7 @@ import {
   X,
   LucideIcon
 } from "lucide-react";
+import { playClickSound } from "@/utils/sounds";
 
 type SidebarNavItem = {
   label: string;
@@ -86,6 +87,8 @@ function CornerBrackets({ isActive, isHovered }: { isActive: boolean; isHovered:
     </AnimatePresence>
   );
 }
+
+
 
 // Mini Alcubierre Resonance Holographic Core
 function MiniAlcubierreCore({ isExpanded, trigger }: { isExpanded: boolean; trigger: number }) {
@@ -278,6 +281,9 @@ export function SidebarNav() {
   }, [pathname]);
 
   const handleLinkClick = (href: string, index: number) => {
+    // Play synthesis glass click sound
+    playClickSound();
+
     setActiveHref(href);
     setPulseStartIdx(index);
     setPulseTrigger(prev => prev + 1);
@@ -334,6 +340,8 @@ export function SidebarNav() {
 
           {/* Mini Alcubierre Resonance Cockpit Engine */}
           <MiniAlcubierreCore isExpanded={isExpanded} trigger={transitionTrigger} />
+
+
 
           <nav aria-label="Primary" className="relative flex flex-col gap-1 w-full z-10">
             {/* The Particle Conduit Stream track */}
@@ -500,7 +508,10 @@ export function SidebarNav() {
               return (
                 <button
                   key={item.label}
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  onClick={() => {
+                    playClickSound();
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                  }}
                   className={`
                     relative flex h-[38px] w-[46px] items-center justify-center rounded-full transition-all duration-200 focus:outline-none overflow-visible cursor-pointer
                     ${isActive ? "text-cyan-400" : "text-text-tertiary hover:text-white"}

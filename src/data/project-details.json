@@ -1,8 +1,293 @@
 {
   "projects": [
     {
+      "slug": "goyaz-jewellery",
+      "headerLabel": "UI/UX Case Study",
+      "liveUrl": "https://goyaz.vercel.app/",
+      "meta": [
+        "Figma UX",
+        "Next.js 16",
+        "E-Commerce"
+      ],
+      "title": "Goyaz Jewellery — Premium Story-Led Silver Jewellery Commerce",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/goyaz-jewellery-hero.png",
+        "alt": "Goyaz Jewellery mockup"
+      },
+      "overview": {
+        "paragraph": "Designed and prototyped an evidence-based conversion strategy for a premium silver jewellery retailer, closing the gap between editorial brand storytelling and shoppable commerce transactions.",
+        "bullets": [
+          "Audited Homepage campaigns, collections explorer, filter drawers, search overlays, and PDP interaction points.",
+          "Replaced non-functional placeholder CTAs with real, context-aware routed destinations.",
+          "Tuned cinematic overlay unmount timing from 1500ms down to a standard 250ms for low-latency feedback.",
+          "Designed trust-building PDP specs: clear silver purity, material details, delivery SLAs, and certification proof.",
+          "Structured design-system guidelines for focus-visible styles, mobile-first tap targets, and semantic links.",
+          "Created a comprehensive research plan focusing on bridal, gifting, and returning customer personas."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/goyaz-jewellery-hero.png",
+        "alt": "Goyaz collections dashboard mockup"
+      },
+      "flow": {
+        "steps": [
+          "IA Audit → Map category structures and identify dead-end paths",
+          "User Research → Frame bridal, gifting, and returning segments",
+          "Friction Reduction → Standardize overlay unmount delays and CTAs",
+          "Trust Layer → Add decision-grade material and certification details to PDP",
+          "Token Governance → Align globals.css colors with interactive components",
+          "Analytics → Instrument search, filtering, and add-to-cart metrics"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/goyaz-jewellery-hero.png",
+        "alt": "Goyaz Jewellery full preview"
+      },
+      "tools": [
+        "Design: Figma Workspace",
+        "Framework: Next.js 16 & React 19",
+        "Styling: Tailwind CSS v4",
+        "Telemetry: Custom Event Taxonomy Spec",
+        "Audit: Lighthouse Core Web Vitals"
+      ],
+      "impact": [
+        "Removed 100% of dead-end links and placeholder navigation paths.",
+        "Lowered interface latency down to the Doherty Threshold (< 400ms perceived delay).",
+        "Established a conversion-ready, robust design system framework."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "sturdy-studio",
+      "headerLabel": "UI/UX Case Study",
+      "liveUrl": "https://www.sturdystudio.in",
+      "meta": [
+        "Dual-Brand Design",
+        "React + Zustand",
+        "Vite"
+      ],
+      "title": "Sturdy Studio — Avant-Garde Dual-Brand Fashion E-Commerce",
+      "laptop": {
+        "svgSrc": "/assets/projects/sturdystudio/hero-section.png",
+        "alt": "Sturdy Studio mockup"
+      },
+      "overview": {
+        "paragraph": "Engineered the UI/UX architecture and brand state mapping for a premium dual-brand fashion platform, enabling low-latency transitions between distinct shopping spaces.",
+        "bullets": [
+          "Designed a smart brand-switching toggle that maps brand states (Fashion vs. Collections) via CSS variables.",
+          "Refactored the image preloading and deferred visual assets to prevent above-the-fold media drag.",
+          "Replaced raw hardcoded styles with centralized, robust semantic tokens inside design-tokens.css.",
+          "Resolved PDP sizing and fit uncertainties by introducing a progressive disclosure information stack.",
+          "Integrated Google OAuth layouts and Medusa e-commerce sales channel separation rules.",
+          "Built mobile-optimized grid drawers to replace heavy desktop mega-menus on touch interfaces."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/projects/sturdystudio/product-section.png",
+        "alt": "Fashion collections detail view"
+      },
+      "flow": {
+        "steps": [
+          "Brand Strategy → Establish distinct Fashion vs. Collections missions",
+          "Token Setup → Bind Zustand states to responsive HTML attributes",
+          "Performance Audit → Standardize LCP and INP budgets for visual pages",
+          "Card Design → Expose decision-relevant fit and stock info directly on cards",
+          "API Integration → Separate Medusa channel IDs and OAuth configurations",
+          "Mobile Tuning → Stack grids and implement touch-friendly filter drawers"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/projects/sturdystudio/full-height-screenshot.png",
+        "alt": "Sturdy Studio full preview"
+      },
+      "tools": [
+        "Brand Engine: Zustand Global State",
+        "Framework: React 19 & Vite",
+        "Styling: Radix UI primitives & Tailwind",
+        "Backend integration: Medusa Commerce API Client",
+        "Fonts: Google Fonts Integration"
+      ],
+      "impact": [
+        "Created a seamless, single-click brand-switching system with zero layout reflows.",
+        "Optimized Core Web Vitals targets: LCP < 2.5s and INP < 200ms on mobile.",
+        "Standardized 100% of e-commerce interaction states: loading, empty, and disabled."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "tarun-cma",
+      "headerLabel": "UI/UX Case Study",
+      "liveUrl": "https://www.taruncma.com/",
+      "meta": [
+        "Figma",
+        "Next.js",
+        "Lead Generation"
+      ],
+      "title": "Tarun CMA — Strategy-Led Corporate Services & Tax Platform",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/tarun-cma-hero.png",
+        "alt": "Tarun CMA homepage mockup"
+      },
+      "overview": {
+        "paragraph": "Developed a conversion-oriented, strategy-led web identity for a chartered accounting firm, simplifying tax and compliance services into high-credibility lead pipelines.",
+        "bullets": [
+          "Created a detailed information architecture translating dense tax filings into intuitive categories.",
+          "Designed trust-first layouts highlighting professional legacy, team profiles, and operational SLAs.",
+          "Structured service cards with explicit benefits, expected durations, and next-step actions.",
+          "Built responsive navigation structures supporting immediate contact channels.",
+          "Implemented accessible form layouts with inline error indicators and focus-visible indicators.",
+          "Defined Core Web Vitals targets to improve user confidence on slow devices."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/tarun-cma-hero.png",
+        "alt": "Service calculator preview"
+      },
+      "flow": {
+        "steps": [
+          "Heuristic Audit → Analyze service density and conversion drop-offs",
+          "UX Positioning → Define founder, NRI, and corporate visitor targets",
+          "Content Layout → Deconstruct legal terms into simple service cards",
+          "Form Optimization → Design progressive contact forms with validation",
+          "Verification → Implement WCAG AA contrast and tab accessibility",
+          "Analytics Setup → Model lead submissions and FAQ interactions"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/tarun-cma-hero.png",
+        "alt": "Tarun CMA website preview"
+      },
+      "tools": [
+        "Design: Figma Prototyping",
+        "Framework: Next.js & React",
+        "Styling: Tailwind CSS Grid System",
+        "Telemetry: Google Tag Manager Spec",
+        "Standards: WCAG 2.1 AA Accessibility"
+      ],
+      "impact": [
+        "Built a high-trust information architecture mapping 20+ advisory services.",
+        "Achieved 100% keyboard-navigable and screen-reader accessible forms.",
+        "Reduced decision friction by implementing clear client intake paths."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "mali-cma",
+      "headerLabel": "UI/UX Case Study",
+      "liveUrl": "https://cmamali.vercel.app/",
+      "meta": [
+        "Lighthouse Audit",
+        "Next.js",
+        "Web Vitals"
+      ],
+      "title": "Mallikarjuna CMA — Auditing, Advisory & Trust-Led Service Portal",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/mali-cma-hero.png",
+        "alt": "Mallikarjuna CMA mockup"
+      },
+      "overview": {
+        "paragraph": "Overhauled the performance UX and service discovery taxonomy for a major accounting firm portal, resolving critical layout instability and unused payload assets.",
+        "bullets": [
+          "Audited and resolved high Cumulative Layout Shift (CLS: 0.925 down to < 0.05) across long content layouts.",
+          "Restructured the broad service registry containing 38 services into 6 intuitive pathways.",
+          "Integrated Framer Motion staggered reveals and Lenis smooth scrolling with performance safety rules.",
+          "Redesigned the Meet the Experts trust section to pull dynamic credentials and geographic details.",
+          "Established a single source of truth for business contact details and hours across three files.",
+          "Engineered mobile-first responsive grids that prevent horizontal container overflows."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/mali-cma-hero.png",
+        "alt": "Compliance dashboard mockup"
+      },
+      "flow": {
+        "steps": [
+          "Diagnostics → Identify layout shifts and payload waste from Lighthouse logs",
+          "Taxonomy → Reorganize 38 services into 6 progressive service pillars",
+          "Refactoring → Implement size-reserved image boxes and layout stabilizers",
+          "Smooth Scroll → Harmonize Lenis scrolling speeds with dynamic motion",
+          "Mobile QA → Resolve responsive container clipping and tap target sizing",
+          "State Control → Design explicit skeletons, empty blocks, and active tags"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/mali-cma-hero.png",
+        "alt": "Mallikarjuna CMA website preview"
+      },
+      "tools": [
+        "Lighthouse Audit API",
+        "Next.js App Router & React 19",
+        "Tailwind CSS v4 & custom tokens",
+        "Framer Motion & Lenis Scroll",
+        "OptimizedImage Asset Pipeline"
+      ],
+      "impact": [
+        "Reduced Cumulative Layout Shift (CLS) from an unstable 0.925 down to a stable 0.04.",
+        "Optimized loading payloads, cutting initial JavaScript waste by over 1.8 MB.",
+        "Created a cohesive, fast service directory for international NRI clients."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
+      "slug": "showoff-salon",
+      "headerLabel": "UI/UX Case Study",
+      "liveUrl": "https://show-off-salon.vercel.app/",
+      "meta": [
+        "Figma UX",
+        "Booking Funnel",
+        "Next.js"
+      ],
+      "title": "Show Off Salon — Luxury Grooming & Booking Funnel Optimization",
+      "laptop": {
+        "svgSrc": "/assets/projects/show-off/hero-section.png",
+        "alt": "Show Off Salon mockup"
+      },
+      "overview": {
+        "paragraph": "Redesigned the digital conversion funnel for a high-end salon, unifying scheduling systems and correcting data mismatches to elevate client trust.",
+        "bullets": [
+          "Unified duplicate scheduling interfaces into a singular, cohesive multi-step booking funnel.",
+          "Prefilled specific service selections from catalog cards directly into the booking inputs.",
+          "Resolved business data conflicts (address, telephone, open slots) across five files.",
+          "Enhanced specialized hair-fixing and bridal visibility by integrating consultation assurance.",
+          "Implemented real-time input validation and robust inline error handling to ensure form validity.",
+          "Applied lazy-loaded dynamic imports below the fold to keep the premium visual catalog fast."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/projects/show-off/product-section.png",
+        "alt": "Booking steps preview"
+      },
+      "flow": {
+        "steps": [
+          "Audit → Map dual booking flows and search for business detail conflicts",
+          "Prefill Logic → Connect catalog links dynamically to the booking state",
+          "Funnel Unification → Build a robust, single-path 4-step wizard",
+          "Interaction Design → Animate step transitions and build error callouts",
+          "Performance → Group visual assets and lazy-load testimonials",
+          "Dashboard Spec → Design secure client history and rebooking widgets"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/projects/show-off/full-height-screenshot.png",
+        "alt": "Show Off Salon preview"
+      },
+      "tools": [
+        "Design: Figma Premium Mockups",
+        "Framework: Next.js App Router",
+        "State: Custom React Hooks & Contexts",
+        "Styling: Tailwind CSS luxury presets",
+        "Assets: Lazy-loaded next/dynamic components"
+      ],
+      "impact": [
+        "Unified 100% of scheduling endpoints, removing conflicting local booking simulations.",
+        "Secured business details consistency across all home, booking, and contact footers.",
+        "Enabled low-friction prefill logic matching 38 specific service catalog options."
+      ],
+      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+    },
+    {
       "slug": "ocr-handwritten-text-extraction",
-      "headerLabel": "Writings",
+      "headerLabel": "SaaS",
       "meta": [
         "HR - OCR",
         "Python",
@@ -66,7 +351,7 @@
     },
     {
       "slug": "multi-tenant-hr-product",
-      "headerLabel": "Projects",
+      "headerLabel": "SaaS",
       "meta": [
         "HRMS",
         "React + Node.js",
@@ -121,7 +406,7 @@
     },
     {
       "slug": "insurance-product",
-      "headerLabel": "Projects",
+      "headerLabel": "SaaS",
       "meta": [
         "Insurance",
         "Next.js + NextAuth",
@@ -178,7 +463,7 @@
     },
     {
       "slug": "blog-publishing-platform",
-      "headerLabel": "Projects",
+      "headerLabel": "SaaS",
       "meta": [
         "Blog",
         "Next.js + Prisma",
@@ -237,7 +522,7 @@
     },
     {
       "slug": "civil-dept-product-cad",
-      "headerLabel": "Projects",
+      "headerLabel": "SaaS",
       "meta": [
         "Civil + CAD",
         "React + Three.js",
@@ -294,7 +579,7 @@
     },
     {
       "slug": "cma-firm-website-strategy-led-ui",
-      "headerLabel": "Projects",
+      "headerLabel": "SaaS",
       "meta": [
         "Corporate Website",
         "Next.js + Figma",

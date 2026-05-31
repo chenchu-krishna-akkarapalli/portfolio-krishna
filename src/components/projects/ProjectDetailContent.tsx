@@ -1,18 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { PrevButton } from "@/components/NavigationButtons";
 import { motion, useScroll } from "framer-motion";
 import type { ReactNode } from "react";
 import { ZoomableImage } from "@/components/projects/ZoomableImage";
 import { ProjectLargeVideo } from "@/components/projects/ProjectLargeVideo";
+import { Compass } from "lucide-react";
 
 export type ProjectDetail = {
   slug: string;
   headerLabel: string;
   meta: string[];
   title: string;
+  liveUrl?: string;
   laptop: {
     svgSrc: string;
     alt: string;
@@ -119,6 +121,9 @@ export function ProjectDetailContent({
 }) {
   const { scrollYProgress } = useScroll();
   const theme = SLUG_PALETTES[project.slug] || { primary: "#ffffff", glow: "rgba(255,255,255,0.1)", text: "text-white", bg: "bg-white/10" };
+  const [isIframeLoading, setIsIframeLoading] = useState(true);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const isEmbeddable = project.liveUrl && !["tarun-cma", "sturdy-studio", "showoff-salon"].includes(project.slug);
 
   return (
     <div className="relative flex flex-col w-full max-w-[580px] mx-auto pb-20 pt-4 font-sans select-none">
@@ -180,9 +185,86 @@ export function ProjectDetailContent({
             {project.title}
           </h2>
 
-          {/* MOCKUP SLOT 1: LAPTOP SCREEN MOCK */}
-          <div className="relative w-full rounded-xl overflow-hidden border border-white/5 bg-[#030508]">
-            <Laptop {...project.laptop} />
+          {/* MOCKUP SLOT 1: LAPTOP SCREEN MOCK / LIVE IFRAME VIEWPORT */}
+          <div className="relative w-full aspect-[497/273] rounded-xl overflow-hidden border border-white/5 bg-[#030508]">
+            {project.liveUrl ? (
+              isEmbeddable ? (
+                <div className="relative h-full w-full overflow-hidden">
+                  {/* Glowing Skeleton Loader */}
+                  {isIframeLoading && (
+                    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#030508] p-3 text-center">
+                      <div className="w-5 h-5 rounded-full border-2 border-cyan-400 border-t-transparent animate-spin mb-2" />
+                      <span className="text-[8px] font-mono text-cyan-400/80 animate-pulse uppercase tracking-wider">
+                        PROBING LIVE SITE...
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Iframe with retina preview effect */}
+                  <iframe
+                    src={project.liveUrl}
+                    title={`${project.title} live viewport`}
+                    onLoad={() => setIsIframeLoading(false)}
+                    className={`absolute inset-0 w-[200%] h-[200%] scale-[0.5] origin-top-left border-0 transition-all duration-500 bg-black/95 ${
+                      isInteracting ? "pointer-events-auto" : "pointer-events-none select-none"
+                    } ${isIframeLoading ? "opacity-0" : "opacity-95"}`}
+                    loading="lazy"
+                  />
+
+                  {/* Click to Interact Overlay */}
+                  {!isIframeLoading && !isInteracting && (
+                    <div
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsInteracting(true);
+                      }}
+                      className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/50 hover:bg-black/30 backdrop-blur-[0.5px] transition-all duration-300 cursor-pointer select-none"
+                    >
+                      <div className="px-3 py-1.5 rounded border border-white/10 bg-black/95 text-[10px] font-mono text-cyan-400 font-semibold tracking-wider flex items-center gap-1.5 shadow-lg transform hover:scale-105 transition duration-300">
+                        <Compass size={10} className="animate-spin-slow text-cyan-400" />
+                        <span>CLICK TO INTERACT LIVE</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Interactive Mode Exit Action */}
+                  {isInteracting && (
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setIsInteracting(false);
+                      }}
+                      className="absolute bottom-3 right-3 z-30 px-2 py-1 rounded border border-red-500/20 bg-black/90 text-[9px] font-mono text-red-400 hover:bg-red-500/10 hover:border-red-500/40 transition-all shadow-md"
+                    >
+                      EXIT INTERACTION
+                    </button>
+                  )}
+
+                  {/* Live Badge HUD */}
+                  {!isIframeLoading && !isInteracting && (
+                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1 bg-black/80 border border-white/5 rounded-full px-2 py-0.5 text-[8px] font-mono text-emerald-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
+                      <span>LIVE DEMO</span>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* Clickable live link image fallback */
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative h-full w-full block overflow-hidden group/frame cursor-pointer"
+                  title="Click to visit live website"
+                >
+                  <Laptop {...project.laptop} />
+                </a>
+              )
+            ) : (
+              <Laptop {...project.laptop} />
+            )}
           </div>
 
           {/* Section 1: The Executive Overview */}
@@ -245,16 +327,29 @@ export function ProjectDetailContent({
             ) : project.largeVideo ? (
               <ProjectLargeVideo video={project.largeVideo} />
             ) : (
-              <div className="relative aspect-[496/313] w-full overflow-hidden">
+              project.largeImage.src.endsWith("full-height-screenshot.png") ? (
                 <ZoomableImage
                   src={project.largeImage.src}
                   alt={project.largeImage.alt}
-                  fill
-                  className="pointer-events-none select-none cursor-zoom-in"
-                  style={{ objectFit: "cover", objectPosition: "50% 50%" }}
-                  zoomContainerClassName="absolute inset-0 size-full w-full h-full"
+                  width={1345}
+                  height={project.slug === "showoff-salon" ? 8000 : 5000}
+                  unoptimized
+                  className="block h-auto w-full"
+                  zoomContainerClassName="w-full cursor-zoom-in overflow-hidden rounded-xl"
+                  modalVariant="fullWidthScroll"
                 />
-              </div>
+              ) : (
+                <div className="relative aspect-[496/313] w-full overflow-hidden">
+                  <ZoomableImage
+                    src={project.largeImage.src}
+                    alt={project.largeImage.alt}
+                    fill
+                    className="pointer-events-none select-none cursor-zoom-in"
+                    style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+                    zoomContainerClassName="absolute inset-0 size-full w-full h-full"
+                  />
+                </div>
+              )
             )}
           </div>
 

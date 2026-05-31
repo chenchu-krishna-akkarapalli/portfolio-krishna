@@ -71,14 +71,23 @@ export default function SpotlightCards({ items }: SpotlightCardsProps) {
           <div className="relative z-10 flex w-full items-center justify-between">
             <div className="flex items-center gap-[10px] max-w-[calc(100%-36px)]">
               <div className="relative size-[32px] shrink-0 overflow-hidden rounded-full border border-white/5 bg-white/5 group-hover:border-white/10 group-hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
-                <Image
-                  alt=""
-                  aria-hidden="true"
-                  src={`/assets/figma/${item.logoFile}`}
-                  width={24}
-                  height={24}
-                  className="size-[20px] object-contain grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
-                />
+                <motion.div
+                  initial={{ filter: "grayscale(100%)", opacity: 0.8 }}
+                  whileInView={{ filter: "grayscale(0%)", opacity: 1 }}
+                  whileHover={{ filter: "grayscale(0%)", opacity: 1 }}
+                  viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                  transition={{ duration: 0.45, ease: "easeOut" }}
+                  className="relative flex items-center justify-center size-full"
+                >
+                  <Image
+                    alt=""
+                    aria-hidden="true"
+                    src={`/assets/figma/${item.logoFile}`}
+                    width={20}
+                    height={20}
+                    className="size-[20px] object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </motion.div>
               </div>
               <p className="truncate text-[14.5px] sm:text-[15.5px] font-bold leading-normal text-white group-hover:text-white transition-colors duration-300">
                 {item.title}

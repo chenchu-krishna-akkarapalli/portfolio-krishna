@@ -62,14 +62,23 @@ export default function HeroSection() {
 
         {/* Profile Image container with soft glowing overlay */}
         <div className="relative size-[80px] sm:size-[96px] overflow-hidden rounded-full border border-white/10 bg-black/60 shadow-[0_4px_24px_rgba(0,0,0,0.4)] z-10 transition-all duration-300 group-hover:border-white/20">
-          <Image
-            alt="Krishna Avatar"
-            src="/assets/profile/iam3.svg"
-            width={96}
-            height={96}
-            className="size-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-            priority
-          />
+          <motion.div
+            initial={{ filter: "grayscale(100%)" }}
+            whileInView={{ filter: "grayscale(0%)" }}
+            whileHover={{ filter: "grayscale(0%)" }}
+            viewport={{ once: false, margin: "-10% 0px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="size-full"
+          >
+            <Image
+              alt="Krishna Avatar"
+              src="/assets/profile/iam3.svg"
+              width={96}
+              height={96}
+              className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+              priority
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
         </div>
 
