@@ -142,7 +142,7 @@ export function ProjectDetailContent({
             {project.headerLabel || "Projects"} / REPORT_DOC
           </span>
         </div>
-        <span className="text-[9px] font-mono text-gray-400 bg-white/5 px-2 py-0.5 rounded-sm border border-white/5 uppercase">
+        <span className="text-[9px] font-mono text-gray-400 bg-white/5 px-2 py-0.5 rounded-[2px] border border-white/5 uppercase">
           STABLE_RECON
         </span>
       </div>
@@ -221,7 +221,7 @@ export function ProjectDetailContent({
                       }}
                       className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/50 hover:bg-black/30 backdrop-blur-[0.5px] transition-all duration-300 cursor-pointer select-none"
                     >
-                      <div className="px-3 py-1.5 rounded border border-white/10 bg-black/95 text-[10px] font-mono text-cyan-400 font-semibold tracking-wider flex items-center gap-1.5 shadow-lg transform hover:scale-105 transition duration-300">
+                      <div className="px-3 py-1.5 rounded-[2px] border border-cyan-500/20 bg-black/95 text-[10px] font-mono text-cyan-400 font-semibold tracking-[0.08em] flex items-center gap-1.5 shadow-[0_0_8px_rgba(0,240,255,0.15)] hover:border-cyan-400 hover:bg-cyan-500/5 hover:shadow-[0_0_12px_rgba(0,240,255,0.3)] transition-all duration-300">
                         <Compass size={10} className="animate-spin-slow text-cyan-400" />
                         <span>CLICK TO INTERACT LIVE</span>
                       </div>
@@ -236,7 +236,7 @@ export function ProjectDetailContent({
                         e.stopPropagation();
                         setIsInteracting(false);
                       }}
-                      className="absolute bottom-3 right-3 z-30 px-2 py-1 rounded border border-red-500/20 bg-black/90 text-[9px] font-mono text-red-400 hover:bg-red-500/10 hover:border-red-500/40 transition-all shadow-md"
+                      className="absolute bottom-3 right-3 z-30 px-2 py-1 rounded-[2px] border border-red-500/30 bg-black/90 text-[9px] font-mono text-red-400 hover:bg-red-500/10 hover:border-red-500 hover:shadow-[0_0_10px_rgba(239,68,68,0.3)] transition-all duration-300 uppercase tracking-wider"
                     >
                       EXIT INTERACTION
                     </button>
@@ -244,7 +244,7 @@ export function ProjectDetailContent({
 
                   {/* Live Badge HUD */}
                   {!isIframeLoading && !isInteracting && (
-                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1 bg-black/80 border border-white/5 rounded-full px-2 py-0.5 text-[8px] font-mono text-emerald-400">
+                    <div className="absolute top-3 left-3 z-10 flex items-center gap-1 bg-black/80 border border-white/5 rounded-[2px] px-2 py-0.5 text-[8px] font-mono text-emerald-400">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
                       <span>LIVE DEMO</span>
                     </div>

@@ -1,6 +1,6 @@
 /**
- * Zero-dependency Web Audio API synthesizer for futuristic UI click sound effects.
- * Avoids loading heavy audio asset files by synthesizing audio nodes on-demand inside the browser.
+ * Zero-dependency Web Audio API synthesizer and high-performance HTML5 Audio player.
+ * Manages zero-latency chimes and dynamic user-interaction unlocking to satisfy modern browser security sandboxing rules.
  */
 
 let audioCtx: AudioContext | null = null;
@@ -15,6 +15,100 @@ function getAudioContext(): AudioContext | null {
     audioCtx.resume();
   }
   return audioCtx;
+}
+
+// Global cached Audio instances for zero-latency playback and direct user gesture unlocking
+let clickAudio: HTMLAudioElement | null = null;
+let hoverAudio: HTMLAudioElement | null = null;
+let skillMeterAudio: HTMLAudioElement | null = null;
+
+if (typeof window !== "undefined") {
+  clickAudio = new Audio("/audio/sidebar-select.wav");
+  clickAudio.volume = 0.5;
+  clickAudio.preload = "auto";
+
+  hoverAudio = new Audio("/audio/hover-expand-navbar.wav");
+  hoverAudio.volume = 0.7;
+  hoverAudio.preload = "auto";
+
+  skillMeterAudio = new Audio("/audio/skill-meter-buttons.wav");
+  skillMeterAudio.volume = 0.5;
+  skillMeterAudio.preload = "auto";
+}
+
+// Global browser user-interaction audio unlock listener.
+// Unlocks both the Web Audio API context and the HTML5 Audio instances on the very first user gesture anywhere on the screen.
+if (typeof window !== "undefined") {
+  const unlock = () => {
+    // 1. Resume Web Audio API context
+    const ctx = getAudioContext();
+    if (ctx && ctx.state === "suspended") {
+      ctx.resume().catch((err) => console.log("Failed to resume ctx:", err));
+    }
+    
+    // 2. Unlock HTML5 Audio playback by performing a silent play on our actual global instances.
+    // This allows subsequent hover sound events to trigger successfully.
+    let unlockCount = 0;
+    const checkListeners = () => {
+      unlockCount++;
+      if (unlockCount >= 3) {
+        window.removeEventListener("click", unlock);
+        window.removeEventListener("keydown", unlock);
+        window.removeEventListener("mousedown", unlock);
+        window.removeEventListener("touchstart", unlock);
+      }
+    };
+
+    if (clickAudio) {
+      const origVolume = clickAudio.volume;
+      clickAudio.volume = 0;
+      clickAudio.play()
+        .then(() => {
+          clickAudio!.pause();
+          clickAudio!.currentTime = 0;
+          clickAudio!.volume = origVolume;
+          checkListeners();
+        })
+        .catch((err) => {
+          console.log("clickAudio auto-unlock pending user interaction:", err);
+        });
+    }
+
+    if (hoverAudio) {
+      const origVolume = hoverAudio.volume;
+      hoverAudio.volume = 0;
+      hoverAudio.play()
+        .then(() => {
+          hoverAudio!.pause();
+          hoverAudio!.currentTime = 0;
+          hoverAudio!.volume = origVolume;
+          checkListeners();
+        })
+        .catch((err) => {
+          console.log("hoverAudio auto-unlock pending user interaction:", err);
+        });
+    }
+
+    if (skillMeterAudio) {
+      const origVolume = skillMeterAudio.volume;
+      skillMeterAudio.volume = 0;
+      skillMeterAudio.play()
+        .then(() => {
+          skillMeterAudio!.pause();
+          skillMeterAudio!.currentTime = 0;
+          skillMeterAudio!.volume = origVolume;
+          checkListeners();
+        })
+        .catch((err) => {
+          console.log("skillMeterAudio auto-unlock pending user interaction:", err);
+        });
+    }
+  };
+
+  window.addEventListener("click", unlock, { passive: true });
+  window.addEventListener("keydown", unlock, { passive: true });
+  window.addEventListener("mousedown", unlock, { passive: true });
+  window.addEventListener("touchstart", unlock, { passive: true });
 }
 
 /**
@@ -63,28 +157,34 @@ export function playDownloadSound() {
 }
 
 /**
- * Synthesizes a short, crisp, glassmorphic click tap sound for navigation selectors.
+ * Plays the crisp audio asset for sidebar items selection.
  */
 export function playClickSound() {
-  const ctx = getAudioContext();
-  if (!ctx) return;
+  if (!clickAudio) return;
+  clickAudio.currentTime = 0;
+  clickAudio.play().catch((err) => {
+    console.log("Audio play blocked or failed:", err);
+  });
+}
 
-  const now = ctx.currentTime;
+/**
+ * Plays the hover expand sound effect for the sidebar navigation.
+ */
+export function playNavbarExpandSound() {
+  if (!hoverAudio) return;
+  hoverAudio.currentTime = 0;
+  hoverAudio.play().catch((err) => {
+    console.log("Audio play blocked or failed:", err);
+  });
+}
 
-  const osc = ctx.createOscillator();
-  const gain = ctx.createGain();
-
-  osc.type = "sine";
-  osc.frequency.setValueAtTime(1200, now);
-  osc.frequency.exponentialRampToValueAtTime(750, now + 0.035); // quick downward drop for punch
-
-  gain.gain.setValueAtTime(0.001, now);
-  gain.gain.linearRampToValueAtTime(0.08, now + 0.003); // immediate trigger
-  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.075); // ultra-short decay for crisp clicks
-
-  osc.connect(gain);
-  gain.connect(ctx.destination);
-
-  osc.start(now);
-  osc.stop(now + 0.08);
+/**
+ * Plays the skill meter buttons click sound effect.
+ */
+export function playSkillMeterSound() {
+  if (!skillMeterAudio) return;
+  skillMeterAudio.currentTime = 0;
+  skillMeterAudio.play().catch((err) => {
+    console.log("Audio play blocked or failed:", err);
+  });
 }

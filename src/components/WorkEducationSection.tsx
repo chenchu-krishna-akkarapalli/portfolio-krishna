@@ -175,10 +175,10 @@ export default function WorkEducationSection({ items }: WorkEducationSectionProp
                   setDirection(idx > activeIndex ? 1 : -1);
                   setActiveIndex(idx);
                 }}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`h-[6px] rounded-[1px] transition-all duration-300 ${
                   idx === activeIndex 
-                    ? "w-4 bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]" 
-                    : "w-1.5 bg-white/15 hover:bg-white/30"
+                    ? "w-[18px] bg-cyan-400 shadow-[0_0_8px_rgba(0,240,255,0.6)]" 
+                    : "w-[6px] bg-white/15 border border-white/10 hover:bg-white/30 hover:border-white/20"
                 }`}
               />
             ))}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useIsMobile } from "@/utils/useIsMobile";
+import HoloButton from "@/components/HoloButton";
 
 
 // Day-specific styling configurations
@@ -119,33 +120,12 @@ export default function HeroSection() {
       </p>
 
       {/* Action button featuring dynamic shifting glare shine hover */}
-      <div className="mt-[8px] flex z-10">
-        <motion.div
-          whileHover={{ scale: 1.03, y: -2 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: "spring", stiffness: 400, damping: 15 }}
-          className="relative overflow-hidden rounded-medium group"
-        >
-          {/* Sliding glass sheen flash overlay */}
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-12 translate-x-[-150%] transition-transform duration-1000 ease-out group-hover:translate-x-[150%] pointer-events-none z-10" />
-          
-          <Link
-            href="/contact"
-            className="
-              inline-flex items-center justify-center
-              px-[32px] sm:px-[40px] py-[10px] sm:py-[12px]
-              rounded-medium
-              text-[14px] sm:text-[16px] font-bold text-white
-              bg-gradient-to-b from-[#141824] to-[#0a0d14]
-              border border-white/5 group-hover:border-white/15
-              shadow-[0_4px_16px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.08)]
-              transition-all duration-300
-              hover:shadow-[0_6px_24px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.15)]
-            "
-          >
-            Contact
-          </Link>
-        </motion.div>
+      <div className="mt-[12px] flex z-10">
+        <HoloButton 
+          label="Contact" 
+          href="/contact" 
+          accent="cyan" 
+        />
       </div>
     </section>
   );

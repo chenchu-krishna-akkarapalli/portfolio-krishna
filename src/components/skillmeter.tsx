@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { playSkillMeterSound } from "@/utils/sounds";
+
 
 // Types
 interface SkillMetaData {
@@ -621,7 +623,10 @@ export default function SkillDashboardPreview() {
           return (
             <button
               key={cat}
-              onClick={() => handleCategoryChange(cat)}
+              onClick={() => {
+                playSkillMeterSound();
+                handleCategoryChange(cat);
+              }}
               suppressHydrationWarning={true}
               className={`relative px-3 py-1.5 text-xs font-mono tracking-wide rounded-md border shrink-0 transition-all duration-300 ${
                 catActive 
@@ -752,7 +757,10 @@ export default function SkillDashboardPreview() {
               return (
                 <button
                   key={skill}
-                  onClick={() => setSelectedSkill(skill)}
+                  onClick={() => {
+                    playSkillMeterSound();
+                    setSelectedSkill(skill);
+                  }}
                   onMouseEnter={() => setIsHovered(skill)}
                   onMouseLeave={() => setIsHovered(null)}
                   suppressHydrationWarning={true}

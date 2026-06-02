@@ -18,7 +18,7 @@ import {
   X,
   LucideIcon
 } from "lucide-react";
-import { playClickSound } from "@/utils/sounds";
+import { playClickSound, playNavbarExpandSound } from "@/utils/sounds";
 
 type SidebarNavItem = {
   label: string;
@@ -310,7 +310,10 @@ export function SidebarNav() {
       {/* Desktop Expanding Sidebar Navigation */}
       <aside 
         className="group shrink-0 hidden lg:block"
-        onMouseEnter={() => setIsExpanded(true)}
+        onMouseEnter={() => {
+          setIsExpanded(true);
+          playNavbarExpandSound();
+        }}
         onMouseLeave={() => setIsExpanded(false)}
       >
         <div

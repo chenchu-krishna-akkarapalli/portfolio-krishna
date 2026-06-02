@@ -1,7 +1,7 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 type NavigationButtonProps = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
@@ -9,6 +9,7 @@ type NavigationButtonProps = {
   className?: string;
   ariaLabel?: string;
   disabled?: boolean;
+  accent?: "cyan" | "purple";
 };
 
 export function PrevButton({
@@ -17,31 +18,64 @@ export function PrevButton({
   className = "",
   ariaLabel = "Previous",
   disabled,
+  accent = "cyan",
 }: NavigationButtonProps) {
+  const accentColor = accent === "cyan" ? "rgba(0,240,255,0.2)" : "rgba(168,85,247,0.2)";
+  const accentHoverColor = accent === "cyan" ? "#00f0ff" : "#a855f7";
+  const accentGlow = accent === "cyan" ? "rgba(0,240,255,0.25)" : "rgba(168,85,247,0.25)";
+
   const baseClasses = `
-    relative flex size-[32px] sm:size-[40px] items-center justify-center 
-    rounded-full border border-border-interactive bg-bg-interactive 
-    cursor-pointer transition-all duration-200 
-    hover:bg-bg-nav-hover hover:border-border-card-hover
+    group relative flex size-[32px] sm:size-[40px] items-center justify-center 
+    rounded-[2px] border bg-transparent transition-all duration-300 
     active:scale-[0.95] disabled:opacity-40 disabled:pointer-events-none
     ${className}
   `.trim();
 
   const iconElement = (
-    <Image
-      alt=""
-      aria-hidden="true"
-      src="/assets/figma/cefc0d5c2688499044589a9e2f084f3a84a06235.svg"
-      width={20}
-      height={20}
-      unoptimized
-      className="size-[16px] sm:size-[20px]"
-    />
+    <svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      className="size-[16px] sm:size-[20px] text-white group-hover:text-cyan-400 transition-colors duration-300"
+    >
+      <path 
+        d="M15 19L8 12L15 5" 
+        stroke="currentColor" 
+        strokeWidth="2.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+    </svg>
   );
+
+  const styleProps = {
+    borderColor: accentColor,
+    boxShadow: `0 0 6px ${accentGlow}`,
+  };
+
+  const hoverStyleProps = {
+    borderColor: accentHoverColor,
+    boxShadow: `0 0 15px ${accentGlow}`,
+    backgroundColor: `${accentHoverColor}0D`, // 5% opacity background on hover
+  };
+
+  // Ssince dynamic hover styles are best handled in React inline states for Framer-like precision
+  const [isBtnHovered, setIsBtnHovered] = React.useState(false);
+
+  const mergedStyle = isBtnHovered && !disabled ? { ...styleProps, ...hoverStyleProps } : styleProps;
 
   if (href) {
     return (
-      <Link href={href} className={baseClasses} aria-label={ariaLabel} onClick={onClick}>
+      <Link 
+        href={href} 
+        className={baseClasses} 
+        aria-label={ariaLabel} 
+        onClick={onClick}
+        onMouseEnter={() => setIsBtnHovered(true)}
+        onMouseLeave={() => setIsBtnHovered(false)}
+        style={mergedStyle}
+      >
         {iconElement}
       </Link>
     );
@@ -54,6 +88,9 @@ export function PrevButton({
       className={baseClasses}
       aria-label={ariaLabel}
       disabled={disabled}
+      onMouseEnter={() => setIsBtnHovered(true)}
+      onMouseLeave={() => setIsBtnHovered(false)}
+      style={mergedStyle}
     >
       {iconElement}
     </button>
@@ -66,31 +103,63 @@ export function NextButton({
   className = "",
   ariaLabel = "Next",
   disabled,
+  accent = "cyan",
 }: NavigationButtonProps) {
+  const accentColor = accent === "cyan" ? "rgba(0,240,255,0.2)" : "rgba(168,85,247,0.2)";
+  const accentHoverColor = accent === "cyan" ? "#00f0ff" : "#a855f7";
+  const accentGlow = accent === "cyan" ? "rgba(0,240,255,0.25)" : "rgba(168,85,247,0.25)";
+
   const baseClasses = `
-    relative flex size-[32px] sm:size-[40px] items-center justify-center 
-    rounded-full border border-border-interactive bg-bg-interactive 
-    cursor-pointer transition-all duration-200 
-    hover:bg-bg-nav-hover hover:border-border-card-hover
+    group relative flex size-[32px] sm:size-[40px] items-center justify-center 
+    rounded-[2px] border bg-transparent transition-all duration-300 
     active:scale-[0.95] disabled:opacity-40 disabled:pointer-events-none
     ${className}
   `.trim();
 
   const iconElement = (
-    <Image
-      alt=""
-      aria-hidden="true"
-      src="/assets/figma/fe7ccdd71f1c78f173f57f60945af20127f6d5ed.svg"
-      width={20}
-      height={20}
-      unoptimized
-      className="size-[16px] sm:size-[20px]"
-    />
+    <svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      className="size-[16px] sm:size-[20px] text-white group-hover:text-cyan-400 transition-colors duration-300"
+    >
+      <path 
+        d="M9 5L16 12L9 19" 
+        stroke="currentColor" 
+        strokeWidth="2.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
+    </svg>
   );
+
+  const styleProps = {
+    borderColor: accentColor,
+    boxShadow: `0 0 6px ${accentGlow}`,
+  };
+
+  const hoverStyleProps = {
+    borderColor: accentHoverColor,
+    boxShadow: `0 0 15px ${accentGlow}`,
+    backgroundColor: `${accentHoverColor}0D`,
+  };
+
+  const [isBtnHovered, setIsBtnHovered] = React.useState(false);
+
+  const mergedStyle = isBtnHovered && !disabled ? { ...styleProps, ...hoverStyleProps } : styleProps;
 
   if (href) {
     return (
-      <Link href={href} className={baseClasses} aria-label={ariaLabel} onClick={onClick}>
+      <Link 
+        href={href} 
+        className={baseClasses} 
+        aria-label={ariaLabel} 
+        onClick={onClick}
+        onMouseEnter={() => setIsBtnHovered(true)}
+        onMouseLeave={() => setIsBtnHovered(false)}
+        style={mergedStyle}
+      >
         {iconElement}
       </Link>
     );
@@ -103,6 +172,9 @@ export function NextButton({
       className={baseClasses}
       aria-label={ariaLabel}
       disabled={disabled}
+      onMouseEnter={() => setIsBtnHovered(true)}
+      onMouseLeave={() => setIsBtnHovered(false)}
+      style={mergedStyle}
     >
       {iconElement}
     </button>
@@ -115,37 +187,63 @@ export function CloseButton({
   className = "",
   ariaLabel = "Close",
   disabled,
+  accent = "cyan",
 }: NavigationButtonProps) {
+  const accentColor = accent === "cyan" ? "rgba(0,240,255,0.2)" : "rgba(168,85,247,0.2)";
+  const accentHoverColor = accent === "cyan" ? "#00f0ff" : "#a855f7";
+  const accentGlow = accent === "cyan" ? "rgba(0,240,255,0.25)" : "rgba(168,85,247,0.25)";
+
   const baseClasses = `
-    relative flex size-[32px] sm:size-[40px] items-center justify-center 
-    rounded-full border border-border-interactive bg-bg-interactive 
-    cursor-pointer transition-all duration-200 
-    hover:bg-bg-nav-hover hover:border-border-card-hover
+    group relative flex size-[32px] sm:size-[40px] items-center justify-center 
+    rounded-[2px] border bg-transparent transition-all duration-300 
     active:scale-[0.95] disabled:opacity-40 disabled:pointer-events-none
     ${className}
   `.trim();
 
   const iconElement = (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      className="size-[16px] sm:size-[20px] text-white"
+    <svg 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      className="size-[16px] sm:size-[20px] text-white group-hover:text-cyan-400 transition-colors duration-300"
     >
-      <path
-        d="M18 6L6 18M6 6L18 18"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+      <path 
+        d="M18 6L6 18M6 6L18 18" 
+        stroke="currentColor" 
+        strokeWidth="2.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
       />
     </svg>
   );
 
+  const styleProps = {
+    borderColor: accentColor,
+    boxShadow: `0 0 6px ${accentGlow}`,
+  };
+
+  const hoverStyleProps = {
+    borderColor: accentHoverColor,
+    boxShadow: `0 0 15px ${accentGlow}`,
+    backgroundColor: `${accentHoverColor}0D`,
+  };
+
+  const [isBtnHovered, setIsBtnHovered] = React.useState(false);
+
+  const mergedStyle = isBtnHovered && !disabled ? { ...styleProps, ...hoverStyleProps } : styleProps;
+
   if (href) {
     return (
-      <Link href={href} className={baseClasses} aria-label={ariaLabel} onClick={onClick}>
+      <Link 
+        href={href} 
+        className={baseClasses} 
+        aria-label={ariaLabel} 
+        onClick={onClick}
+        onMouseEnter={() => setIsBtnHovered(true)}
+        onMouseLeave={() => setIsBtnHovered(false)}
+        style={mergedStyle}
+      >
         {iconElement}
       </Link>
     );
@@ -158,6 +256,9 @@ export function CloseButton({
       className={baseClasses}
       aria-label={ariaLabel}
       disabled={disabled}
+      onMouseEnter={() => setIsBtnHovered(true)}
+      onMouseLeave={() => setIsBtnHovered(false)}
+      style={mergedStyle}
     >
       {iconElement}
     </button>

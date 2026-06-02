@@ -87,7 +87,7 @@ export default function ProjectList({ items }: ProjectListProps) {
             whileHover="hover"
             variants={rowVariants}
             transition={{ type: "spring", stiffness: 260, damping: 26, mass: 0.9 }}
-            className="group relative flex w-full items-center justify-between overflow-hidden rounded-[14px] border p-3.5 sm:p-4 transform-gpu will-change-transform cursor-pointer"
+            className="group relative flex w-full items-center justify-between overflow-hidden rounded-[4px] border p-3.5 sm:p-4 transform-gpu will-change-transform cursor-pointer"
             style={{ borderColor: "rgba(255,255,255,0.04)" }}
           >
             {/* Spotlight halo effect tracking row hover */}
@@ -104,7 +104,7 @@ export default function ProjectList({ items }: ProjectListProps) {
               {/* Dynamic brand-highlight active ring icon container */}
               <span
                 aria-hidden="true"
-                className={`relative size-[34px] shrink-0 overflow-hidden rounded-full border bg-white/5 flex items-center justify-center transition-all duration-300 ${iconConfig.brandColor}`}
+                className={`relative size-[34px] shrink-0 overflow-hidden rounded-[2px] border bg-white/5 flex items-center justify-center transition-all duration-300 ${iconConfig.brandColor}`}
               >
                 <iconConfig.Icon
                   size={16}
@@ -129,7 +129,7 @@ export default function ProjectList({ items }: ProjectListProps) {
               whileTap="hover"
               variants={viewButtonVariants}
               transition={{ duration: 0.6, delay: 0.02, ease: [0.16, 1, 0.3, 1] }}
-              className="relative z-10 flex size-[24px] shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-300"
+              className="relative z-10 flex size-[24px] shrink-0 items-center justify-center rounded-[2px] border border-cyan-500/20 bg-transparent group-hover:border-cyan-400 group-hover:bg-cyan-500/5 group-hover:shadow-[0_0_8px_rgba(0,240,255,0.25)] transition-all duration-300"
             >
               <ArrowUpRight
                 size={12}
