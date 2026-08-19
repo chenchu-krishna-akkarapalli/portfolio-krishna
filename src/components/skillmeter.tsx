@@ -16,11 +16,11 @@ interface SkillMetaData {
 
 const DEFAULT_SKILLS: Record<string, string[]> = {
   "Frontend": ["React.js", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS", "Redux"],
-  "Backend": ["Node.js", "Django", "FastAPI", "REST APIs", "Prisma ORM"],
-  "Database & Messaging": ["MySQL", "PostgreSQL", "SQLite", "Redis", "Kafka", "RabbitMQ"],
-  "DevOps & Cloud": ["Docker", "CI/CD", "AWS EC2", "AWS Lambda", "S3", "GitHub Actions"],
-  "Design & Tools": ["Figma", "Adobe Suite", "Canva", "Sketch", "UX Research", "Git/GitHub"],
-  "Other": ["LLM / Gen AI", "Microservices Architecture", "JWT Authentication", "OAuth2", "Swagger / OpenAPI", "RBAC", "Event-Driven Systems"]
+  "Backend": ["Python", "Node.js", "Django", "FastAPI", "Rust", "Tauri 2.0", "REST APIs"],
+  "Database & Messaging": ["PostgreSQL", "MySQL", "SQLite", "Redis", "Kafka", "RabbitMQ"],
+  "DevOps & Cloud": ["Docker", "CI/CD", "GitHub Actions", "AWS EC2", "AWS Lambda", "S3"],
+  "Design & Tools": ["Figma", "Adobe Suite", "Canva", "Sketch", "UX Research", "GitHub"],
+  "Other": ["LLM / Gen AI", "Multi-Tenancy", "CQRS & Event Sourcing", "Microservices Architecture", "OCR & Document Processing"]
 };
 
 // Colors for each category
@@ -49,7 +49,7 @@ const SKILL_META: Record<string, SkillMetaData> = {
     ],
     projects: [
       { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" },
-      { title: "Civil Construction Project Management", slug: "civil-dept-product-cad" }
+      { title: "CAD Doctor", slug: "cad-doctor" }
     ]
   },
   "Next.js": {
@@ -65,9 +65,10 @@ const SKILL_META: Record<string, SkillMetaData> = {
       "Compiled page / in 248ms (220 modules)"
     ],
     projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "CAD Doctor", slug: "cad-doctor" },
       { title: "Insurance Web Application", slug: "insurance-product" },
-      { title: "Blog Publishing Platform", slug: "blog-publishing-platform" },
-      { title: "CMA Firm Website", slug: "cma-firm-website-strategy-led-ui" }
+      { title: "Blog Publishing Platform", slug: "blog-publishing-platform" }
     ]
   },
   "JavaScript": {
@@ -83,7 +84,7 @@ const SKILL_META: Record<string, SkillMetaData> = {
     ],
     projects: [
       { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" },
-      { title: "Civil Construction Project Management", slug: "civil-dept-product-cad" }
+      { title: "CAD Doctor", slug: "cad-doctor" }
     ]
   },
   "TypeScript": {
@@ -98,8 +99,9 @@ const SKILL_META: Record<string, SkillMetaData> = {
       "Incremental compilation complete."
     ],
     projects: [
-      { title: "Insurance Web Application", slug: "insurance-product" },
-      { title: "Blog Publishing Platform", slug: "blog-publishing-platform" }
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "CAD Doctor", slug: "cad-doctor" },
+      { title: "Insurance Web Application", slug: "insurance-product" }
     ]
   },
   "Tailwind CSS": {
@@ -133,6 +135,22 @@ const SKILL_META: Record<string, SkillMetaData> = {
       { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" }
     ]
   },
+  "Python": {
+    proficiency: 92,
+    years: 4,
+    bootCommand: "python3 -m venv env && python -V",
+    logs: [
+      "Python 3.12 Runtime environment initialized...",
+      "Loading async event loop & scientific packages...",
+      "Binding data ingestion and normalization services...",
+      "Pydantic schemas validation: 100% OK",
+      "Microservice workflows: READY"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" }
+    ]
+  },
   "Node.js": {
     proficiency: 90,
     years: 4,
@@ -160,23 +178,57 @@ const SKILL_META: Record<string, SkillMetaData> = {
       "Development server running on http://127.0.0.1:8000/"
     ],
     projects: [
-      { title: "Civil Construction Project Management", slug: "civil-dept-product-cad" }
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "CAD Doctor", slug: "cad-doctor" }
     ]
   },
   "FastAPI": {
-    proficiency: 88,
-    years: 3,
+    proficiency: 90,
+    years: 3.5,
     bootCommand: "uvicorn main:app --reload",
     logs: [
       "Uvicorn server running on http://127.0.0.1:8000",
-      "FastAPI application loading routing tables...",
+      "FastAPI application loading BRE-CRE routing tables...",
+      "Configurable bank eligibility rules: ACTIVE",
       "Swagger UI docs compiled: /docs",
-      "Pydantic schemas data validation: ACTIVE",
       "Asynchronous request loop: ONLINE"
     ],
     projects: [
-      { title: "OCR Handwritten Text Extraction", slug: "ocr-handwritten-text-extraction" },
-      { title: "Civil Construction Project Management", slug: "civil-dept-product-cad" }
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "CAD Doctor", slug: "cad-doctor" }
+    ]
+  },
+  "Rust": {
+    proficiency: 89,
+    years: 2.5,
+    bootCommand: "cargo run --release",
+    logs: [
+      "Compiling rust core parsing engine v1.75...",
+      "Zero-cost abstractions & memory safety checks: PASSED",
+      "Initializing concurrency threads & SIMD vector registers...",
+      "Excel comparison & PDF property parsing engine: ACTIVE",
+      "Microsecond deterministic throughput: ONLINE"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "CAD Doctor", slug: "cad-doctor" }
+    ]
+  },
+  "Tauri 2.0": {
+    proficiency: 88,
+    years: 2,
+    bootCommand: "cargo tauri dev",
+    logs: [
+      "Initializing Tauri 2.0 native IPC bridge...",
+      "Spawning repository AST graph visualization engine...",
+      "Binding LLM token context-window optimizer...",
+      "Cross-platform lightweight WebView shell: READY",
+      "Memory footprint: 28.4 MB (Native Core)"
+    ],
+    projects: [
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" }
     ]
   },
   "REST APIs": {
@@ -191,25 +243,25 @@ const SKILL_META: Record<string, SkillMetaData> = {
       "Response payload schemas: application/json"
     ],
     projects: [
-      { title: "OCR Handwritten Text Extraction", slug: "ocr-handwritten-text-extraction" },
-      { title: "Civil Construction Project Management", slug: "civil-dept-product-cad" }
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" }
     ]
   },
-  "Prisma ORM": {
+  "PostgreSQL": {
     proficiency: 90,
-    years: 3.5,
-    bootCommand: "npx prisma studio",
+    years: 4,
+    bootCommand: "psql -U postgres",
     logs: [
-      "Prisma Client connecting to SQL databases...",
-      "Generating Prisma schemas from database schema...",
-      "Query Engine binary initialized: OK",
-      "Entity relation mappings loaded...",
-      "Active pool connections count: 4"
+      "PostgreSQL database engine active...",
+      "Preparing materialized views for read-optimized queries...",
+      "Indexed tables lookup optimization: ACTIVE",
+      "Multi-tenant isolation schemas: VERIFIED",
+      "Transaction level: SERIALIZABLE"
     ],
     projects: [
-      { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" },
-      { title: "Insurance Web Application", slug: "insurance-product" },
-      { title: "Blog Publishing Platform", slug: "blog-publishing-platform" }
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "CAD Doctor", slug: "cad-doctor" }
     ]
   },
   "MySQL": {
@@ -225,21 +277,6 @@ const SKILL_META: Record<string, SkillMetaData> = {
     ],
     projects: [
       { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" }
-    ]
-  },
-  "PostgreSQL": {
-    proficiency: 88,
-    years: 3.5,
-    bootCommand: "psql -U postgres",
-    logs: [
-      "PostgreSQL server database engine running...",
-      "Preparing materialized views for read operations...",
-      "Indexed tables lookup optimization: ACTIVE",
-      "Transaction level: SERIALIZABLE",
-      "Server connected successfully."
-    ],
-    projects: [
-      { title: "OCR Handwritten Text Extraction", slug: "ocr-handwritten-text-extraction" }
     ]
   },
   "SQLite": {
@@ -273,18 +310,18 @@ const SKILL_META: Record<string, SkillMetaData> = {
     ]
   },
   "Kafka": {
-    proficiency: 82,
-    years: 2,
-    bootCommand: "kafka-console-producer.sh --topic payments",
+    proficiency: 86,
+    years: 2.5,
+    bootCommand: "kafka-console-producer.sh --topic reconciliation-events",
     logs: [
       "Kafka Broker Broker-1 listener active...",
       "Event Sourcing pipeline online...",
       "CQRS database syncing state: OK",
-      "Producer/Consumer groups status: HEALTHY",
-      "Active partitions count: 12"
+      "Asynchronous transaction producer/consumer: HEALTHY",
+      "Active partitions count: 16"
     ],
     projects: [
-      { title: "OCR Handwritten Text Extraction", slug: "ocr-handwritten-text-extraction" }
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" }
     ]
   },
   "RabbitMQ": {
@@ -412,7 +449,7 @@ const SKILL_META: Record<string, SkillMetaData> = {
     ]
   },
   "Git/GitHub": {
-    proficiency: 92,
+    proficiency: 94,
     years: 5,
     bootCommand: "git status && git log -n 1",
     logs: [
@@ -423,8 +460,170 @@ const SKILL_META: Record<string, SkillMetaData> = {
       "Everything OK."
     ],
     projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" }
+    ]
+  },
+  "GitHub": {
+    proficiency: 94,
+    years: 5,
+    bootCommand: "gh auth status && gh workflow list",
+    logs: [
+      "Connecting to GitHub API v4...",
+      "Validating personal access tokens & SSH keys: OK",
+      "Actions CI/CD matrix runner: HEALTHY",
+      "Branch protection rules: ENFORCED",
+      "Repository ecosystem: SYNCHED"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" }
+    ]
+  },
+  "Adobe Suite": {
+    proficiency: 88,
+    years: 3.5,
+    bootCommand: "adobe-core-engine --check-assets",
+    logs: [
+      "Loading Adobe Illustrator & Photoshop design tokens...",
+      "Calibrating high-density vector artwork...",
+      "Exporting lossless asset definitions: OK",
+      "Design layer rasterization: 60fps",
+      "Assets pipeline: READY"
+    ],
+    projects: [
+      { title: "Goyaz Jewellery", slug: "goyaz-jewellery" },
+      { title: "Tarun CMA", slug: "tarun-cma" }
+    ]
+  },
+  "Canva": {
+    proficiency: 90,
+    years: 4,
+    bootCommand: "canva-kit build --format vector",
+    logs: [
+      "Initializing Canva Brand Kit...",
+      "Exporting brand tokens and typography scales...",
+      "Marketing and digital layout templates: VERIFIED",
+      "Design exports: READY"
+    ],
+    projects: [
+      { title: "Tarun CMA", slug: "tarun-cma" },
+      { title: "Show Off Salon", slug: "showoff-salon" }
+    ]
+  },
+  "Sketch": {
+    proficiency: 84,
+    years: 3,
+    bootCommand: "sketch-tool inspect --symbols",
+    logs: [
+      "Inspecting Sketch shared component library...",
+      "Symbol overrides validation: 100% OK",
+      "Color token alignment: PASSED",
+      "Component artboards: ONLINE"
+    ],
+    projects: [
+      { title: "Show Off Salon", slug: "showoff-salon" }
+    ]
+  },
+  "UX Research": {
+    proficiency: 92,
+    years: 4,
+    bootCommand: "ux-audit --heuristic-eval --personas",
+    logs: [
+      "Structuring user persona models & conversion funnels...",
+      "Running heuristic evaluation matrix across checkout paths...",
+      "Eliminating dead-end routing and layout shifts...",
+      "Doherty Threshold response time (<400ms): ACHIEVED",
+      "UX Usability Score: 98 / 100"
+    ],
+    projects: [
+      { title: "Goyaz Jewellery", slug: "goyaz-jewellery" },
+      { title: "Tarun CMA", slug: "tarun-cma" },
+      { title: "Show Off Salon", slug: "showoff-salon" }
+    ]
+  },
+  "LLM / Gen AI": {
+    proficiency: 90,
+    years: 3,
+    bootCommand: "llm-optimizer --graph-ast --token-compress",
+    logs: [
+      "Spawning Tauri + Rust repository graph system...",
+      "Parsing codebase AST nodes & caller/callee dependencies...",
+      "Reducing token usage & context-window consumption: 45% saved",
+      "RAG context vector extraction: ACTIVE",
+      "Inference optimization: COMPLETE"
+    ],
+    projects: [
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" }
+    ]
+  },
+  "Multi-Tenancy": {
+    proficiency: 95,
+    years: 4,
+    bootCommand: "tenant-router --resolve-urn --verify-uuid",
+    logs: [
+      "Initializing dynamic URN routing middleware...",
+      "Enforcing UUID-based tenant database schema isolation...",
+      "Role-Based Access Control (RBAC) security check: PASSED",
+      "Zero cross-tenant data leakage: VERIFIED",
+      "Multi-tenant cluster: HEALTHY"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
       { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" },
-      { title: "Insurance Web Application", slug: "insurance-product" }
+      { title: "CAD Doctor", slug: "cad-doctor" }
+    ]
+  },
+  "CQRS & Event Sourcing": {
+    proficiency: 90,
+    years: 3,
+    bootCommand: "event-store --replay-ledger --sync-projections",
+    logs: [
+      "Connecting to immutable event store stream...",
+      "Replaying transaction events to materialize ledger state...",
+      "Updating read-optimized PostgreSQL materialized views...",
+      "Command and query responsibilities separation: 100% OK",
+      "Deterministic event processing: ONLINE"
+    ],
+    projects: [
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" }
+    ]
+  },
+  "Microservices Architecture": {
+    proficiency: 92,
+    years: 4,
+    bootCommand: "docker compose -f docker-compose.microservices.yml up",
+    logs: [
+      "Orchestrating distributed microservices cluster...",
+      "Binding message brokers (Kafka, RabbitMQ) and Redis cache...",
+      "Service discovery & API gateway routing: ACTIVE",
+      "Health probes: ALL SERVICES OK",
+      "High availability status: STABLE"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "Reconciliation Platform", slug: "end-to-end-reconciliation-platform" },
+      { title: "Multi-Tenant HR Product", slug: "multi-tenant-hr-product" }
+    ]
+  },
+  "OCR & Document Processing": {
+    proficiency: 92,
+    years: 3.5,
+    bootCommand: "doc-pipeline --extract-fields --rust-engine",
+    logs: [
+      "Triggering automated document-to-data pipeline...",
+      "Rust parsing engines executing sequential OCR extraction...",
+      "Field detection, normalization & bank rules validation: OK",
+      "Eliminating manual form entry: 100% automated",
+      "Document ingestion pipeline: ONLINE"
+    ],
+    projects: [
+      { title: "Loan Rule Engine", slug: "loan-rule-engine" },
+      { title: "HW-OCR Deposit Form", slug: "ocr-handwritten-text-extraction" },
+      { title: "CAD Doctor", slug: "cad-doctor" }
     ]
   }
 };

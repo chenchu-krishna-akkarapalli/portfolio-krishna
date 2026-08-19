@@ -15,10 +15,30 @@
   ],
   "otherToolsTitle": "Other Tools I use",
   "otherTools": {
-    "rows": 6,
+    "rows": 4,
     "cols": 7,
     "items": [
-      { "label": "MySQL", "file": "mysql-plain-wordmark.svg" }
+      { "label": "Python", "file": "secondary/python.svg" },
+      { "label": "Node.js", "file": "secondary/node_js.svg" },
+      { "label": "JavaScript", "file": "secondary/js.svg" },
+      { "label": "HTML5", "file": "secondary/html_5.svg" },
+      { "label": "Redux", "file": "secondary/redux.svg" },
+      { "label": "Docker", "file": "secondary/docker.svg" },
+      { "label": "Git", "file": "secondary/git.svg" },
+      { "label": "VS Code", "file": "secondary/vs_code.svg" },
+      { "label": "MySQL", "file": "secondary/mysql-plain-wordmark.svg" },
+      { "label": "SQLite", "file": "secondary/sqlite-original.svg" },
+      { "label": "MongoDB", "file": "secondary/mongodb-plain-wordmark.svg" },
+      { "label": "Adobe", "file": "secondary/adobe.svg" },
+      { "label": "Illustrator", "file": "secondary/adobe_illustrator.svg" },
+      { "label": "Creative Cloud", "file": "secondary/adobe_creative-cloud.svg" },
+      { "label": "Behance", "file": "secondary/behance.svg" },
+      { "label": "Notion", "file": "secondary/notion.svg" },
+      { "label": "NPM", "file": "secondary/npm.svg" },
+      { "label": "MS Excel", "file": "secondary/ms_excel.svg" },
+      { "label": "MS Word", "file": "secondary/ms_word.svg" },
+      { "label": "Teams", "file": "secondary/teams.svg" },
+      { "label": "Autodesk", "file": "secondary/autodesk.svg" }
     ]
   }
 }

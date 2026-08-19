@@ -1,6 +1,120 @@
 {
   "projects": [
     {
+      "slug": "loan-rule-engine",
+      "headerLabel": "SaaS",
+      "meta": [
+        "BRE-CRE Engine",
+        "FastAPI + Rust",
+        "Jan - Aug 2026"
+      ],
+      "title": "Loan Rule Engine — Multi-Tenant Automated Loan Decisioning & Document Extraction",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/OCR-laptop.svg",
+        "alt": "Loan Rule Engine mockup"
+      },
+      "overview": {
+        "paragraph": "Built a multi-tenant BRE–CRE platform that automates the loan journey from document upload to bank recommendation. Users upload loan-related documents sequentially, while Rust-based document engines extract required information automatically. The FastAPI BRE–CRE engine processes eligibility rules and recommends suitable banks without manual form filling.",
+        "bullets": [
+          "Built a Next.js multi-tenant loan platform with secure tenant isolation and challenge-based authentication.",
+          "Developed Rust document-processing engines and automated document-to-data pipelines, eliminating manual form filling.",
+          "Built a FastAPI BRE–CRE recommendation engine with configurable bank eligibility rules for multi-bank loan recommendations.",
+          "Designed a scalable, modular architecture supporting multiple tenants, banks, and loan products.",
+          "Implemented data ingestion and normalization services for multi-format financial data.",
+          "Enforced strict data isolation, audit logging, and role-based access across multi-tenant lending institutions."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/ocr-result.png",
+        "alt": "Loan Rule Engine eligibility pipeline"
+      },
+      "flow": {
+        "steps": [
+          "Document Upload → Sequential multi-format loan file ingestion",
+          "Rust Engine Extraction → Automated document-to-data pipeline without manual entry",
+          "Data Normalization → Ingestion & normalization of applicant financial data",
+          "FastAPI BRE-CRE Engine → Configurable bank rule execution & multi-bank matching",
+          "Tenant & Security Layer → Challenge-based auth & isolated multi-tenant architecture",
+          "Recommendation Delivery → Tailored bank approval recommendations & tracking"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/figma/25b9699b3e4fffaf79796fc88a6f0657dd43534d.png",
+        "alt": "Loan Rule Engine preview"
+      },
+      "tools": [
+        "Frontend: Next.js 16 & TypeScript",
+        "API & Decisioning: FastAPI & Python",
+        "Parsing Engines: Rust Document Processing Engine",
+        "Database: PostgreSQL",
+        "Security: Challenge-based Auth & Tenant Isolation",
+        "DevOps: Docker & REST APIs"
+      ],
+      "impact": [
+        "Eliminated manual form filling by implementing automated Rust-based document-to-data extraction.",
+        "Automated end-to-end loan evaluation with dynamic multi-bank rule decisioning.",
+        "Delivered robust multi-tenant data isolation with challenge-based authentication."
+      ],
+      "authorName": "Chenchukrishna Akkarapalli"
+    },
+    {
+      "slug": "end-to-end-reconciliation-platform",
+      "headerLabel": "SaaS",
+      "meta": [
+        "Event-Driven System",
+        "FastAPI + Kafka",
+        "Jul 2025 - Jan 2026"
+      ],
+      "title": "End-to-End Reconciliation Platform — High-Throughput Financial Matching Engine",
+      "laptop": {
+        "svgSrc": "/assets/project-content-assets/Desktop - 3.svg",
+        "alt": "Reconciliation platform mockup"
+      },
+      "overview": {
+        "paragraph": "Designed and developed a scalable reconciliation platform with microservices, asynchronous processing, and rule-based matching. Built a Rust-based comparison engine specifically for Excel documents to efficiently identify matched, mismatched, and missing transactions with audit traceability.",
+        "bullets": [
+          "Designed and developed scalable reconciliation microservices with asynchronous processing and rule-based matching.",
+          "Built a Rust-based high-speed comparison engine specifically for Excel documents to detect matched, mismatched, and missing transactions.",
+          "Built data ingestion and normalization services for multi-format financial data.",
+          "Implemented Kafka-based asynchronous processing for scalable transaction workflows.",
+          "Developed read-optimized dashboards using PostgreSQL materialized views.",
+          "Added audit logging, monitoring, unit/integration testing, and containerized CI/CD deployments."
+        ]
+      },
+      "ipad": {
+        "svgSrc": "/assets/project-content-assets/Desktop - 4.svg",
+        "alt": "Reconciliation transaction dashboard"
+      },
+      "flow": {
+        "steps": [
+          "Data Ingestion → Ingestion & normalization of multi-source financial feeds",
+          "Kafka Message Bus → Asynchronous event distribution & CQRS / Event Sourcing",
+          "Rust Comparison Engine → High-speed Excel parsing & deterministic rule matching",
+          "Materialized Views → Read-optimized PostgreSQL dashboards for ledger analytics",
+          "Audit & Telemetry → Full traceability logging, monitoring, and compliance trails",
+          "CI/CD Deployment → Dockerized microservices with automated delivery"
+        ]
+      },
+      "largeImage": {
+        "src": "/assets/project-content-assets/Desktop - 4.svg",
+        "alt": "Reconciliation pipeline architecture"
+      },
+      "tools": [
+        "Languages: Python, Rust",
+        "Frameworks: FastAPI, Django",
+        "Event Bus & Messaging: Apache Kafka",
+        "Database: PostgreSQL (Materialized Views)",
+        "Architecture: CQRS, Event Sourcing, Microservices",
+        "DevOps: Docker, CI/CD, REST APIs"
+      ],
+      "impact": [
+        "Built high-performance Excel comparison engine in Rust ensuring deterministic matching.",
+        "Streamlined asynchronous processing of massive transaction streams using Kafka.",
+        "Enabled real-time financial discrepancy auditing with complete immutable traceability."
+      ],
+      "authorName": "Chenchukrishna Akkarapalli"
+    },
+    {
       "slug": "goyaz-jewellery",
       "headerLabel": "UI/UX Case Study",
       "liveUrl": "https://goyaz.vercel.app/",
@@ -55,7 +169,7 @@
         "Lowered interface latency down to the Doherty Threshold (< 400ms perceived delay).",
         "Established a conversion-ready, robust design system framework."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "sturdy-studio",
@@ -112,7 +226,7 @@
         "Optimized Core Web Vitals targets: LCP < 2.5s and INP < 200ms on mobile.",
         "Standardized 100% of e-commerce interaction states: loading, empty, and disabled."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "tarun-cma",
@@ -169,7 +283,7 @@
         "Achieved 100% keyboard-navigable and screen-reader accessible forms.",
         "Reduced decision friction by implementing clear client intake paths."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "mali-cma",
@@ -226,7 +340,7 @@
         "Optimized loading payloads, cutting initial JavaScript waste by over 1.8 MB.",
         "Created a cohesive, fast service directory for international NRI clients."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "showoff-salon",
@@ -283,7 +397,7 @@
         "Secured business details consistency across all home, booking, and contact footers.",
         "Enabled low-friction prefill logic matching 38 specific service catalog options."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "ocr-handwritten-text-extraction",
@@ -347,7 +461,7 @@
         "Reduced manual data entry and verification effort.",
         "Built a scalable OCR framework adaptable to other structured forms."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "multi-tenant-hr-product",
@@ -402,7 +516,7 @@
         "Improved security and uniqueness using UUID-based records.",
         "Optimized performance with Redis and containerized deployment."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "insurance-product",
@@ -459,7 +573,7 @@
         "Improved user support via a conversational assistant.",
         "Streamlined releases with CI/CD on AWS."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "blog-publishing-platform",
@@ -518,64 +632,64 @@
         "Supported community interaction via nested comments and moderation.",
         "Deployed with a split static + backend hosting model on AWS."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
-      "slug": "civil-dept-product-cad",
+      "slug": "cad-doctor",
       "headerLabel": "SaaS",
       "meta": [
-        "Civil + CAD",
-        "React + Three.js",
-        "Jan - Jun 2025"
+        "2D CAD & PDF",
+        "Next.js + Rust",
+        "May 2024 - Feb 2025"
       ],
-      "title": "Civil Construction Project Management Application",
+      "title": "CAD Doctor — Multi-Tenant 2D CAD Project Management & Drawing Analysis",
       "laptop": {
-        "svgSrc": "/assets/project-content-assets/CAD-App-laptop.svg",
-        "alt": "Laptop mockup"
+        "svgSrc": "/assets/project-content-assets/CAD-Autodesk-1.svg",
+        "alt": "CAD Doctor laptop mockup"
       },
       "overview": {
-        "paragraph": "Designed a construction project management tool for teams to plan, manage, and collaborate on projects with drawing workflows and a Three.js pipeline.",
+        "paragraph": "Built a cost-effective alternative to Autodesk for managing and comparing 2D CAD drawings across projects and tenants. Designed a multi-tenant platform with PDF comparison and drawing analysis, using Rust to parse CAD PDF properties and identify drawing-level differences.",
         "bullets": [
-          "Core features include project timelines, drawing uploads, team chat, and progress tracking.",
-          "Developed with React.js, SQL, and Three.js with a focus on scalability and modular design.",
-          "Enabled multi-user collaboration with role-based access control using a Django backend.",
-          "Used AWS Lambda for background tasks (scheduled reports) and S3 for drawing storage.",
-          "Implemented a Three.js pipeline including CAD → PDF conversion (Lambda), WebGL optimization (LOD controls), annotation storage in S3 metadata, and automated redline markups using Fabric.js."
+          "Developed a multi-tenant 2D CAD project management platform reducing reliance on costly Autodesk licenses.",
+          "Engineered a high-performance Rust parsing engine to extract CAD PDF properties and identify drawing-level differences.",
+          "Designed a scalable URN-based architecture with dynamic frontend routing for seamless tenant and project management.",
+          "Built visual drawing comparison tools and annotation workflows with sub-second rendering performance.",
+          "Integrated PostgreSQL for multi-tenant drawing metadata, layer properties, and project versioning.",
+          "Delivered modular Next.js frontend and FastAPI backend microservices for enterprise construction teams."
         ]
       },
       "ipad": {
         "svgSrc": "/assets/project-content-assets/CAD-iPad Pro (landscape).svg",
-        "alt": "iPad mockup"
+        "alt": "CAD Doctor drawing comparison preview"
       },
       "flow": {
         "steps": [
-          "Upload → Store drawings in S3",
-          "Convert → CAD → PDF via AWS Lambda",
-          "Visualize → Three.js viewer + WebGL optimizations (LOD)",
-          "Annotate → Redlines with Fabric.js",
-          "Persist → Annotation metadata stored in S3",
-          "Collaborate → Role-based access with Django backend"
+          "CAD Ingestion → Upload 2D CAD exports and PDF drawing sheets",
+          "Rust Parsing → Extract CAD vector metadata and layer properties in Rust",
+          "Difference Engine → Compute drawing-level visual and geometric deltas",
+          "URN Dynamic Routing → Route tenant workspaces with data isolation",
+          "Comparison Viewer → Render interactive overlay and redline difference slider",
+          "Project Storage → Persist drawing annotations and revision history in PostgreSQL"
         ]
       },
       "largeImage": {
         "src": "/assets/project-content-assets/CAD-comparison-slider-2.png",
-        "alt": "Project preview"
+        "alt": "CAD Doctor comparison preview"
       },
       "tools": [
-        "Frontend: React.js",
-        "3D: Three.js, WebGL (LOD controls)",
-        "Backend: Django",
-        "Database: SQL",
-        "Storage: AWS S3",
-        "Compute: AWS Lambda",
-        "Markup: Fabric.js"
+        "Frontend: Next.js & React",
+        "API Backend: FastAPI & Python",
+        "Parsing & Analysis: Rust CAD/PDF Parsing Engine",
+        "Database: PostgreSQL",
+        "Architecture: URN-Based Dynamic Routing & Multi-Tenancy",
+        "Rendering: Vector WebGL & LOD Optimization"
       ],
       "impact": [
-        "Enabled collaborative construction planning and drawing workflows.",
-        "Automated CAD → PDF conversion and optimized 3D rendering performance.",
-        "Improved drawing review via persistent annotations and automated redlines."
+        "Delivered a cost-effective alternative to high-cost Autodesk licensing for 2D CAD workflows.",
+        "Accelerated CAD drawing property comparison using Rust parsing.",
+        "Enabled multi-tenant drawing collaboration with dynamic URN routing."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     },
     {
       "slug": "cma-firm-website-strategy-led-ui",
@@ -632,7 +746,7 @@
         "Strengthened brand credibility through structured, professional UI.",
         "Delivered a conversion-oriented website aligned with real-world business goals."
       ],
-      "authorName": "Akkarapalli Chenchu Krishna Reddy"
+      "authorName": "Chenchukrishna Akkarapalli"
     }
   ]
 }

@@ -77,10 +77,15 @@ export default function Home() {
   // Map projects items to ProjectList expected types
   const projectListItems: ProjectListItem[] = projectsData.items.map((item) => {
     let iconType: "ocr" | "cad" | "hr" | "blog" = "blog";
-    if (item.slug.includes("jewellery") || item.slug.includes("ocr")) iconType = "ocr";
-    else if (item.slug.includes("cma") || item.slug.includes("cad")) iconType = "cad";
-    else if (item.slug.includes("salon") || item.slug.includes("hr")) iconType = "hr";
-    else if (item.slug.includes("studio") || item.slug.includes("blog") || item.slug.includes("insurance")) iconType = "blog";
+    if (item.slug.includes("jewellery") || item.slug.includes("ocr") || item.slug.includes("loan") || item.slug.includes("reconciliation")) {
+      iconType = "ocr";
+    } else if (item.slug.includes("cma") || item.slug.includes("cad") || item.slug.includes("doctor")) {
+      iconType = "cad";
+    } else if (item.slug.includes("salon") || item.slug.includes("hr")) {
+      iconType = "hr";
+    } else if (item.slug.includes("studio") || item.slug.includes("blog") || item.slug.includes("insurance")) {
+      iconType = "blog";
+    }
 
     return {
       title: item.title,

@@ -95,9 +95,9 @@ export default function HeroSection() {
 
       {/* Futuristic monospace telemetry status badge info */}
       <div className="flex items-center gap-2 mt-[4px] z-10 font-mono text-[9px] tracking-[0.25em] text-gray-500 uppercase">
-        <span>gps.haridwar</span>
+        <span>gps.bangalore</span>
         <span className="text-white/10 select-none">|</span>
-        <span>role.cad_wizard</span>
+        <span>role.fullstack_dev</span>
         <span className="text-white/10 select-none">|</span>
         <span className="text-emerald-500 animate-pulse font-semibold">sys.active</span>
       </div>
@@ -116,7 +116,7 @@ export default function HeroSection() {
       </div>
 
       <p className="w-full max-w-[576px] text-[14px] sm:text-[16px] font-medium leading-[1.6] text-text-secondary z-10">
-        I’m your friendly neighborhood CAD wizard from the mystical land of Haridwar (yep, the place considered as a gateway to lord). With 5+ years of doodling… uh, I mean designing, I turn “wait, how?” ideas into “wow, that’s slick!” reality. Whether I’m jamming with a team of quirky geniuses or flying solo like a design ninja, I bring a mix of creativity, precision, and just enough magic to make projects shine.
+        Full-Stack Developer with 4+ years of experience building scalable enterprise web applications using React.js, Next.js, Node.js, FastAPI, and microservices architecture. Delivered production systems in Insurance, HRMS, Civil Project Management, and Financial Reconciliation domains. Former UI/UX Designer skilled in Figma design systems and passionate about building secure, high-performance digital products.
       </p>
 
       {/* Action button featuring dynamic shifting glare shine hover */}

@@ -12,8 +12,28 @@ import { useIsMobile } from "@/utils/useIsMobile";
 type ProjectsData = typeof projectsData;
 type ProjectItem = ProjectsData["items"][number] & { category?: string; liveUrl?: string };
 
-// Complete tech-stack mapping for all 11 projects (SaaS & UI/UX)
+// Complete tech-stack mapping for all projects (SaaS & UI/UX)
 const PROJECT_TECH_STACKS: Record<string, { label: string; color: string }[]> = {
+  "loan-rule-engine": [
+    { label: "Next.js", color: "text-[#ffffff] bg-white/10 border-white/20" },
+    { label: "FastAPI", color: "text-[#009688] bg-[#009688]/10 border-[#009688]/20" },
+    { label: "Rust", color: "text-[#dea584] bg-[#dea584]/10 border-[#dea584]/20" },
+    { label: "PostgreSQL", color: "text-[#336791] bg-[#336791]/10 border-[#336791]/20" },
+    { label: "Docker", color: "text-[#3b82f6] bg-[#3b82f6]/10 border-[#3b82f6]/20" }
+  ],
+  "end-to-end-reconciliation-platform": [
+    { label: "Python", color: "text-[#3572a5] bg-[#3572a5]/10 border-[#3572a5]/20" },
+    { label: "FastAPI", color: "text-[#009688] bg-[#009688]/10 border-[#009688]/20" },
+    { label: "Rust", color: "text-[#dea584] bg-[#dea584]/10 border-[#dea584]/20" },
+    { label: "Kafka", color: "text-[#ff6b00] bg-[#ff6b00]/10 border-[#ff6b00]/20" },
+    { label: "PostgreSQL", color: "text-[#336791] bg-[#336791]/10 border-[#336791]/20" }
+  ],
+  "cad-doctor": [
+    { label: "Next.js", color: "text-[#ffffff] bg-white/10 border-white/20" },
+    { label: "FastAPI", color: "text-[#009688] bg-[#009688]/10 border-[#009688]/20" },
+    { label: "Rust", color: "text-[#dea584] bg-[#dea584]/10 border-[#dea584]/20" },
+    { label: "PostgreSQL", color: "text-[#336791] bg-[#336791]/10 border-[#336791]/20" }
+  ],
   "goyaz-jewellery": [
     { label: "Figma UI/UX", color: "text-[#f24e1e] bg-[#f24e1e]/10 border-[#f24e1e]/20" },
     { label: "Storytelling", color: "text-[#8b5cf6] bg-[#8b5cf6]/10 border-[#8b5cf6]/20" },

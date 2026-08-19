@@ -23,7 +23,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   }
 
   const largeImageSlot =
-    project.slug === "civil-dept-product-cad" ? (
+    project.slug === "cad-doctor" || project.slug === "civil-dept-product-cad" ? (
       <CADComparisonSlider
         beforeSrc="/assets/project-content-assets/CAD-comparison-slider-1.png"
         afterSrc="/assets/project-content-assets/CAD-comparison-slider-2.png"

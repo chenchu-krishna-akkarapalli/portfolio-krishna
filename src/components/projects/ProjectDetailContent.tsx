@@ -52,12 +52,20 @@ export type ProjectDetail = {
 
 // Static brand-colors map matching slug
 const SLUG_PALETTES: Record<string, { primary: string; glow: string; text: string; bg: string }> = {
+  "loan-rule-engine": { primary: "#10b981", glow: "rgba(16,185,129,0.15)", text: "text-[#10b981]", bg: "bg-[#10b981]/10" },
+  "end-to-end-reconciliation-platform": { primary: "#ff6b00", glow: "rgba(255,107,0,0.15)", text: "text-[#ff6b00]", bg: "bg-[#ff6b00]/10" },
+  "cad-doctor": { primary: "#dea584", glow: "rgba(222,165,132,0.15)", text: "text-[#dea584]", bg: "bg-[#dea584]/10" },
   "ocr-handwritten-text-extraction": { primary: "#ffcc00", glow: "rgba(255,204,0,0.15)", text: "text-[#ffcc00]", bg: "bg-[#ffcc00]/10" },
   "multi-tenant-hr-product": { primary: "#00f0ff", glow: "rgba(0,240,255,0.15)", text: "text-[#00f0ff]", bg: "bg-[#00f0ff]/10" },
   "insurance-product": { primary: "#3b82f6", glow: "rgba(59,130,246,0.15)", text: "text-[#3b82f6]", bg: "bg-[#3b82f6]/10" },
   "blog-publishing-platform": { primary: "#8b5cf6", glow: "rgba(139,92,246,0.15)", text: "text-[#8b5cf6]", bg: "bg-[#8b5cf6]/10" },
   "civil-dept-product-cad": { primary: "#ff3838", glow: "rgba(255,56,56,0.15)", text: "text-[#ff3838]", bg: "bg-[#ff3838]/10" },
-  "cma-firm-website-strategy-led-ui": { primary: "#ec4899", glow: "rgba(236,72,153,0.15)", text: "text-[#ec4899]", bg: "bg-[#ec4899]/10" }
+  "cma-firm-website-strategy-led-ui": { primary: "#ec4899", glow: "rgba(236,72,153,0.15)", text: "text-[#ec4899]", bg: "bg-[#ec4899]/10" },
+  "goyaz-jewellery": { primary: "#00f0ff", glow: "rgba(0,240,255,0.15)", text: "text-[#00f0ff]", bg: "bg-[#00f0ff]/10" },
+  "sturdy-studio": { primary: "#ff9900", glow: "rgba(255,153,0,0.15)", text: "text-[#ff9900]", bg: "bg-[#ff9900]/10" },
+  "tarun-cma": { primary: "#06b6d4", glow: "rgba(6,182,212,0.15)", text: "text-[#06b6d4]", bg: "bg-[#06b6d4]/10" },
+  "mali-cma": { primary: "#10b981", glow: "rgba(16,185,129,0.15)", text: "text-[#10b981]", bg: "bg-[#10b981]/10" },
+  "showoff-salon": { primary: "#ff3838", glow: "rgba(255,56,56,0.15)", text: "text-[#ff3838]", bg: "bg-[#ff3838]/10" }
 };
 
 function Laptop({ svgSrc, alt }: ProjectDetail["laptop"]) {

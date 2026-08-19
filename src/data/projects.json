@@ -3,6 +3,24 @@
   "description": "Here is a curated catalog of high-fidelity UI/UX design case studies and SaaS engineering deployments.",
   "items": [
     {
+      "slug": "loan-rule-engine",
+      "title": "Loan Rule Engine",
+      "category": "saas",
+      "description": "Multi-tenant BRE–CRE platform automating loan evaluations from sequential document upload to bank recommendation using Rust parsing and FastAPI rule processing.",
+      "meta": "NMIT - Solutions / Aug - 2026",
+      "imageSrc": "/assets/project-content-assets/OCR-laptop.svg",
+      "href": "/projects/loan-rule-engine"
+    },
+    {
+      "slug": "end-to-end-reconciliation-platform",
+      "title": "Reconciliation Platform",
+      "category": "saas",
+      "description": "Scalable financial reconciliation platform with microservices, asynchronous Kafka processing, CQRS/event-sourcing, and a Rust comparison engine for Excel documents.",
+      "meta": "NMIT - Solutions / Jan - 2026",
+      "imageSrc": "/assets/project-content-assets/Desktop - 3.svg",
+      "href": "/projects/end-to-end-reconciliation-platform"
+    },
+    {
       "slug": "goyaz-jewellery",
       "title": "Goyaz Jewellery",
       "category": "uiux",
@@ -53,6 +71,24 @@
       "href": "/projects/showoff-salon"
     },
     {
+      "slug": "multi-tenant-hr-product",
+      "title": "Multi-Tenant HR Product",
+      "category": "saas",
+      "description": "Designed and built a scalable HRMS with dynamic URN-based routing and UUID-driven data isolation, supporting secure multi-tenant workflows and high-performance operations.",
+      "meta": "NMIT - Solutions / Jun - 2025",
+      "imageSrc": "/assets/project-content-assets/Hr-Managment-1.svg",
+      "href": "/projects/multi-tenant-hr-product"
+    },
+    {
+      "slug": "cad-doctor",
+      "title": "CAD Doctor",
+      "category": "saas",
+      "description": "Cost-effective 2D CAD drawing management and comparison platform built with Rust-based PDF parsing, URN-based dynamic routing, and multi-tenant project organization.",
+      "meta": "NMIT - Solutions / Feb - 2025",
+      "imageSrc": "/assets/project-content-assets/CAD-Autodesk-1.svg",
+      "href": "/projects/cad-doctor"
+    },
+    {
       "slug": "ocr-handwritten-text-extraction",
       "title": "HW-OCR Deposit Form",
       "category": "saas",
@@ -62,22 +98,13 @@
       "href": "/projects/ocr-handwritten-text-extraction"
     },
     {
-      "slug": "multi-tenant-hr-product",
-      "title": "Multi-Tenant HR Product",
+      "slug": "insurance-product",
+      "title": "Insurance Product",
       "category": "saas",
-      "description": "Designed and built a scalable HRMS with dynamic URN-based routing and UUID-driven data isolation, supporting secure multi-tenant workflows and high-performance operations.",
-      "meta": "NMIT - Solutions / Nov - 2025",
-      "imageSrc": "/assets/project-content-assets/Hr-Managment-1.svg",
-      "href": "/projects/multi-tenant-hr-product"
-    },
-    {
-      "slug": "civil-dept-product-cad",
-      "title": "Civil Dept Product - CAD",
-      "category": "saas",
-      "description": "Designed and contributed to a CAD-centric civil engineering product focused on digital construction workflows, drawing management, and project collaboration—conceptually aligned with tools like industry-standard CAD and BIM platforms.",
-      "meta": "NMIT - Solutions / Jul - 2025",
-      "imageSrc": "/assets/project-content-assets/CAD-Autodesk-1.svg",
-      "href": "/projects/civil-dept-product-cad"
+      "description": "Built a secure insurance platform featuring policy management, claims processing, role-based access, chatbot assistance, and online payments with real-time transaction tracking.",
+      "meta": "NMIT - Solutions / Dec - 2024",
+      "imageSrc": "/assets/project-content-assets/Insuranc-larg.svg",
+      "href": "/projects/insurance-product"
     },
     {
       "slug": "blog-publishing-platform",
@@ -87,15 +114,6 @@
       "meta": "NMIT - Solutions / May - 2025",
       "imageSrc": "/assets/project-content-assets/blog-laptop.svg",
       "href": "/projects/blog-publishing-platform"
-    },
-    {
-      "slug": "insurance-product",
-      "title": "Insurance Product",
-      "category": "saas",
-      "description": "Built a secure insurance platform featuring policy management, claims processing, role-based access, chatbot assistance, and online payments with real-time transaction tracking.",
-      "meta": "NMIT - Solutions / Dec - 2024",
-      "imageSrc": "/assets/project-content-assets/Insuranc-larg.svg",
-      "href": "/projects/insurance-product"
     },
     {
       "slug": "cma-firm-website-strategy-led-ui",
