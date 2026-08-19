@@ -144,7 +144,7 @@ export default function WorkEducationSection({ items }: WorkEducationSectionProp
               alt=""
               width={34}
               height={34}
-              className="size-[34px] rounded-[8px] border border-white/10 object-cover shrink-0 bg-white"
+              className="size-[34px] rounded-[8px] border border-white/10 object-contain shrink-0 bg-white p-0.5"
             />
           ) : (
             <div
